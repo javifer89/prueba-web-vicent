@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, catchError, map } from 'rxjs';
-import { Composition, CompositionCategory, CompositionFile, Recording, Video, GalleryImage } from '../features/compositions/models/composition.model';
+import { Composition, CompositionCategory, CompositionFile, Recording, Video, GalleryImage } from '../../features/compositions/models/composition.model';
 
 @Injectable({
   providedIn: 'root',

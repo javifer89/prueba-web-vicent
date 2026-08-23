@@ -1,1 +1,195 @@
-<p>Contacto en construcción</p>
+<section class="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <header class="page-header">
+      <h1 id="contact-heading">Contacto</h1>
+      <p class="page-subtitle">
+        ¿Tienes un proyecto en mente, una propuesta de encargo o simplemente quieres saludar?
+        Estaré encantado de escucharte.
+      </p>
+    </header>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="info-card">
+          <h2>Información de contacto</h2>
+          <dl class="contact-details">
+            <dt>Email</dt>
+            <dd><a href="mailto:compositor&#64;ejemplo.com">compositor&#64;ejemplo.com</a></dd>
+
+            <dt>Redes sociales</dt>
+            <dd>
+              <ul class="social-links">
+                <li><a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a></li>
+                <li><a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+                <li><a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
+              </ul>
+            </dd>
+
+            <dt>Editorial</dt>
+            <dd>Ediciones Musicales Contemporáneas</dd>
+
+            <dt>Management</dt>
+            <dd>Agencia Cultural XYZ</dd>
+          </dl>
+        </div>
+
+        <div class="info-card">
+          <h2>Encargos y colaboraciones</h2>
+          <p>
+            Estoy abierto a nuevos encargos para orquesta, ensemble, música de cámara, solista,
+            vocal, electroacústica y proyectos multidisciplinares.
+          </p>
+          <p>
+            Para consultas sobre encargos, alquiler de partituras, materiales de interpretación
+            o derechos de ejecución, por favor indícalo en el asunto del mensaje.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <div class="form-card">
+          <h2>Enviar mensaje</h2>
+
+          <!-- Status messages -->
+          <div class="form-status" [class.visible]="submitStatus !== 'idle'" [attr.data-status]="submitStatus" role="alert" aria-live="polite">
+            <div class="status-content" *ngIf="submitStatus === 'loading'">
+              <span class="spinner" aria-hidden="true"></span>
+              <span>Enviando mensaje...</span>
+            </div>
+            <div class="status-content success" *ngIf="submitStatus === 'success'">
+              <svg class="status-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>{{ submitMessage }}</span>
+            </div>
+            <div class="status-content error" *ngIf="submitStatus === 'error'">
+              <svg class="status-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+              </svg>
+              <span>{{ submitMessage }}</span>
+            </div>
+          </div>
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nombre <span class="required" aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  formControlName="name"
+                  class="form-control"
+                  [class.invalid]="f['name'].touched && f['name'].invalid"
+                  autocomplete="name"
+                  aria-describedby="name-error"
+                  required
+                />
+                <div id="name-error" class="form-error" *ngIf="f['name'].touched && f['name'].invalid" role="alert">
+                  <span *ngIf="f['name'].errors?.['required']">El nombre es obligatorio</span>
+                  <span *ngIf="f['name'].errors?.['minlength']">Mínimo 2 caracteres</span>
+                  <span *ngIf="f['name'].errors?.['maxlength']">Máximo 100 caracteres</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email <span class="required" aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-control"
+                  [class.invalid]="f['email'].touched && f['email'].invalid"
+                  autocomplete="email"
+                  aria-describedby="email-error"
+                  required
+                />
+                <div id="email-error" class="form-error" *ngIf="f['email'].touched && f['email'].invalid" role="alert">
+                  <span *ngIf="f['email'].errors?.['required']">El email es obligatorio</span>
+                  <span *ngIf="f['email'].errors?.['email']">Formato de email inválido</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Asunto <span class="required" aria-hidden="true">*</span></label>
+              <select
+                id="subject"
+                formControlName="subject"
+                class="form-control form-select"
+                [class.invalid]="f['subject'].touched && f['subject'].invalid"
+                aria-describedby="subject-error"
+                required
+              >
+                <option value="">Selecciona un asunto</option>
+                <option value="encargo">Encargo de nueva obra</option>
+                <option value="alquiler">Alquiler de partituras/materiales</option>
+                <option value="derechos">Derechos de ejecución/grabación</option>
+                <option value="colaboracion">Propuesta de colaboración</option>
+                <option value="prensa">Prensa/entrevista</option>
+                <option value="otro">Otro</option>
+              </select>
+              <div id="subject-error" class="form-error" *ngIf="f['subject'].touched && f['subject'].invalid" role="alert">
+                <span *ngIf="f['subject'].errors?.['required']">El asunto es obligatorio</span>
+                <span *ngIf="f['subject'].errors?.['minlength']">Mínimo 5 caracteres</span>
+                <span *ngIf="f['subject'].errors?.['maxlength']">Máximo 150 caracteres</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje <span class="required" aria-hidden="true">*</span></label>
+              <textarea
+                id="message"
+                formControlName="message"
+                class="form-control form-textarea"
+                [class.invalid]="f['message'].touched && f['message'].invalid"
+                rows="6"
+                aria-describedby="message-error message-hint"
+                required
+              ></textarea>
+              <div id="message-hint" class="form-hint">Mínimo 10 caracteres, máximo 2000</div>
+              <div id="message-error" class="form-error" *ngIf="f['message'].touched && f['message'].invalid" role="alert">
+                <span *ngIf="f['message'].errors?.['required']">El mensaje es obligatorio</span>
+                <span *ngIf="f['message'].errors?.['minlength']">Mínimo 10 caracteres</span>
+                <span *ngIf="f['message'].errors?.['maxlength']">Máximo 2000 caracteres</span>
+              </div>
+            </div>
+
+            <!-- Honeypot field - hidden via CSS -->
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Sitio web (no rellenar)</label>
+              <input type="text" id="website" formControlName="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-actions">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="submitStatus === 'loading'"
+                [attr.aria-busy]="submitStatus === 'loading'"
+              >
+                <span *ngIf="submitStatus !== 'loading'">Enviar mensaje</span>
+                <span *ngIf="submitStatus === 'loading'"><span class="spinner-sm" aria-hidden="true"></span> Enviando...</span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="onReset()"
+                [disabled]="submitStatus === 'loading'"
+              >
+                Limpiar
+              </button>
+            </div>
+
+            <p class="form-disclaimer">
+              Al enviar este formulario, aceptas que tus datos sean tratados para responder a tu consulta.
+              Más información en la <a href="/privacidad" target="_blank" rel="noopener">Política de privacidad</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

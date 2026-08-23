@@ -14,7 +14,7 @@ import { CompositionService } from '../../../core/services/composition.service';
   styleUrls: ['./composition-detail.component.scss'],
 })
 export class CompositionDetailComponent implements OnInit {
-  composition$: Observable<Composition | undefined>;
+  composition$!: Observable<Composition | undefined>;
   composition: Composition | undefined;
 
   constructor(

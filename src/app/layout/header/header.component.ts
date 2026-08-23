@@ -38,7 +38,7 @@ export class HeaderComponent {
     }
   }
 
-  @HostListener('document:keydown.escape', ['$event'])
+  @HostListener('document:keydown.escape')
   onEscape(): void {
     this.isMenuOpen = false;
   }
