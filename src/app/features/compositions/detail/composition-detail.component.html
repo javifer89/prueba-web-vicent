@@ -1,0 +1,135 @@
+<section class="composition-detail" *ngIf="composition">
+  <div class="container">
+    <div class="detail-header">
+      <h1 class="detail-title">{{ composition.title }}</h1>
+
+      <div class="detail-meta">
+        <span class="detail-year">{{ composition.year }}</span>
+        <span class="detail-duration">{{ composition.duration }}</span>
+        <span class="detail-category">{{ composition.category }}</span>
+      </div>
+    </div>
+
+    <div class="detail-content">
+      <div class="detail-description">
+        <h2>Descripción</h2>
+        <p>
+          {{ composition.description }}
+        </p>
+      </div>
+
+      <div class="detail-files">
+        <h2>Partituras y Materiales</h2>
+
+        <ul class="files-list" *ngIf="composition.files.length > 0">
+          <li *ngFor="let file of composition.files" class="file-item">
+            <span class="file-name">{{ file.name }}</span>
+            <a
+              [href]="file.url"
+              download=""
+              class="file-download"
+              target="_blank"
+              rel="noopener"
+            >
+              Descargar
+            </a>
+          </li>
+        </ul>
+
+        <p class="no-files" *ngIf="composition.files.length === 0">
+          No hay partituras disponibles para esta obra.
+        </p>
+      </div>
+
+      <div class="detail-media">
+        <div class="media-section">
+          <h3>Audio</h3>
+          <ul class="media-list" *ngIf="composition.recordings.length > 0">
+            <li *ngFor="let recording of composition.recordings" class="media-item">
+              <span class="media-title">{{ recording.title }}</span>
+              <a
+                [href]="recording.url"
+                target="_blank"
+                rel="noopener"
+                class="media-link"
+              >
+                Escuchar
+              </a>
+            </li>
+          </ul>
+          <p *ngIf="composition.recordings.length === 0" class="no-media">
+            No hay grabaciones disponibles.
+          </p>
+        </div>
+
+        <div class="media-section">
+          <h3>Vídeo</h3>
+          <ul class="media-list" *ngIf="composition.videos.length > 0">
+            <li *ngFor="let video of composition.videos" class="media-item">
+              <span class="media-title">{{ video.title }}</span>
+              <div
+                class="video-player"
+                [id]="'video-' + video.url"
+              >
+                <iframe
+                  [src]="video.url"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </li>
+          </ul>
+          <p *ngIf="composition.videos.length === 0" class="no-media">
+            No hay vídeos disponibles.
+          </p>
+        </div>
+
+        <div class="media-section">
+          <h3>Imágenes</h3>
+          <ul class="media-list" *ngIf="composition.images.length > 0">
+            <li *ngFor="let image of composition.images" class="media-item">
+              <img
+                [src]="image.url"
+                [alt]="image.description || 'Imagen de la obra'"
+                class="gallery-thumbnail"
+              />
+            </li>
+          </ul>
+          <p *ngIf="composition.images.length === 0" class="no-media">
+            No hay imágenes disponibles.
+          </p>
+        </div>
+      </div>
+
+      <div class="detail-premiere" *ngIf="composition.premiere">
+        <h2>Información del Estreno</h2>
+        <dl class="premiere-details">
+          <dt>Fecha:</dt>
+          <dd>{{ composition.premiere.date || 'Por confirmar' }}</dd>
+
+          <dt>Lugar:</dt>
+          <dd>{{ composition.premiere.place || 'Por confirmar' }}</dd>
+
+          <dt>Intérpretes:</dt>
+          <dd>
+            {{ composition.premiere.performers?.join(', ') || 'Por confirmar' }}
+          </dd>
+
+          <dt>Director:</dt>
+          <dd>{{ composition.premiere.director || 'Por confirmar' }}</dd>
+
+          <dt>Festival/Institución:</dt>
+          <dd>
+            {{ composition.premiere.festival || 'Por confirmar' }}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="not-found" *ngIf="!composition">
+  <p>Obra no encontrada.</p>
+  <a routerLink="/obras" class="btn btn-secondary">Volver al catálogo</a>
+</div>

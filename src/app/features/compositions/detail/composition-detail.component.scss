@@ -1,0 +1,231 @@
+.composition-detail {
+  padding: 4rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .detail-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    .detail-title {
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #0a0a0a;
+    }
+
+    .detail-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      color: #6b6b6b;
+      font-size: 0.875rem;
+
+      .detail-year {
+        font-family: "Playfair Display", serif;
+      }
+
+      .detail-duration {
+        color: #888888;
+      }
+
+      .detail-category {
+        background-color: #f0f0f0;
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        font-style: italic;
+      }
+    }
+  }
+
+  .detail-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .detail-description {
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+      color: #0a0a0a;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #444444;
+      margin: 0;
+    }
+  }
+
+  .detail-files {
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      color: #0a0a0a;
+    }
+
+    .files-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .file-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #f5f5f5;
+
+        :last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+
+        .file-name {
+          color: #0a0a0a;
+          font-size: 0.875rem;
+        }
+
+        .file-download {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #0a0a0a;
+          text-decoration: none;
+          font-size: 0.875rem;
+
+          svg {
+            transition: transform 0.3s ease;
+          }
+
+          &:hover svg {
+            transform: translateX(4px);
+          }
+        }
+      }
+
+      .no-files {
+        text-align: center;
+        color: #6b6b6b;
+        padding: 2rem 0;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .detail-media {
+    .media-section {
+      margin-bottom: 3rem;
+
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #0a0a0a;
+      }
+
+      .media-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .media-item {
+          margin-bottom: 1.5rem;
+
+          .media-title {
+            font-weight: 500;
+            color: #0a0a0a;
+            margin-bottom: 0.5rem;
+            display: block;
+          }
+
+          .media-link {
+            color: #0a0a0a;
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            svg {
+              color: #6b6b6b;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .video-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border-radius: 4px;
+    overflow: hidden;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+
+  .gallery-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  .premiere-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+
+    dt {
+      font-weight: 600;
+      color: #6b6b6b;
+      font-size: 0.875rem;
+    }
+
+    dd {
+      color: #0a0a0a;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    dd:first-child {
+      color: #6b6b6b;
+      font-style: italic;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .detail-content {
+      grid-template-columns: 1fr;
+    }
+
+    .premiere-details {
+      grid-template-columns: 1fr;
+    }
+  }
+}

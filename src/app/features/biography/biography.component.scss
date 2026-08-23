@@ -1,0 +1,151 @@
+.biography {
+  padding: var(--space-3xl) 0;
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+
+    h1 {
+      margin-bottom: var(--space-sm);
+    }
+  }
+
+  .biography-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr 300px;
+      align-items: start;
+    }
+  }
+
+  .biography-main {
+    .biography-photo {
+      margin: 0 0 var(--space-xl);
+      text-align: center;
+
+      img {
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
+        max-width: 100%;
+      }
+    }
+
+    .biography-text {
+      h2 {
+        font-size: 1.5rem;
+        margin-top: var(--space-xl);
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-xs);
+        border-bottom: 1px solid var(--color-border-light);
+      }
+
+      h3 {
+        font-size: 1.125rem;
+        margin-top: var(--space-lg);
+        margin-bottom: var(--space-sm);
+        color: var(--color-medium-gray);
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: var(--space-md);
+      }
+
+      ul {
+        margin: var(--space-md) 0;
+        padding-left: var(--space-lg);
+
+        li {
+          margin-bottom: var(--space-xs);
+          line-height: 1.6;
+        }
+      }
+
+      strong {
+        color: var(--color-black);
+      }
+    }
+  }
+
+  .biography-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+
+    .sidebar-card {
+      background: var(--color-background-alt);
+      padding: var(--space-lg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+
+      h3 {
+        font-size: 1rem;
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+        border-bottom: 1px solid var(--color-border);
+      }
+    }
+
+    .professional-data {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-xs) var(--space-md);
+      font-size: 0.875rem;
+
+      dt {
+        color: var(--color-light-gray);
+        font-weight: 500;
+      }
+
+      dd {
+        margin: 0;
+        color: var(--color-medium-gray);
+
+        a {
+          word-break: break-all;
+        }
+      }
+    }
+
+    .collaborations-list,
+    .formation-list,
+    .awards-list,
+    .residencies-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: var(--space-xs) 0;
+        border-bottom: 1px solid var(--color-border-light);
+        font-size: 0.875rem;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        strong {
+          color: var(--color-black);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .biography-photo {
+      order: 2;
+    }
+
+    .biography-text {
+      order: 1;
+    }
+
+    .biography-sidebar {
+      order: 3;
+    }
+  }
+}

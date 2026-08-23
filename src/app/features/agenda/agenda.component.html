@@ -1,0 +1,111 @@
+<section class="agenda">
+  <div class="container">
+    <header class="page-header">
+      <h1>Agenda</h1>
+      <p class="page-subtitle">Conciertos, estrenos y actividades próximas</p>
+    </header>
+
+    <div class="agenda-tabs" role="tablist" aria-label="Filtrar eventos">
+      <button
+        role="tab"
+        [class.active]="activeTab === 'upcoming'"
+        (click)="activeTab = 'upcoming'"
+        aria-selected="true"
+        aria-controls="upcoming-panel"
+      >
+        Próximos
+      </button>
+      <button
+        role="tab"
+        [class.active]="activeTab === 'past'"
+        (click)="activeTab = 'past'"
+        aria-selected="false"
+        aria-controls="past-panel"
+      >
+        Archivo
+      </button>
+    </div>
+
+    <div class="agenda-panels">
+      <div
+        role="tabpanel"
+        id="upcoming-panel"
+        [hidden]="activeTab !== 'upcoming'"
+        class="agenda-panel"
+      >
+        <ul class="events-list">
+          <li *ngFor="let event of upcomingEvents" class="event-item">
+            <article class="event-card">
+              <div class="event-date">
+                <span class="event-day">{{ event.day }}</span>
+                <span class="event-month">{{ event.month }}</span>
+                <span class="event-year">{{ event.year }}</span>
+              </div>
+              <div class="event-info">
+                <h2 class="event-title">{{ event.title }}</h2>
+                <p class="event-description">{{ event.description }}</p>
+                <div class="event-meta">
+                  <span class="event-place">{{ event.place }}</span>
+                  <span class="event-location">{{ event.city }}, {{ event.country }}</span>
+                </div>
+                <div class="event-details" *ngIf="event.program || event.performers">
+                  <span *ngIf="event.program" class="event-program">{{ event.program }}</span>
+                  <span *ngIf="event.performers" class="event-performers">
+                    Intérpretes: {{ event.performers }}
+                  </span>
+                </div>
+                <a *ngIf="event.url" [href]="event.url" class="event-link" target="_blank" rel="noopener">
+                  Más información
+                </a>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <p class="no-events" *ngIf="upcomingEvents.length === 0">
+          No hay eventos programados próximamente.
+        </p>
+      </div>
+
+      <div
+        role="tabpanel"
+        id="past-panel"
+        [hidden]="activeTab !== 'past'"
+        class="agenda-panel"
+      >
+        <ul class="events-list">
+          <li *ngFor="let event of pastEvents" class="event-item">
+            <article class="event-card past">
+              <div class="event-date">
+                <span class="event-day">{{ event.day }}</span>
+                <span class="event-month">{{ event.month }}</span>
+                <span class="event-year">{{ event.year }}</span>
+              </div>
+              <div class="event-info">
+                <h2 class="event-title">{{ event.title }}</h2>
+                <p class="event-description">{{ event.description }}</p>
+                <div class="event-meta">
+                  <span class="event-place">{{ event.place }}</span>
+                  <span class="event-location">{{ event.city }}, {{ event.country }}</span>
+                </div>
+                <div class="event-details" *ngIf="event.program || event.performers">
+                  <span *ngIf="event.program" class="event-program">{{ event.program }}</span>
+                  <span *ngIf="event.performers" class="event-performers">
+                    Intérpretes: {{ event.performers }}
+                  </span>
+                </div>
+                <a *ngIf="event.url" [href]="event.url" class="event-link" target="_blank" rel="noopener">
+                  Ver detalles
+                </a>
+              </div>
+            </article>
+          </li>
+        </ul>
+
+        <p class="no-events" *ngIf="pastEvents.length === 0">
+          No hay eventos en el archivo histórico.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

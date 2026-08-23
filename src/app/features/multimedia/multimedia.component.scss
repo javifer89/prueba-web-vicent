@@ -1,0 +1,228 @@
+.multimedia {
+  padding: var(--space-3xl) 0;
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+
+    h1 {
+      margin-bottom: var(--space-sm);
+    }
+
+    .page-subtitle {
+      color: var(--color-light-gray);
+      font-size: 1.125rem;
+      margin: 0;
+    }
+  }
+
+  .multimedia-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-sm);
+
+    button {
+      background: none;
+      border: none;
+      padding: var(--space-sm) var(--space-lg);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--color-light-gray);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+
+      &:hover {
+        color: var(--color-black);
+        background: var(--color-background-alt);
+      }
+
+      &.active {
+        color: var(--color-white);
+        background: var(--color-black);
+
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-focus);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  .multimedia-panel {
+    animation: fadeIn 0.3s ease;
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .media-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border-light);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .media-thumbnail {
+      aspect-ratio: 16 / 9;
+      background: var(--color-background-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-light-gray);
+      position: relative;
+
+      &.video-thumb {
+        cursor: pointer;
+      }
+    }
+
+    .video-preview {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+
+      &:hover .play-button {
+        transform: scale(1.1);
+      }
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.8);
+      border: none;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.95);
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      &:focus-visible {
+        outline: 3px solid #ffffff;
+        outline-offset: 3px;
+      }
+    }
+
+    .media-info {
+      padding: var(--space-lg);
+
+      h3 {
+        font-size: 1rem;
+        margin: 0 0 var(--space-xs);
+        line-height: 1.4;
+      }
+
+      .media-meta {
+        font-size: 0.8125rem;
+        color: var(--color-light-gray);
+        margin: 0 0 var(--space-md);
+        line-height: 1.5;
+      }
+
+      .media-platform {
+        margin-bottom: var(--space-md);
+      }
+
+      .platform-badge {
+        display: inline-block;
+        padding: 0.125rem 0.5rem;
+        font-size: 0.625rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: var(--radius-sm);
+
+        &.platform-youtube {
+          background: #ffebee;
+          color: #c62828;
+        }
+
+        &.platform-vimeo {
+          background: #e3f2fd;
+          color: #1565c0;
+        }
+
+        &.platform-soundcloud {
+          background: #fff3e0;
+          color: #e65100;
+        }
+
+        &.platform-custom {
+          background: var(--color-background-alt);
+          color: var(--color-medium-gray);
+        }
+      }
+
+      .media-player {
+        margin: var(--space-md) 0;
+
+        audio {
+          width: 100%;
+        }
+      }
+
+      .media-actions {
+        display: flex;
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .btn-sm {
+    padding: var(--space-xs) var(--space-md);
+    font-size: 0.75rem;
+  }
+
+  .no-media {
+    text-align: center;
+    padding: var(--space-3xl);
+    color: var(--color-light-gray);
+    font-size: 1rem;
+  }
+}

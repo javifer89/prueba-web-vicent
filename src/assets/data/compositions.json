@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "slug": "cuarteto-de-cuerdas-n1",
+    "title": "Cuarteto de Cuerdas Nº 1",
+    "year": 2020,
+    "duration": "12:30",
+    "instrumentation": "2 violines, viola, cello",
+    "category": "Música de cámara",
+    "description": "Una obra en cuatro movimientos que explora la relación entre los cuatro instrumentos de cuerda. Encargada por el Cuarteto Quiroga.",
+    "premiere": {
+      "date": "2021-03-15",
+      "place": "Auditorio Nacional",
+      "performers": ["Cuarteto Quiroga"],
+      "director": "",
+      "festival": "Ciclo de Cámara"
+    },
+    "files": [
+      {
+        "name": "Partitura completa.pdf",
+        "type": "pdf",
+        "url": "/assets/pdfs/quarteto1-partitura.pdf",
+        "description": "Partitura completa para cuarteto de cuerda"
+      }
+    ],
+    "recordings": [],
+    "videos": [],
+    "images": [],
+    "performers": [],
+    "notes": "Estrenada por el Cuarteto Quiroga en el Auditorio Nacional de Madrid."
+  },
+  {
+    "id": "2",
+    "slug": "concierto-orquestal",
+    "title": "Concierto Orquestal",
+    "year": 2022,
+    "duration": "25:00",
+    "instrumentation": "Orquesta completa (3.3.3.3/4.3.3.1/timp+3perc/arp/cuerdas)",
+    "category": "Orquesta",
+    "description": "Concierto para orquesta en un solo movimiento, encargo de la Filarmónica de Madrid. Explora texturas orquestales densas y momentos de gran transparencia.",
+    "premiere": {
+      "date": "2022-11-20",
+      "place": "Teatro Real",
+      "performers": ["Orquesta Filarmónica de Madrid"],
+      "director": "Pedro Halffter",
+      "festival": "Temporada 2022-23"
+    },
+    "files": [
+      {
+        "name": "Partitura orquestal.pdf",
+        "type": "pdf",
+        "url": "/assets/pdfs/concierto-orquestal.pdf",
+        "description": "Partitura para orquesta completa"
+      }
+    ],
+    "recordings": [],
+    "videos": [],
+    "images": [],
+    "performers": [],
+    "notes": "Obra encargo de la Filarmónica de Madrid para su temporada 2022-23."
+  }
+]

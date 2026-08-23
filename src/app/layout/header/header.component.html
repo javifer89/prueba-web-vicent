@@ -1,0 +1,31 @@
+<header class="main-header" role="banner">
+  <nav class="main-nav" aria-label="Navegación principal">
+    <button
+      class="nav-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      [attr.aria-label]="isMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
+      type="button"
+    >
+      <span class="hamburger" [class.open]="isMenuOpen" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+    <ul class="nav-list" [class.open]="isMenuOpen" role="menubar">
+      <li *ngFor="let item of navItems" class="nav-item" role="none">
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          class="nav-link"
+          role="menuitem"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,66 @@
+<section class="compositions-section">
+  <div class="container">
+    <h2 class="section-title">Catálogo de Obras</h2>
+
+    <div class="filters-bar">
+      <div class="filter-group">
+        <label for="category-filter" class="filter-label">Categoría</label>
+        <select id="category-filter" class="filter-select" (change)="onCategoryChange($event)">
+          <option value="todos">Todas</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="search-input" class="filter-label">Buscar</label>
+        <input
+          type="text"
+          id="search-input"
+          class="filter-input"
+          placeholder="Título, descripción..."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearchChange($event)"
+          aria-label="Buscar obras"
+        />
+      </div>
+    </div>
+
+    <ul class="compositions-list">
+      <li *ngFor="let composition of filteredCompositions" class="composition-item">
+        <article class="composition-card">
+          <div class="composition-header">
+            <h3 class="composition-title">{{ composition.title }}</h3>
+            <span class="composition-year">{{ composition.year || '—' }}</span>
+          </div>
+
+          <div class="composition-meta">
+            <span class="meta-item">
+              <strong>Duración:</strong> {{ composition.duration }}
+            </span>
+            <span class="meta-item">
+              <strong>Instrumentación:</strong> {{ composition.instrumentation }}
+            </span>
+          </div>
+
+          <p class="composition-description">
+            {{ composition.description }}
+          </p>
+
+          <div class="composition-actions">
+            <a
+              [routerLink]="['/obras', composition.slug]"
+              routerLinkActive="composition-link-active"
+              class="btn btn-secondary"
+            >
+              Ver detalles
+            </a>
+          </div>
+        </article>
+      </li>
+    </ul>
+
+    <p class="no-results" *ngIf="filteredCompositions.length === 0">
+      No se encontraron obras con los criterios seleccionados.
+    </p>
+  </div>
+</section>

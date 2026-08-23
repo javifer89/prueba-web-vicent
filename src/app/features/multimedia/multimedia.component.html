@@ -1,0 +1,155 @@
+<section class="multimedia">
+  <div class="container">
+    <header class="page-header">
+      <h1>Multimedia</h1>
+      <p class="page-subtitle">Grabaciones, vídeos, entrevistas y podcasts</p>
+    </header>
+
+    <div class="multimedia-tabs" role="tablist" aria-label="Categorías multimedia">
+      <button
+        role="tab"
+        *ngFor="let tab of tabs; let i = index"
+        [class.active]="activeTab === tab.id"
+        (click)="activeTab = tab.id"
+        [attr.aria-selected]="activeTab === tab.id"
+        [attr.aria-controls]="tab.id + '-panel'"
+        [id]="tab.id + '-tab'"
+      >
+        {{ tab.label }}
+      </button>
+    </div>
+
+    <div class="multimedia-panels">
+      <!-- Audio -->
+      <div
+        role="tabpanel"
+        id="audio-panel"
+        [hidden]="activeTab !== 'audio'"
+        class="multimedia-panel"
+        aria-labelledby="audio-tab"
+      >
+        <div class="media-grid">
+          <article *ngFor="let item of audioItems" class="media-card audio">
+            <div class="media-thumbnail">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M10 8v8M14 10v6M18 12v4"/>
+              </svg>
+            </div>
+            <div class="media-info">
+              <h3>{{ item.title }}</h3>
+              <p class="media-meta">{{ item.description }}</p>
+              <div class="media-player">
+                <audio controls [src]="item.url" preload="none"></audio>
+              </div>
+              <div class="media-actions">
+                <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
+                  Abrir en nueva pestaña
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="no-media" *ngIf="audioItems.length === 0">No hay grabaciones de audio disponibles.</p>
+      </div>
+
+      <!-- Vídeo -->
+      <div
+        role="tabpanel"
+        id="video-panel"
+        [hidden]="activeTab !== 'video'"
+        class="multimedia-panel"
+        aria-labelledby="video-tab"
+      >
+        <div class="media-grid">
+          <article *ngFor="let item of videoItems" class="media-card video">
+            <div class="media-thumbnail video-thumb">
+              <div class="video-preview" [style.background-image]="'url(' + item.thumbnail + ')'">
+                <button class="play-button" (click)="playVideo(item)" aria-label="Reproducir {{ item.title }}">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="media-info">
+              <h3>{{ item.title }}</h3>
+              <p class="media-meta">{{ item.description }}</p>
+              <div class="media-platform">
+                <span class="platform-badge" [class]="'platform-' + item.platform">{{ item.platform }}</span>
+              </div>
+              <div class="media-actions">
+                <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
+                  Ver en {{ item.platform }}
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="no-media" *ngIf="videoItems.length === 0">No hay vídeos disponibles.</p>
+      </div>
+
+      <!-- Entrevistas -->
+      <div
+        role="tabpanel"
+        id="interviews-panel"
+        [hidden]="activeTab !== 'interviews'"
+        class="multimedia-panel"
+        aria-labelledby="interviews-tab"
+      >
+        <div class="media-grid">
+          <article *ngFor="let item of interviewItems" class="media-card interview">
+            <div class="media-thumbnail">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div class="media-info">
+              <h3>{{ item.title }}</h3>
+              <p class="media-meta">{{ item.description }}</p>
+              <div class="media-meta">
+                <span>{{ item.source }}</span> · <time>{{ item.date }}</time>
+              </div>
+              <div class="media-actions">
+                <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
+                  Leer/Ver entrevista
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="no-media" *ngIf="interviewItems.length === 0">No hay entrevistas disponibles.</p>
+      </div>
+
+      <!-- Otros -->
+      <div
+        role="tabpanel"
+        id="others-panel"
+        [hidden]="activeTab !== 'others'"
+        class="multimedia-panel"
+        aria-labelledby="others-tab"
+      >
+        <div class="media-grid">
+          <article *ngFor="let item of otherItems" class="media-card other">
+            <div class="media-thumbnail">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+            </div>
+            <div class="media-info">
+              <h3>{{ item.title }}</h3>
+              <p class="media-meta">{{ item.description }}</p>
+              <div class="media-actions">
+                <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
+                  Acceder
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="no-media" *ngIf="otherItems.length === 0">No hay contenido adicional disponible.</p>
+      </div>
+    </div>
+  </div>
+</section>
