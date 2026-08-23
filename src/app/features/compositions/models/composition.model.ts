@@ -52,18 +52,19 @@ export interface Video {
   thumbnail?: string;
 }
 
+export type MediaType = 'image' | 'video' | 'audio';
+
 export interface GalleryImage {
   id: string;
+  type: MediaType;
   url: string;
   thumbnail?: string;
   description?: string;
-  category:
-    | 'retratos'
-    | 'conciertos'
-    | 'estrenos'
-    | 'ensayos'
-    | 'festivales'
-    | 'prensa'
-    | 'otros';
+  category: string;
   date?: string;
+  // Video-specific
+  platform?: 'youtube' | 'vimeo' | 'custom';
+  duration?: string;
+  // Audio-specific
+  audioUrl?: string;
 }
