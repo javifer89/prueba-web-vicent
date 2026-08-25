@@ -1,3 +1,8 @@
 # Local Pi runtime state
 .atl/
 node_modules
+
+# Build artifacts and caches
+.angular/
+dist/
+nul
