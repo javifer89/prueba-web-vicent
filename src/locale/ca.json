@@ -1,0 +1,367 @@
+{
+  "site": {
+    "name": "Vicent Egea Insa"
+  },
+  "meta": {
+    "title": "Compositor - Música Clàssica i Contemporània",
+    "description": "Lloc web oficial del compositor de música clàssica i contemporània. Obres, biografia, agenda, gravacions i contacte professional."
+  },
+  "nav": {
+    "inicio": "Inici",
+    "sobreMi": "Sobre mi",
+    "obras": "Obres",
+    "multimedia": "Multimèdia",
+    "noticias": "Notícies",
+    "contacto": "Contacte",
+    "main": "Navegació principal"
+  },
+  "home": {
+    "heroTitle": "Vicent Egea Insa",
+    "heroSubtitle": "Compositor i Director d'Orquestra",
+    "heroAria": "Portada",
+    "scrollDown": "Mou-te a la següent secció",
+    "testimonialsTitle": "Referències",
+    "testimonialsImageAlt": "Vicent Egea Insa dirigint",
+    "nextTestimonial": "Següent testimoni",
+    "featuredNewsTitle": "Notícies Destacades",
+    "newsTitle": "Últimes Notícies",
+    "viewAllNews": "Veure totes les notícies",
+    "ctaAria": "Formulari de performances",
+    "ctaText": "Ompliu aquest formulari per informar sobre una interpretació",
+    "ctaButton": "FORMULARI PERFORMANCES"
+  },
+  "news": {
+    "title": "Notícies",
+    "filterAria": "Filtrar notícies per categoria",
+    "tabs": {
+      "todas": "TODES",
+      "audiovisual": "Audiovisual",
+      "concert": "Concert",
+      "cursos": "Cursos",
+      "direccion": "Direcció",
+      "estrenos": "Estrenes",
+      "sinCategorizar": "Sense categoritzar"
+    },
+    "empty": "No hi ha notícies en aquesta categoria."
+  },
+  "footer": {
+    "copyright": "Vicent Egea Insa",
+    "tagline": "Compositor i Director d'Orquestra",
+    "privacy": "POLÍTICA DE PRIVACITAT",
+    "cookies": "ÚS DE COOKIES",
+    "legalNav": "Enllaços legals"
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Concerts, estrenes i activitats pròximes",
+    "filterAria": "Filtrar esdeveniments",
+    "upcoming": "Propers",
+    "past": "Arxiu",
+    "performersLabel": "Intèrprets:",
+    "moreInfo": "Més informació",
+    "viewDetails": "Veure detalls",
+    "noUpcoming": "No hi ha esdeveniments programats pròximament.",
+    "noPast": "No hi ha esdeveniments en l'arxiu històric."
+  },
+  "about": {
+    "title": "Biografia",
+    "photoAlt": "Retrat oficial del compositor",
+    "shortTitle": "Biografia Curta",
+    "longTitle": "Biografia Ampliada",
+    "content": {
+      "short": [
+        "Va nàixer a Madrid en 1985. Va estudiar composició en el Real Conservatorio Superior de Música de Madrid i va ampliar la seua formació en la Hochschule für Musik de Berlín. El seu catàleg abraça música orquestral, de cambra, vocal i electroacústica, amb especial atenció a l'exploració tímbrica i la integració de noves tecnologies.",
+        "Ha rebut encàrrecs d'institucions com l'Orquestra Nacional d'Espanya, el Centro Nacional de Difusión Musical (CNDM), el Festival de Música Contemporània d'Alacant i l'Ensemble Intercontemporain. Les seues obres s'han estrenat en sales com l'Auditorio Nacional, el Teatro Real, la Philharmonie de Berlín i l'IRCAM de París."
+      ],
+      "long": [
+        "La seua formació inclou estudis amb José Luis de Delás, Luis de Pablo i Helmut Lachenmann. Va obtindre el Premi Nacional de Composició en 2018 i el Premi BBVA Fundación Frontiers of Knowledge en 2021. Ha sigut compositor resident a l'Acadèmia d'Espanya a Roma (2016-2017) i a la Cité Internationale des Arts de París (2019).",
+        "La seua música es caracteritza per una escriptura rigorosa que busca expandir les possibilitats expressives dels instruments tradicionals, combinant tècniques extendides amb una sensibilitat melòdica heretada de la tradició europea. En els últims anys ha explorat la intersecció entre instrument acústic i electrònica en temps real, col·laborant amb centres d'investigació com l'IRCAM i el ZKM."
+      ]
+    },
+    "formationTitle": "Formació",
+    "formation": [
+      "Real Conservatorio Superior de Música de Madrid - Títol Superior de Composició (2008)",
+      "Hochschule für Musik Hanns Eisler Berlin - Meisterklasse Komposition (2010-2012)",
+      "IRCAM - Cursus de Composition et Informatique Musicale (2013-2014)"
+    ],
+    "awardsTitle": "Premis i Reconeixements",
+    "awards": [
+      { "name": "Premi Nacional de Composició", "detail": "(2018) - Ministeri de Cultura" },
+      { "name": "Premi BBVA Fundación Frontiers of Knowledge", "detail": "(2021) - Categoria Música Contemporània" },
+      { "name": "Premi Reina Sofía de Composició", "detail": "(2015) - Fundació Albéniz" },
+      { "name": "Beca Leonardo a Investigadors i Creadors Culturals", "detail": "(2019) - Fundació BBVA" }
+    ],
+    "residenciesTitle": "Residències",
+    "residencies": [
+      "Acadèmia d'Espanya a Roma (2016-2017)",
+      "Cité Internationale des Arts, París (2019)",
+      "ZKM Center for Art and Media, Karlsruhe (2020)",
+      "Harvard University - Department of Music (2022, compositor visitant)"
+    ],
+    "dataTitle": "Dades Professionals",
+    "data": [
+      { "label": "Nom complet", "value": "Nom i Cognoms" },
+      { "label": "Naixement", "value": "Madrid, 1985" },
+      { "label": "Nacionalitat", "value": "Espanyola" },
+      { "label": "Web", "value": "compositor.example.com", "href": "https://compositor.example.com" },
+      { "label": "Editorial", "value": "Ediciones Musicales Contemporáneas" },
+      { "label": "Management", "value": "Agencia Cultural XYZ" }
+    ],
+    "collaborationsTitle": "Col·laboracions Recents",
+    "collaborations": [
+      "Orquestra Nacional d'Espanya",
+      "Ensemble Intercontemporain",
+      "Quarteto Casals",
+      "Pianista María Pérez",
+      "Cor Nacional d'Espanya"
+    ]
+  },
+  "works": {
+    "catalogTitle": "Catàleg d'Obres",
+    "categoryLabel": "Categoria",
+    "all": "Totes",
+    "category": {
+      "orquesta": "Orquestra",
+      "chamber": "Música de cambra",
+      "piano": "Piano",
+      "vocal": "Música vocal",
+      "electronic": "Electrònica",
+      "other": "Altre"
+    },
+    "searchLabel": "Cercar",
+    "searchPlaceholder": "Títol, descripció...",
+    "searchAria": "Cercar obres",
+    "duration": "Durada:",
+    "instrumentation": "Instrumentació:",
+    "viewDetails": "Veure detalls",
+    "noResults": "No s'han trobat obres amb els criteris seleccionats.",
+    "descriptionTitle": "Descripció",
+    "scoresTitle": "Partitures i Materials",
+    "download": "Descarregar",
+    "noScores": "No hi ha partitures disponibles per a esta obra.",
+    "audio": "Àudio",
+    "video": "Vídeo",
+    "images": "Imatges",
+    "listen": "Escoltar",
+    "noRecordings": "No hi ha gravacions disponibles.",
+    "noVideos": "No hi ha vídeos disponibles.",
+    "noImages": "No hi ha imatges disponibles.",
+    "imageFallback": "Imatge de l'obra",
+    "premiereTitle": "Informació de l'Estrena",
+    "premiereDate": "Data:",
+    "premierePlace": "Lloc:",
+    "premierePerformers": "Intèrprets:",
+    "premiereDirector": "Director:",
+    "premiereFestival": "Festival/Institució:",
+    "toConfirm": "Per confirmar",
+    "notFound": "Obra no trobada.",
+    "backToCatalog": "Tornar al catàleg"
+  },
+  "gallery": {
+    "title": "Galeria",
+    "subtitle": "Una selecció de moments, assajos, estrenes i retrats al llarg de la meua trajectòria.",
+    "filterAria": "Filtrar per categoria",
+    "all": "Totes",
+    "media": {
+      "image": "Imatge",
+      "video": "Vídeo",
+      "audio": "Àudio"
+    },
+    "categories": {
+      "retratos": "Retrats",
+      "conciertos": "Concerts",
+      "estrenos": "Estrenes",
+      "ensayos": "Assajos",
+      "festivales": "Festivals",
+      "prensa": "Premsa",
+      "otros": "Altres",
+      "directos": "Directes",
+      "grabaciones": "Gravacions",
+      "estrenosVideo": "Estrenes (vídeo)",
+      "documentales": "Documentals",
+      "masterclasses": "Masterclasses",
+      "estrenosAudio": "Estrenes (àudio)",
+      "electronica": "Electrònica",
+      "podcasts": "Podcasts"
+    },
+    "noDescription": "Sense descripció",
+    "viewerAria": "Visor multimèdia",
+    "closeViewer": "Tancar visor",
+    "prevItem": "Element anterior",
+    "nextItem": "Element següent",
+    "empty": "No hi ha elements en esta categoria."
+  },
+  "multimedia": {
+    "title": "Multimèdia",
+    "subtitle": "Gravacions, vídeos, entrevistes i podcasts",
+    "tabsAria": "Categories multimèdia",
+    "tabs": {
+      "audio": "Àudio",
+      "video": "Vídeo",
+      "interviews": "Entrevistes",
+      "others": "Altres"
+    },
+    "openInNewTab": "Obrir en una pestanya nova",
+    "play": "Reproduir {{title}}",
+    "watchOn": "Veure en {{platform}}",
+    "readInterview": "Llegir/Veer entrevista",
+    "access": "Accedir",
+    "noAudio": "No hi ha gravacions d'àudio disponibles.",
+    "noVideo": "No hi ha vídeos disponibles.",
+    "noInterviews": "No hi ha entrevistes disponibles.",
+    "noOthers": "No hi ha contingut addicional disponible."
+  },
+  "contact": {
+    "title": "Contacte",
+    "subtitle": "Tens un projecte en ment, una proposta d'encàrrec o simplement vols saludar? Estaré encantat d'escoltar-te.",
+    "infoTitle": "Informació de contacte",
+    "emailLabel": "Correu electrònic",
+    "socialLabel": "Xarxes socials",
+    "publisherLabel": "Editorial",
+    "managementLabel": "Management",
+    "commissionsTitle": "Encàrrecs i col·laboracions",
+    "commissionsText1": "Estic obert a nous encàrrecs per a orquestra, ensemble, música de cambra, solista, vocal, electroacústica i projectes multidisciplinars.",
+    "commissionsText2": "Per a consultes sobre encàrrecs, lloguer de partitures, materials d'interpretació o drets d'execució, indiqueu-ho en l'assumpte del missatge.",
+    "formTitle": "Enviar missatge",
+    "sending": "Enviant missatge...",
+    "fields": {
+      "name": "Nom",
+      "email": "Correu electrònic",
+      "subject": "Assumpte",
+      "message": "Missatge",
+      "selectSubject": "Selecciona un assumpte",
+      "subjectCommission": "Encàrrec d'una obra nova",
+      "subjectScoreRental": "Lloguer de partitures/materials",
+      "subjectRights": "Drets d'execució/grabació",
+      "subjectCollaboration": "Proposta de col·laboració",
+      "subjectPress": "Premsa/entrevista",
+      "subjectOther": "Altre",
+      "honeypot": "Lloc web (no emplenar)"
+    },
+    "errors": {
+      "nameRequired": "El nom és obligatori",
+      "nameMinlength": "Mínim 2 caràcters",
+      "nameMaxlength": "Màxim 100 caràcters",
+      "emailRequired": "El correu electrònic és obligatori",
+      "emailFormat": "Format de correu electrònic invàlid",
+      "subjectRequired": "L'assumpte és obligatori",
+      "subjectMinlength": "Mínim 5 caràcters",
+      "subjectMaxlength": "Màxim 150 caràcters",
+      "messageRequired": "El missatge és obligatori",
+      "messageHint": "Mínim 10 caràcters, màxim 2000",
+      "messageMinlength": "Mínim 10 caràcters",
+      "messageMaxlength": "Màxim 2000 caràcters"
+    },
+    "send": "Enviar missatge",
+    "sendingShort": "Enviant...",
+    "clear": "Netejar",
+    "disclaimer": "En enviar este formulari, acceptes que les teues dades siguen tractades per a respondre a la teua consulta. Més informació a la.",
+    "privacyLink": "Política de privacitat",
+    "successMessage": "Missatge enviat correctament. Et respondré prompte.",
+    "errorMessage": "Error en enviar el missatge. Torna-ho a provar o escriu-me directament per correu electrònic."
+  },
+  "legal": {
+    "privacyTitle": "Política de Privacitat",
+    "cookiesTitle": "Ús de Cookies",
+    "privacy": {
+      "sections": [
+        {
+          "title": "1. Responsable del tractament",
+          "paragraphs": [
+            "Vicent Egea Insa, com a titular del lloc web, és el responsable del tractament de les dades personals que es recullen a través d'este lloc."
+          ]
+        },
+        {
+          "title": "2. Finalitat del tractament",
+          "paragraphs": [
+            "Les dades personals es tractaran per a les següents finalitats:",
+            "Gestió de consultes i sol·licituds d'informació.",
+            "Enviament de comunicacions comercials (prèvia autorització).",
+            "Gestió de formularis de contacte i agenda."
+          ]
+        },
+        {
+          "title": "3. Legitimació",
+          "paragraphs": [
+            "La base legal per al tractament de les seues dades és el seu consentiment exprés a l'hora d'omplir els formularis i marcar la casella d'acceptació d'esta política."
+          ]
+        },
+        {
+          "title": "4. Destinataris",
+          "paragraphs": [
+            "No es cediran dades a tercers, tret d'obligació legal."
+          ]
+        },
+        {
+          "title": "5. Drets",
+          "paragraphs": [
+            "Pot exercir els seus drets d'accés, rectificació, supressió, limitació, portabilitat i oposició dirigint-se a l'adreça de correu electrònic indicada en l'apartat de contacte."
+          ]
+        },
+        {
+          "title": "6. Conservació",
+          "paragraphs": [
+            "Les dades es conservaran mentre es mantinga la relació i no se'n sol·licite la supressió, i durant el termini necessari per a complir amb les obligacions legals."
+          ]
+        },
+        {
+          "title": "7. Mesures de seguretat",
+          "paragraphs": [
+            "S'han implementat les mesures tècniques i organitzatives necessàries per a garantir la seguretat de les dades personals."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "sections": [
+        {
+          "title": "1. Què són les cookies?",
+          "paragraphs": [
+            "Les cookies són xicotets arxius de text que s'emmagatzemen en el seu dispositiu quan visita un lloc web. Permeten que el lloc recorde les seues accions i preferències durant un període de temps."
+          ]
+        },
+        {
+          "title": "2. Tipus de cookies que utilitzem",
+          "paragraphs": [
+            "Cookies tècniques (necessàries): Són essencials per al funcionament del lloc web. Permeten la navegació i l'ús de les diferents opcions o serveis que hi existixen.",
+            "Cookies d'anàlisi: Permeten quantificar el nombre d'usuaris i realitzar la mesura i anàlisi estadística de la utilització que fan els usuaris del servei ofert. Utilitzem Google Analytics per a este fi.",
+            "Cookies de preferències: Permeten recordar informació perquè l'usuari accedisca al servei amb certes característiques que poden diferenciar la seua experiència de la d'altres usuaris (idioma, regió, etc.)."
+          ]
+        },
+        {
+          "title": "3. Cookies de tercers",
+          "paragraphs": [
+            "Este lloc web pot utilitzar serveis de tercers que, per compte de Google, recopilaran informació amb fins estadístics, d'ús del lloc per part de l'usuari i per a la prestació d'altres serveis relacionats amb l'activitat del lloc web i altres serveis d'Internet."
+          ]
+        },
+        {
+          "title": "4. Gestió de cookies",
+          "paragraphs": [
+            "Pot permetre, blocar o eliminar les cookies instal·lades en el seu equip mitjançant la configuració de les opcions del navegador instal·lat en el seu dispositiu.",
+            "Si bloca les cookies, és possible que alguns serveis o funcionalitats del lloc web no estiguen disponibles."
+          ]
+        },
+        {
+          "title": "5. Consentiment",
+          "paragraphs": [
+            "En navegar i continuar en el nostre lloc web, estarà consentint l'ús de les cookies en les condicions contingudes en la present Política de Cookies."
+          ]
+        },
+        {
+          "title": "6. Actualitzacions",
+          "paragraphs": [
+            "Podem actualitzar la Política de Cookies del nostre lloc web, per això li recomanem revisar esta política cada vegada que accedisca al nostre lloc web amb l'objectiu d'estar adequadament informat sobre com i per a què utilitzem les cookies."
+          ]
+        }
+      ]
+    }
+  },
+  "common": {
+    "language": "Idioma",
+    "skipToContent": "Salta al contingut principal",
+    "loading": "Carregant...",
+    "error": "Ha ocorregut un error",
+    "openMenu": "Obrir menú",
+    "closeMenu": "Tancar menú"
+  }
+}

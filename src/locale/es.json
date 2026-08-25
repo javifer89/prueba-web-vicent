@@ -1,0 +1,367 @@
+{
+  "site": {
+    "name": "Vicent Egea Insa"
+  },
+  "meta": {
+    "title": "Compositor - Música Clásica y Contemporánea",
+    "description": "Sitio oficial del compositor de música clásica y contemporánea. Obras, biografía, agenda, grabaciones y contacto profesional."
+  },
+  "nav": {
+    "inicio": "Inicio",
+    "sobreMi": "Sobre mí",
+    "obras": "Obras",
+    "multimedia": "Multimedia",
+    "noticias": "Noticias",
+    "contacto": "Contacto",
+    "main": "Navegación principal"
+  },
+  "home": {
+    "heroTitle": "Vicent Egea Insa",
+    "heroSubtitle": "Compositor y Director de Orquesta",
+    "heroAria": "Portada",
+    "scrollDown": "Desplazarse a la siguiente sección",
+    "testimonialsTitle": "Referencias",
+    "testimonialsImageAlt": "Vicent Egea Insa dirigiendo",
+    "nextTestimonial": "Siguiente testimonio",
+    "featuredNewsTitle": "Noticias Destacadas",
+    "newsTitle": "Últimas Noticias",
+    "viewAllNews": "Ver todas las noticias",
+    "ctaAria": "Formulario de performances",
+    "ctaText": "Rellene este formulario para informar sobre una interpretación",
+    "ctaButton": "FORMULARIO PERFORMANCES"
+  },
+  "news": {
+    "title": "Noticias",
+    "filterAria": "Filtrar noticias por categoría",
+    "tabs": {
+      "todas": "TODAS",
+      "audiovisual": "Audiovisual",
+      "concert": "Concierto",
+      "cursos": "Cursos",
+      "direccion": "Dirección",
+      "estrenos": "Estrenos",
+      "sinCategorizar": "Sin categorizar"
+    },
+    "empty": "No hay noticias en esta categoría."
+  },
+  "footer": {
+    "copyright": "Vicent Egea Insa",
+    "tagline": "Compositor y Director de Orquesta",
+    "privacy": "POLÍTICA DE PRIVACIDAD",
+    "cookies": "USO DE COOKIES",
+    "legalNav": "Enlaces legales"
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Conciertos, estrenos y actividades próximas",
+    "filterAria": "Filtrar eventos",
+    "upcoming": "Próximos",
+    "past": "Archivo",
+    "performersLabel": "Intérpretes:",
+    "moreInfo": "Más información",
+    "viewDetails": "Ver detalles",
+    "noUpcoming": "No hay eventos programados próximamente.",
+    "noPast": "No hay eventos en el archivo histórico."
+  },
+  "about": {
+    "title": "Biografía",
+    "photoAlt": "Retrato oficial del compositor",
+    "shortTitle": "Biografía Corta",
+    "longTitle": "Biografía Extendida",
+    "content": {
+      "short": [
+        "Nació en Madrid en 1985. Estudió composición en el Real Conservatorio Superior de Música de Madrid y amplió su formación en la Hochschule für Musik de Berlín. Su catálogo abarca música orquestal, de cámara, vocal y electroacústica, con especial atención a la exploración tímbrica y la integración de nuevas tecnologías.",
+        "Ha recibido encargos de instituciones como la Orquesta Nacional de España, el Centro Nacional de Difusión Musical (CNDM), el Festival de Música Contemporánea de Alicante y el Ensemble Intercontemporain. Sus obras se han estrenado en salas como el Auditorio Nacional, el Teatro Real, la Philharmonie de Berlín y el IRCAM de París."
+      ],
+      "long": [
+        "Su formación incluye estudios con José Luis de Delás, Luis de Pablo y Helmut Lachenmann. Obtuvo el Premio Nacional de Composición en 2018 y el Premio BBVA Fundación Frontiers of Knowledge en 2021. Ha sido compositor residente en la Academia de España en Roma (2016-2017) y en la Cité Internationale des Arts de París (2019).",
+        "Su música se caracteriza por una escritura rigurosa que busca expandir las posibilidades expresivas de los instrumentos tradicionales, combinando técnicas extendidas con una sensibilidad melódica heredada de la tradición europea. En los últimos años ha explorado la intersección entre instrumento acústico y electrónica en tiempo real, colaborando con centros de investigación como el IRCAM y el ZKM."
+      ]
+    },
+    "formationTitle": "Formación",
+    "formation": [
+      "Real Conservatorio Superior de Música de Madrid - Título Superior de Composición (2008)",
+      "Hochschule für Musik Hanns Eisler Berlin - Meisterklasse Komposition (2010-2012)",
+      "IRCAM - Cursus de Composition et Informatique Musicale (2013-2014)"
+    ],
+    "awardsTitle": "Premios y Reconocimientos",
+    "awards": [
+      { "name": "Premio Nacional de Composición", "detail": "(2018) - Ministerio de Cultura" },
+      { "name": "Premio BBVA Fundación Frontiers of Knowledge", "detail": "(2021) - Categoría Música Contemporánea" },
+      { "name": "Premio Reina Sofía de Composición", "detail": "(2015) - Fundación Albéniz" },
+      { "name": "Beca Leonardo a Investigadores y Creadores Culturales", "detail": "(2019) - Fundación BBVA" }
+    ],
+    "residenciesTitle": "Residencias",
+    "residencies": [
+      "Academia de España en Roma (2016-2017)",
+      "Cité Internationale des Arts, París (2019)",
+      "ZKM Center for Art and Media, Karlsruhe (2020)",
+      "Harvard University - Department of Music (2022, Visiting Composer)"
+    ],
+    "dataTitle": "Datos Profesionales",
+    "data": [
+      { "label": "Nombre completo", "value": "Nombre Apellidos" },
+      { "label": "Nacimiento", "value": "Madrid, 1985" },
+      { "label": "Nacionalidad", "value": "Española" },
+      { "label": "Web", "value": "compositor.example.com", "href": "https://compositor.example.com" },
+      { "label": "Editorial", "value": "Ediciones Musicales Contemporáneas" },
+      { "label": "Management", "value": "Agencia Cultural XYZ" }
+    ],
+    "collaborationsTitle": "Colaboraciones Recientes",
+    "collaborations": [
+      "Orquesta Nacional de España",
+      "Ensemble Intercontemporain",
+      "Quarteto Casals",
+      "Pianista María Pérez",
+      "Coro Nacional de España"
+    ]
+  },
+  "works": {
+    "catalogTitle": "Catálogo de Obras",
+    "categoryLabel": "Categoría",
+    "all": "Todas",
+    "category": {
+      "orquesta": "Orquesta",
+      "chamber": "Música de cámara",
+      "piano": "Piano",
+      "vocal": "Música vocal",
+      "electronic": "Electrónica",
+      "other": "Otro"
+    },
+    "searchLabel": "Buscar",
+    "searchPlaceholder": "Título, descripción...",
+    "searchAria": "Buscar obras",
+    "duration": "Duración:",
+    "instrumentation": "Instrumentación:",
+    "viewDetails": "Ver detalles",
+    "noResults": "No se encontraron obras con los criterios seleccionados.",
+    "descriptionTitle": "Descripción",
+    "scoresTitle": "Partituras y Materiales",
+    "download": "Descargar",
+    "noScores": "No hay partituras disponibles para esta obra.",
+    "audio": "Audio",
+    "video": "Vídeo",
+    "images": "Imágenes",
+    "listen": "Escuchar",
+    "noRecordings": "No hay grabaciones disponibles.",
+    "noVideos": "No hay vídeos disponibles.",
+    "noImages": "No hay imágenes disponibles.",
+    "imageFallback": "Imagen de la obra",
+    "premiereTitle": "Información del Estreno",
+    "premiereDate": "Fecha:",
+    "premierePlace": "Lugar:",
+    "premierePerformers": "Intérpretes:",
+    "premiereDirector": "Director:",
+    "premiereFestival": "Festival/Institución:",
+    "toConfirm": "Por confirmar",
+    "notFound": "Obra no encontrada.",
+    "backToCatalog": "Volver al catálogo"
+  },
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Una selección de momentos, ensayos, estrenos y retratos a lo largo de mi trayectoria.",
+    "filterAria": "Filtrar por categoría",
+    "all": "Todas",
+    "media": {
+      "image": "Imagen",
+      "video": "Vídeo",
+      "audio": "Audio"
+    },
+    "categories": {
+      "retratos": "Retratos",
+      "conciertos": "Conciertos",
+      "estrenos": "Estrenos",
+      "ensayos": "Ensayos",
+      "festivales": "Festivales",
+      "prensa": "Prensa",
+      "otros": "Otros",
+      "directos": "Directos",
+      "grabaciones": "Grabaciones",
+      "estrenosVideo": "Estrenos (vídeo)",
+      "documentales": "Documentales",
+      "masterclasses": "Masterclasses",
+      "estrenosAudio": "Estrenos (audio)",
+      "electronica": "Electrónica",
+      "podcasts": "Podcasts"
+    },
+    "noDescription": "Sin descripción",
+    "viewerAria": "Visor multimedia",
+    "closeViewer": "Cerrar visor",
+    "prevItem": "Elemento anterior",
+    "nextItem": "Elemento siguiente",
+    "empty": "No hay elementos en esta categoría."
+  },
+  "multimedia": {
+    "title": "Multimedia",
+    "subtitle": "Grabaciones, vídeos, entrevistas y podcasts",
+    "tabsAria": "Categorías multimedia",
+    "tabs": {
+      "audio": "Audio",
+      "video": "Vídeo",
+      "interviews": "Entrevistas",
+      "others": "Otros"
+    },
+    "openInNewTab": "Abrir en nueva pestaña",
+    "play": "Reproducir {{title}}",
+    "watchOn": "Ver en {{platform}}",
+    "readInterview": "Leer/Ver entrevista",
+    "access": "Acceder",
+    "noAudio": "No hay grabaciones de audio disponibles.",
+    "noVideo": "No hay vídeos disponibles.",
+    "noInterviews": "No hay entrevistas disponibles.",
+    "noOthers": "No hay contenido adicional disponible."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente, una propuesta de encargo o simplemente quieres saludar? Estaré encantado de escucharte.",
+    "infoTitle": "Información de contacto",
+    "emailLabel": "Email",
+    "socialLabel": "Redes sociales",
+    "publisherLabel": "Editorial",
+    "managementLabel": "Management",
+    "commissionsTitle": "Encargos y colaboraciones",
+    "commissionsText1": "Estoy abierto a nuevos encargos para orquesta, ensemble, música de cámara, solista, vocal, electroacústica y proyectos multidisciplinares.",
+    "commissionsText2": "Para consultas sobre encargos, alquiler de partituras, materiales de interpretación o derechos de ejecución, por favor indícalo en el asunto del mensaje.",
+    "formTitle": "Enviar mensaje",
+    "sending": "Enviando mensaje...",
+    "fields": {
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "selectSubject": "Selecciona un asunto",
+      "subjectCommission": "Encargo de nueva obra",
+      "subjectScoreRental": "Alquiler de partituras/materiales",
+      "subjectRights": "Derechos de ejecución/grabación",
+      "subjectCollaboration": "Propuesta de colaboración",
+      "subjectPress": "Prensa/entrevista",
+      "subjectOther": "Otro",
+      "honeypot": "Sitio web (no rellenar)"
+    },
+    "errors": {
+      "nameRequired": "El nombre es obligatorio",
+      "nameMinlength": "Mínimo 2 caracteres",
+      "nameMaxlength": "Máximo 100 caracteres",
+      "emailRequired": "El email es obligatorio",
+      "emailFormat": "Formato de email inválido",
+      "subjectRequired": "El asunto es obligatorio",
+      "subjectMinlength": "Mínimo 5 caracteres",
+      "subjectMaxlength": "Máximo 150 caracteres",
+      "messageRequired": "El mensaje es obligatorio",
+      "messageHint": "Mínimo 10 caracteres, máximo 2000",
+      "messageMinlength": "Mínimo 10 caracteres",
+      "messageMaxlength": "Máximo 2000 caracteres"
+    },
+    "send": "Enviar mensaje",
+    "sendingShort": "Enviando...",
+    "clear": "Limpiar",
+    "disclaimer": "Al enviar este formulario, aceptas que tus datos sean tratados para responder a tu consulta. Más información en la.",
+    "privacyLink": "Política de privacidad",
+    "successMessage": "Mensaje enviado correctamente. Te responderé pronto.",
+    "errorMessage": "Error al enviar el mensaje. Inténtalo de nuevo o escríbeme directamente por email."
+  },
+  "legal": {
+    "privacyTitle": "Política de Privacidad",
+    "cookiesTitle": "Uso de Cookies",
+    "privacy": {
+      "sections": [
+        {
+          "title": "1. Responsable del tratamiento",
+          "paragraphs": [
+            "Vicent Egea Insa, como titular del sitio web, es el responsable del tratamiento de los datos personales que se recaben a través de este sitio."
+          ]
+        },
+        {
+          "title": "2. Finalidad del tratamiento",
+          "paragraphs": [
+            "Los datos personales se tratarán para las siguientes finalidades:",
+            "Gestión de consultas y solicitudes de información.",
+            "Envío de comunicaciones comerciales (previa autorización).",
+            "Gestión de formularios de contacto y agenda."
+          ]
+        },
+        {
+          "title": "3. Legitimación",
+          "paragraphs": [
+            "La base legal para el tratamiento de sus datos es su consentimiento expreso al rellenar los formularios y marcar la casilla de aceptación de esta política."
+          ]
+        },
+        {
+          "title": "4. Destinatarios",
+          "paragraphs": [
+            "No se cederán datos a terceros, salvo obligación legal."
+          ]
+        },
+        {
+          "title": "5. Derechos",
+          "paragraphs": [
+            "Puede ejercer sus derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición dirigiéndose a la dirección de correo electrónico indicada en el apartado de contacto."
+          ]
+        },
+        {
+          "title": "6. Conservación",
+          "paragraphs": [
+            "Los datos se conservarán mientras se mantenga la relación y no se solicite su supresión, y durante el plazo necesario para cumplir con las obligaciones legales."
+          ]
+        },
+        {
+          "title": "7. Medidas de seguridad",
+          "paragraphs": [
+            "Se han implementado las medidas técnicas y organizativas necesarias para garantizar la seguridad de los datos personales."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "sections": [
+        {
+          "title": "1. ¿Qué son las cookies?",
+          "paragraphs": [
+            "Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita un sitio web. Permiten que el sitio recuerde sus acciones y preferencias durante un período de tiempo."
+          ]
+        },
+        {
+          "title": "2. Tipos de cookies que utilizamos",
+          "paragraphs": [
+            "Cookies técnicas (necesarias): Son esenciales para el funcionamiento del sitio web. Permiten la navegación y el uso de las diferentes opciones o servicios que en ella existen.",
+            "Cookies de análisis: Permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofrecido. Utilizamos Google Analytics para este fin.",
+            "Cookies de preferencias: Permiten recordar información para que el usuario acceda al servicio con ciertas características que pueden diferenciar su experiencia de la de otros usuarios (idioma, región, etc.)."
+          ]
+        },
+        {
+          "title": "3. Cookies de terceros",
+          "paragraphs": [
+            "Este sitio web puede utilizar servicios de terceros que, por cuenta de Google, recopilarán información con fines estadísticos, de uso del sitio por parte del usuario y para la prestación de otros servicios relacionados con la actividad del sitio web y otros servicios de Internet."
+          ]
+        },
+        {
+          "title": "4. Gestión de cookies",
+          "paragraphs": [
+            "Puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su dispositivo.",
+            "Si bloquea las cookies, es posible que algunos servicios o funcionalidades del sitio web no estén disponibles."
+          ]
+        },
+        {
+          "title": "5. Consentimiento",
+          "paragraphs": [
+            "Al navegar y continuar en nuestro sitio web, estará consintiendo el uso de las cookies en las condiciones contenidas en la presente Política de Cookies."
+          ]
+        },
+        {
+          "title": "6. Actualizaciones",
+          "paragraphs": [
+            "Podemos actualizar la Política de Cookies de nuestro sitio web, por ello le recomendamos revisar esta política cada vez que acceda a nuestro sitio web con el objetivo de estar adecuadamente informado sobre cómo y para qué usamos las cookies."
+          ]
+        }
+      ]
+    }
+  },
+  "common": {
+    "language": "Idioma",
+    "skipToContent": "Saltar al contenido principal",
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  }
+}

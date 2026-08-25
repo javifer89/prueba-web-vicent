@@ -1,0 +1,367 @@
+{
+  "site": {
+    "name": "Vicent Egea Insa"
+  },
+  "meta": {
+    "title": "Composer - Classical and Contemporary Music",
+    "description": "Official website of the composer of classical and contemporary music. Works, biography, agenda, recordings and professional contact."
+  },
+  "nav": {
+    "inicio": "Home",
+    "sobreMi": "About Me",
+    "obras": "Works",
+    "multimedia": "Multimedia",
+    "noticias": "News",
+    "contacto": "Contact",
+    "main": "Main navigation"
+  },
+  "home": {
+    "heroTitle": "Vicent Egea Insa",
+    "heroSubtitle": "Composer and Conductor",
+    "heroAria": "Homepage hero",
+    "scrollDown": "Scroll to the next section",
+    "testimonialsTitle": "References",
+    "testimonialsImageAlt": "Vicent Egea Insa conducting",
+    "nextTestimonial": "Next testimonial",
+    "featuredNewsTitle": "Featured News",
+    "newsTitle": "Latest News",
+    "viewAllNews": "View all news",
+    "ctaAria": "Performance form",
+    "ctaText": "Fill out this form to report a performance",
+    "ctaButton": "PERFORMANCE FORM"
+  },
+  "news": {
+    "title": "News",
+    "filterAria": "Filter news by category",
+    "tabs": {
+      "todas": "ALL",
+      "audiovisual": "Audiovisual",
+      "concert": "Concert",
+      "cursos": "Courses",
+      "direccion": "Conducting",
+      "estrenos": "Premieres",
+      "sinCategorizar": "Uncategorized"
+    },
+    "empty": "No news in this category."
+  },
+  "footer": {
+    "copyright": "Vicent Egea Insa",
+    "tagline": "Composer and Conductor",
+    "privacy": "PRIVACY POLICY",
+    "cookies": "COOKIE POLICY",
+    "legalNav": "Legal links"
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Upcoming concerts, premieres and activities",
+    "filterAria": "Filter events",
+    "upcoming": "Upcoming",
+    "past": "Archive",
+    "performersLabel": "Performers:",
+    "moreInfo": "More information",
+    "viewDetails": "View details",
+    "noUpcoming": "There are no events scheduled at the moment.",
+    "noPast": "There are no events in the historical archive."
+  },
+  "about": {
+    "title": "Biography",
+    "photoAlt": "Official portrait of the composer",
+    "shortTitle": "Short Biography",
+    "longTitle": "Extended Biography",
+    "content": {
+      "short": [
+        "Born in Madrid in 1985, he studied composition at the Real Conservatorio Superior de Música de Madrid and furthered his training at the Hochschule für Musik in Berlin. His catalogue spans orchestral, chamber, vocal and electroacoustic music, with a special focus on timbral exploration and the integration of new technologies.",
+        "He has received commissions from institutions such as the Orquesta Nacional de España, the Centro Nacional de Difusión Musical (CNDM), the Alicante Festival of Contemporary Music and the Ensemble Intercontemporain. His works have been premiered in venues such as the Auditorio Nacional, the Teatro Real, the Berlin Philharmonie and IRCAM in Paris."
+      ],
+      "long": [
+        "His training includes studies with José Luis de Delás, Luis de Pablo and Helmut Lachenmann. He was awarded the National Composition Prize in 2018 and the BBVA Foundation Frontiers of Knowledge Award in 2021. He has been composer in residence at the Academia de España in Rome (2016-2017) and at the Cité Internationale des Arts in Paris (2019).",
+        "His music is characterized by rigorous writing that seeks to expand the expressive possibilities of traditional instruments, combining extended techniques with a melodic sensibility inherited from the European tradition. In recent years he has explored the intersection between acoustic instrument and real-time electronics, collaborating with research centres such as IRCAM and ZKM."
+      ]
+    },
+    "formationTitle": "Education",
+    "formation": [
+      "Real Conservatorio Superior de Música de Madrid - Higher Degree in Composition (2008)",
+      "Hochschule für Musik Hanns Eisler Berlin - Meisterklasse Komposition (2010-2012)",
+      "IRCAM - Cursus de Composition et Informatique Musicale (2013-2014)"
+    ],
+    "awardsTitle": "Awards and Honours",
+    "awards": [
+      { "name": "National Composition Prize", "detail": "(2018) - Ministry of Culture" },
+      { "name": "BBVA Foundation Frontiers of Knowledge Award", "detail": "(2021) - Contemporary Music category" },
+      { "name": "Queen Sofía Composition Prize", "detail": "(2015) - Albéniz Foundation" },
+      { "name": "Leonardo Grant for Researchers and Cultural Creators", "detail": "(2019) - BBVA Foundation" }
+    ],
+    "residenciesTitle": "Residencies",
+    "residencies": [
+      "Academia de España in Rome (2016-2017)",
+      "Cité Internationale des Arts, Paris (2019)",
+      "ZKM Center for Art and Media, Karlsruhe (2020)",
+      "Harvard University - Department of Music (2022, Visiting Composer)"
+    ],
+    "dataTitle": "Professional Details",
+    "data": [
+      { "label": "Full name", "value": "Vicent Egea Insa" },
+      { "label": "Born", "value": "Madrid, 1985" },
+      { "label": "Nationality", "value": "Spanish" },
+      { "label": "Web", "value": "compositor.example.com", "href": "https://compositor.example.com" },
+      { "label": "Publisher", "value": "Ediciones Musicales Contemporáneas" },
+      { "label": "Management", "value": "Agencia Cultural XYZ" }
+    ],
+    "collaborationsTitle": "Recent Collaborations",
+    "collaborations": [
+      "Orquesta Nacional de España",
+      "Ensemble Intercontemporain",
+      "Quarteto Casals",
+      "Pianist María Pérez",
+      "Coro Nacional de España"
+    ]
+  },
+  "works": {
+    "catalogTitle": "Works Catalogue",
+    "categoryLabel": "Category",
+    "all": "All",
+    "category": {
+      "orquesta": "Orchestra",
+      "chamber": "Chamber music",
+      "piano": "Piano",
+      "vocal": "Vocal music",
+      "electronic": "Electronic",
+      "other": "Other"
+    },
+    "searchLabel": "Search",
+    "searchPlaceholder": "Title, description...",
+    "searchAria": "Search works",
+    "duration": "Duration:",
+    "instrumentation": "Instrumentation:",
+    "viewDetails": "View details",
+    "noResults": "No works found for the selected criteria.",
+    "descriptionTitle": "Description",
+    "scoresTitle": "Scores and Materials",
+    "download": "Download",
+    "noScores": "No scores available for this work.",
+    "audio": "Audio",
+    "video": "Video",
+    "images": "Images",
+    "listen": "Listen",
+    "noRecordings": "No recordings available.",
+    "noVideos": "No videos available.",
+    "noImages": "No images available.",
+    "imageFallback": "Image of the work",
+    "premiereTitle": "Premiere Information",
+    "premiereDate": "Date:",
+    "premierePlace": "Venue:",
+    "premierePerformers": "Performers:",
+    "premiereDirector": "Conductor:",
+    "premiereFestival": "Festival/Institution:",
+    "toConfirm": "To be confirmed",
+    "notFound": "Work not found.",
+    "backToCatalog": "Back to catalogue"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A selection of moments, rehearsals, premieres and portraits throughout my career.",
+    "filterAria": "Filter by category",
+    "all": "All",
+    "media": {
+      "image": "Image",
+      "video": "Video",
+      "audio": "Audio"
+    },
+    "categories": {
+      "retratos": "Portraits",
+      "conciertos": "Concerts",
+      "estrenos": "Premieres",
+      "ensayos": "Rehearsals",
+      "festivales": "Festivals",
+      "prensa": "Press",
+      "otros": "Others",
+      "directos": "Live performances",
+      "grabaciones": "Recordings",
+      "estrenosVideo": "Premieres (video)",
+      "documentales": "Documentaries",
+      "masterclasses": "Masterclasses",
+      "estrenosAudio": "Premieres (audio)",
+      "electronica": "Electronic",
+      "podcasts": "Podcasts"
+    },
+    "noDescription": "No description",
+    "viewerAria": "Media viewer",
+    "closeViewer": "Close viewer",
+    "prevItem": "Previous item",
+    "nextItem": "Next item",
+    "empty": "No items in this category."
+  },
+  "multimedia": {
+    "title": "Multimedia",
+    "subtitle": "Recordings, videos, interviews and podcasts",
+    "tabsAria": "Multimedia categories",
+    "tabs": {
+      "audio": "Audio",
+      "video": "Video",
+      "interviews": "Interviews",
+      "others": "Others"
+    },
+    "openInNewTab": "Open in new tab",
+    "play": "Play {{title}}",
+    "watchOn": "Watch on {{platform}}",
+    "readInterview": "Read/Watch interview",
+    "access": "Access",
+    "noAudio": "No audio recordings available.",
+    "noVideo": "No videos available.",
+    "noInterviews": "No interviews available.",
+    "noOthers": "No additional content available."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Do you have a project in mind, a commission proposal, or would you simply like to say hello? I will be glad to hear from you.",
+    "infoTitle": "Contact information",
+    "emailLabel": "Email",
+    "socialLabel": "Social media",
+    "publisherLabel": "Publisher",
+    "managementLabel": "Management",
+    "commissionsTitle": "Commissions and collaborations",
+    "commissionsText1": "I am open to new commissions for orchestra, ensemble, chamber music, soloist, vocal, electroacoustic and multidisciplinary projects.",
+    "commissionsText2": "For enquiries about commissions, score rental, performance materials or performance rights, please state it in the subject line of your message.",
+    "formTitle": "Send message",
+    "sending": "Sending message...",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "selectSubject": "Select a subject",
+      "subjectCommission": "Commission of a new work",
+      "subjectScoreRental": "Score/material rental",
+      "subjectRights": "Performance/recording rights",
+      "subjectCollaboration": "Collaboration proposal",
+      "subjectPress": "Press/interview",
+      "subjectOther": "Other",
+      "honeypot": "Website (do not fill in)"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameMinlength": "Minimum 2 characters",
+      "nameMaxlength": "Maximum 100 characters",
+      "emailRequired": "Email is required",
+      "emailFormat": "Invalid email format",
+      "subjectRequired": "Subject is required",
+      "subjectMinlength": "Minimum 5 characters",
+      "subjectMaxlength": "Maximum 150 characters",
+      "messageRequired": "Message is required",
+      "messageHint": "Minimum 10 characters, maximum 2000",
+      "messageMinlength": "Minimum 10 characters",
+      "messageMaxlength": "Maximum 2000 characters"
+    },
+    "send": "Send message",
+    "sendingShort": "Sending...",
+    "clear": "Clear",
+    "disclaimer": "By submitting this form, you agree that your data will be processed to respond to your enquiry. See our.",
+    "privacyLink": "Privacy Policy",
+    "successMessage": "Message sent successfully. I will reply to you soon.",
+    "errorMessage": "Error sending the message. Please try again or write to me directly by email."
+  },
+  "legal": {
+    "privacyTitle": "Privacy Policy",
+    "cookiesTitle": "Cookie Policy",
+    "privacy": {
+      "sections": [
+        {
+          "title": "1. Data controller",
+          "paragraphs": [
+            "Vicent Egea Insa, as the owner of this website, is the controller of the personal data collected through this site."
+          ]
+        },
+        {
+          "title": "2. Purpose of processing",
+          "paragraphs": [
+            "Personal data will be processed for the following purposes:",
+            "Handling queries and requests for information.",
+            "Sending commercial communications (with prior authorisation).",
+            "Managing contact and agenda forms."
+          ]
+        },
+        {
+          "title": "3. Lawfulness",
+          "paragraphs": [
+            "The legal basis for processing your data is your express consent when filling in the forms and ticking the box accepting this policy."
+          ]
+        },
+        {
+          "title": "4. Recipients",
+          "paragraphs": [
+            "Data will not be disclosed to third parties except under legal obligation."
+          ]
+        },
+        {
+          "title": "5. Rights",
+          "paragraphs": [
+            "You may exercise your rights of access, rectification, erasure, restriction, portability and objection by writing to the email address indicated in the contact section."
+          ]
+        },
+        {
+          "title": "6. Retention",
+          "paragraphs": [
+            "Data will be retained for as long as the relationship is maintained and erasure is not requested, and for the period necessary to comply with legal obligations."
+          ]
+        },
+        {
+          "title": "7. Security measures",
+          "paragraphs": [
+            "The necessary technical and organisational measures have been implemented to guarantee the security of personal data."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "sections": [
+        {
+          "title": "1. What are cookies?",
+          "paragraphs": [
+            "Cookies are small text files stored on your device when you visit a website. They allow the site to remember your actions and preferences over a period of time."
+          ]
+        },
+        {
+          "title": "2. Types of cookies we use",
+          "paragraphs": [
+            "Technical cookies (necessary): Essential for the website to function. They enable navigation and the use of the different options or services available on it.",
+            "Analytics cookies: Allow the number of users to be quantified and statistical measurement and analysis of users' use of the offered service to be carried out. We use Google Analytics for this purpose.",
+            "Preference cookies: Allow information to be remembered so that the user accesses the service with certain features that can differentiate their experience from that of other users (language, region, etc.)."
+          ]
+        },
+        {
+          "title": "3. Third-party cookies",
+          "paragraphs": [
+            "This website may use third-party services which, on behalf of Google, will collect information for statistical purposes, regarding the user's use of the site and for the provision of other services related to the activity of the website and other Internet services."
+          ]
+        },
+        {
+          "title": "4. Managing cookies",
+          "paragraphs": [
+            "You may allow, block or delete the cookies installed on your computer through the settings of the browser installed on your device.",
+            "If you block cookies, some services or functionalities of the website may not be available."
+          ]
+        },
+        {
+          "title": "5. Consent",
+          "paragraphs": [
+            "By browsing and continuing on our website, you consent to the use of cookies under the conditions contained in this Cookie Policy."
+          ]
+        },
+        {
+          "title": "6. Updates",
+          "paragraphs": [
+            "We may update the Cookie Policy of our website; we therefore recommend reviewing this policy each time you access our website in order to be properly informed about how and why we use cookies."
+          ]
+        }
+      ]
+    }
+  },
+  "common": {
+    "language": "Language",
+    "skipToContent": "Skip to main content",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  }
+}
