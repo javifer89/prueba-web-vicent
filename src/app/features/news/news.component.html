@@ -1,0 +1,77 @@
+<main class="news-page">
+  <section class="news-hero">
+    <div class="container">
+      <h1 class="news-hero__title">{{ 'news.title' | translate }}</h1>
+    </div>
+  </section>
+
+  <section class="news-content">
+    <div class="container">
+      <!-- Tabs -->
+      <nav class="news-tabs" [attr.aria-label]="'news.filterAria' | translate" role="tablist">
+        <button
+          *ngFor="let tab of tabs"
+          class="news-tab"
+          [class.active]="activeTab === tab.id"
+          (click)="setActiveTab(tab.id)"
+          role="tab"
+          [attr.aria-selected]="activeTab === tab.id"
+          [attr.aria-controls]="tab.id"
+          type="button"
+        >
+          {{ tab.label | translate }}
+        </button>
+      </nav>
+
+      <!-- Tab panels -->
+      <div class="news-tabs__panels">
+        <div class="news-grid" role="tabpanel" [id]="activeTab" [attr.aria-labelledby]="activeTab">
+          <!-- Featured news (first item) -->
+          <article class="news-card news-card--featured" *ngIf="filteredNews.length > 0">
+            <a [routerLink]="['/noticias', featuredNews.slug]" class="news-card__link">
+              <div class="news-card__image" [style.background-image]="'url(' + featuredNews.image + ')'" aria-hidden="true"></div>
+              <div class="news-card__content">
+                <span class="news-card__category">{{ featuredNews.category }}</span>
+                <h3 class="news-card__title">{{ featuredNews.title }}</h3>
+                <time class="news-card__date" [datetime]="featuredNews.date">{{ featuredNews.date | localizedDate:'dd MMM yyyy' }}</time>
+              </div>
+            </a>
+          </article>
+
+          <!-- Secondary news (2 items) -->
+          <div class="news-card__secondary" *ngIf="filteredNews.length > 1">
+            <article class="news-card" *ngFor="let news of secondaryNews">
+              <a [routerLink]="['/noticias', news.slug]" class="news-card__link">
+                <div class="news-card__image" [style.background-image]="'url(' + news.image + ')'" aria-hidden="true"></div>
+                <div class="news-card__content">
+                  <span class="news-card__category">{{ news.category }}</span>
+                  <h3 class="news-card__title">{{ news.title }}</h3>
+                  <time class="news-card__date" [datetime]="news.date">{{ news.date | localizedDate:'dd MMM yyyy' }}</time>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <!-- Remaining news (list) -->
+          <div class="news-list" *ngIf="remainingNews.length > 0">
+            <article class="news-list__item" *ngFor="let news of remainingNews">
+              <a [routerLink]="['/noticias', news.slug]" class="news-list__link">
+                <div class="news-list__image" [style.background-image]="'url(' + news.image + ')'" aria-hidden="true"></div>
+                <div class="news-list__content">
+                  <span class="news-list__category">{{ news.category }}</span>
+                  <h3 class="news-list__title">{{ news.title }}</h3>
+                  <time class="news-list__date" [datetime]="news.date">{{ news.date | localizedDate:'dd MMM yyyy' }}</time>
+                </div>
+              </a>
+            </article>
+          </div>
+
+          <!-- Empty state -->
+          <div class="news-empty" *ngIf="filteredNews.length === 0">
+            <p>{{ 'news.empty' | translate }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
