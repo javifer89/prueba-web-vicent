@@ -1,11 +1,11 @@
 <section class="agenda">
   <div class="container">
     <header class="page-header">
-      <h1>Agenda</h1>
-      <p class="page-subtitle">Conciertos, estrenos y actividades próximas</p>
+      <h1>{{ 'agenda.title' | translate }}</h1>
+      <p class="page-subtitle">{{ 'agenda.subtitle' | translate }}</p>
     </header>
 
-    <div class="agenda-tabs" role="tablist" aria-label="Filtrar eventos">
+    <div class="agenda-tabs" role="tablist" [attr.aria-label]="'agenda.filterAria' | translate">
       <button
         role="tab"
         [class.active]="activeTab === 'upcoming'"
@@ -13,7 +13,7 @@
         aria-selected="true"
         aria-controls="upcoming-panel"
       >
-        Próximos
+        {{ 'agenda.upcoming' | translate }}
       </button>
       <button
         role="tab"
@@ -22,7 +22,7 @@
         aria-selected="false"
         aria-controls="past-panel"
       >
-        Archivo
+        {{ 'agenda.past' | translate }}
       </button>
     </div>
 
@@ -51,11 +51,11 @@
                 <div class="event-details" *ngIf="event.program || event.performers">
                   <span *ngIf="event.program" class="event-program">{{ event.program }}</span>
                   <span *ngIf="event.performers" class="event-performers">
-                    Intérpretes: {{ event.performers }}
+                    {{ 'agenda.performersLabel' | translate }} {{ event.performers }}
                   </span>
                 </div>
                 <a *ngIf="event.url" [href]="event.url" class="event-link" target="_blank" rel="noopener">
-                  Más información
+                  {{ 'agenda.moreInfo' | translate }}
                 </a>
               </div>
             </article>
@@ -63,7 +63,7 @@
         </ul>
 
         <p class="no-events" *ngIf="upcomingEvents.length === 0">
-          No hay eventos programados próximamente.
+          {{ 'agenda.noUpcoming' | translate }}
         </p>
       </div>
 
@@ -91,11 +91,11 @@
                 <div class="event-details" *ngIf="event.program || event.performers">
                   <span *ngIf="event.program" class="event-program">{{ event.program }}</span>
                   <span *ngIf="event.performers" class="event-performers">
-                    Intérpretes: {{ event.performers }}
+                    {{ 'agenda.performersLabel' | translate }} {{ event.performers }}
                   </span>
                 </div>
                 <a *ngIf="event.url" [href]="event.url" class="event-link" target="_blank" rel="noopener">
-                  Ver detalles
+                  {{ 'agenda.viewDetails' | translate }}
                 </a>
               </div>
             </article>
@@ -103,7 +103,7 @@
         </ul>
 
         <p class="no-events" *ngIf="pastEvents.length === 0">
-          No hay eventos en el archivo histórico.
+          {{ 'agenda.noPast' | translate }}
         </p>
       </div>
     </div>

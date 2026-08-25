@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface Event {
   id: string;
@@ -20,7 +21,7 @@ interface Event {
 @Component({
   selector: 'app-agenda',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './agenda.component.html',
   styleUrls: ['./agenda.component.scss'],
 })

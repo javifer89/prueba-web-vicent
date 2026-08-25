@@ -1,14 +1,12 @@
 <section class="gallery" aria-labelledby="gallery-heading">
   <div class="container">
     <header class="page-header">
-      <h1 id="gallery-heading">Galería</h1>
-      <p class="page-subtitle">
-        Una selección de momentos, ensayos, estrenos y retratos a lo largo de mi trayectoria.
-      </p>
+      <h1 id="gallery-heading">{{ 'gallery.title' | translate }}</h1>
+      <p class="page-subtitle">{{ 'gallery.subtitle' | translate }}</p>
     </header>
 
     <!-- Category filters -->
-    <nav class="gallery-filters" aria-label="Filtrar por categoría" role="tablist">
+    <nav class="gallery-filters" [attr.aria-label]="'gallery.filterAria' | translate" role="tablist">
       <button
         *ngFor="let category of categories"
         class="filter-btn"
@@ -19,7 +17,7 @@
         [attr.aria-controls]="'gallery-panel-' + category"
         [id]="'gallery-tab-' + category"
       >
-        {{ formatCategory(category) }}
+        {{ category === 'todos' ? ('gallery.all' | translate) : formatCategory(category) }}
       </button>
     </nav>
 
@@ -36,7 +34,7 @@
         tabindex="0"
         (keydown.enter)="openLightbox($index)"
         (keydown.space)="openLightbox($index)"
-        [attr.aria-label]="getMediaTypeLabel(item.type) + ': ' + (item.description || 'Sin descripción')"
+        [attr.aria-label]="(('gallery.media.' + item.type) | translate) + ': ' + (item.description || ('gallery.noDescription' | translate))"
       >
         <div class="gallery-item-inner">
           <!-- Image -->
@@ -72,10 +70,10 @@
           </div>
 
           <figcaption class="gallery-caption">
-            <span class="media-type-badge" [class]="'type-' + item.type">{{ getMediaTypeLabel(item.type) }}</span>
+            <span class="media-type-badge" [class]="'type-' + item.type">{{ ('gallery.media.' + item.type) | translate }}</span>
             <span class="caption-category">{{ item.category }}</span>
             <span class="caption-description">{{ item.description }}</span>
-            <span class="caption-date" *ngIf="item.date">{{ item.date | date:'dd MMM yyyy':'':'es' }}</span>
+            <span class="caption-date" *ngIf="item.date">{{ item.date | localizedDate:'dd MMM yyyy' }}</span>
           </figcaption>
           <div class="gallery-overlay" aria-hidden="true">
             <div class="zoom-icon" [innerHTML]="getMediaTypeIcon(item.type)"></div>
@@ -90,7 +88,7 @@
           <circle cx="8.5" cy="8.5" r="1.5"></circle>
           <polyline points="21 15 16 10 5 21"></polyline>
         </svg>
-        <p>No hay elementos en esta categoría.</p>
+        <p>{{ 'gallery.empty' | translate }}</p>
       </div>
     </div>
 
@@ -103,13 +101,13 @@
       (click)="closeLightbox()"
       role="dialog"
       aria-modal="true"
-      [attr.aria-label]="lightboxItem ? (getMediaTypeLabel(lightboxItem.type) + ' visor') : 'Visor multimedia'"
+      [attr.aria-label]="'gallery.viewerAria' | translate"
       tabindex="-1"
     >
       <button
         class="lightbox-close"
         (click)="closeLightbox()"
-        aria-label="Cerrar visor"
+        [attr.aria-label]="'gallery.closeViewer' | translate"
         type="button"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -121,7 +119,7 @@
       <button
         class="lightbox-nav lightbox-prev"
         (click)="navigateLightbox('prev'); $event.stopPropagation()"
-        aria-label="Elemento anterior"
+        [attr.aria-label]="'gallery.prevItem' | translate"
         type="button"
         [disabled]="filteredItems.length <= 1"
       >
@@ -133,7 +131,7 @@
       <button
         class="lightbox-nav lightbox-next"
         (click)="navigateLightbox('next'); $event.stopPropagation()"
-        aria-label="Elemento siguiente"
+        [attr.aria-label]="'gallery.nextItem' | translate"
         type="button"
         [disabled]="filteredItems.length <= 1"
       >
@@ -177,7 +175,7 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
             (load)="onLightboxIframeLoad()"
-            title="{{ lightboxItem?.description }}"
+            [title]="lightboxItem?.description || ''"
           ></iframe>
         </div>
 
@@ -215,11 +213,11 @@
         </div>
 
         <div class="lightbox-info" *ngIf="lightboxItem && !lightboxLoading">
-          <span class="lightbox-media-type" [class]="'type-' + lightboxItem.type">{{ getMediaTypeLabel(lightboxItem.type) }}</span>
+          <span class="lightbox-media-type" [class]="'type-' + lightboxItem.type">{{ ('gallery.media.' + lightboxItem.type) | translate }}</span>
           <h2 class="lightbox-title">{{ lightboxItem.description }}</h2>
           <div class="lightbox-meta">
             <span class="lightbox-category">{{ lightboxItem.category }}</span>
-            <span class="lightbox-date" *ngIf="lightboxItem.date">{{ lightboxItem.date | date:'dd MMM yyyy':'':'es' }}</span>
+            <span class="lightbox-date" *ngIf="lightboxItem.date">{{ lightboxItem.date | localizedDate:'dd MMM yyyy' }}</span>
             <span class="lightbox-duration" *ngIf="lightboxItem.duration">{{ lightboxItem.duration }}</span>
             <span class="lightbox-platform" *ngIf="lightboxItem.platform">{{ lightboxItem.platform }}</span>
           </div>

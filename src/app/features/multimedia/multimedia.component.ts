@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
 interface MediaItem {
   title: string;
@@ -14,7 +15,7 @@ interface MediaItem {
 @Component({
   selector: 'app-multimedia',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './multimedia.component.html',
   styleUrls: ['./multimedia.component.scss'],
 })

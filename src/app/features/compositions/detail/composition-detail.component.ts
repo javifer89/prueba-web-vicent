@@ -5,11 +5,12 @@ import { Observable, of } from 'rxjs';
 import { map, catchError, switchMap } from 'rxjs/operators';
 import { Composition } from '../models/composition.model';
 import { CompositionService } from '../../../core/services/composition.service';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-composition-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './composition-detail.component.html',
   styleUrls: ['./composition-detail.component.scss'],
 })

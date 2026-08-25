@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { inject } from '@angular/core';
+import { TranslationService } from '../i18n/translation.service';
 
 export interface ContactFormData {
   name: string;
@@ -25,6 +27,8 @@ export class ContactService {
   // Format: 'https://formspree.io/f/YOUR_FORM_ID'
   private readonly FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORMSPREE_ID';
 
+  private translationService = inject(TranslationService);
+
   constructor(private http: HttpClient) {}
 
   submitForm(data: ContactFormData): Observable<ContactResponse> {
@@ -34,10 +38,10 @@ export class ContactService {
     return this.http.post<ContactResponse>(this.FORMSPREE_ENDPOINT, formData, {
       headers: { 'Accept': 'application/json' },
     }).pipe(
-      map(() => ({ success: true, message: 'Mensaje enviado correctamente. Te responderé pronto.' })),
+      map(() => ({ success: true, message: this.translationService.translate('contact.successMessage') })),
       catchError(() => of({
         success: false,
-        message: 'Error al enviar el mensaje. Inténtalo de nuevo o escríbeme directamente por email.'
+        message: this.translationService.translate('contact.errorMessage')
       }))
     );
   }

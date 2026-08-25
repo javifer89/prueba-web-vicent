@@ -1,26 +1,26 @@
 <section class="compositions-section">
   <div class="container">
-    <h2 class="section-title">Catálogo de Obras</h2>
+    <h2 class="section-title">{{ 'works.catalogTitle' | translate }}</h2>
 
     <div class="filters-bar">
       <div class="filter-group">
-        <label for="category-filter" class="filter-label">Categoría</label>
+        <label for="category-filter" class="filter-label">{{ 'works.categoryLabel' | translate }}</label>
         <select id="category-filter" class="filter-select" (change)="onCategoryChange($event)">
-          <option value="todos">Todas</option>
-          <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+          <option value="todos">{{ 'works.all' | translate }}</option>
+          <option *ngFor="let cat of categories" [value]="cat">{{ categoryLabel(cat) }}</option>
         </select>
       </div>
 
       <div class="filter-group">
-        <label for="search-input" class="filter-label">Buscar</label>
+        <label for="search-input" class="filter-label">{{ 'works.searchLabel' | translate }}</label>
         <input
           type="text"
           id="search-input"
           class="filter-input"
-          placeholder="Título, descripción..."
+          [placeholder]="'works.searchPlaceholder' | translate"
           [(ngModel)]="searchTerm"
           (ngModelChange)="onSearchChange($event)"
-          aria-label="Buscar obras"
+          [attr.aria-label]="'works.searchAria' | translate"
         />
       </div>
     </div>
@@ -35,10 +35,10 @@
 
           <div class="composition-meta">
             <span class="meta-item">
-              <strong>Duración:</strong> {{ composition.duration }}
+              <strong>{{ 'works.duration' | translate }}</strong> {{ composition.duration }}
             </span>
             <span class="meta-item">
-              <strong>Instrumentación:</strong> {{ composition.instrumentation }}
+              <strong>{{ 'works.instrumentation' | translate }}</strong> {{ composition.instrumentation }}
             </span>
           </div>
 
@@ -52,7 +52,7 @@
               routerLinkActive="composition-link-active"
               class="btn btn-secondary"
             >
-              Ver detalles
+              {{ 'works.viewDetails' | translate }}
             </a>
           </div>
         </article>
@@ -60,7 +60,7 @@
     </ul>
 
     <p class="no-results" *ngIf="filteredCompositions.length === 0">
-      No se encontraron obras con los criterios seleccionados.
+      {{ 'works.noResults' | translate }}
     </p>
   </div>
 </section>

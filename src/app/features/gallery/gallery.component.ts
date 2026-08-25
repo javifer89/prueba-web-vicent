@@ -3,13 +3,19 @@ import { CommonModule } from '@angular/common';
 import { GalleryService } from '../../core/services/gallery.service';
 import { GalleryImage, MediaType } from '../compositions/models/composition.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { TranslationService } from '../../core/i18n/translation.service';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss'],
+      styleUrls: [
+      './gallery.component.scss',
+      './gallery-grid.scss',
+      './gallery-lightbox.scss',
+    ],
 })
 export class GalleryComponent implements OnInit {
   @ViewChild('lightbox') lightboxRef!: ElementRef<HTMLDivElement>;
@@ -35,7 +41,8 @@ export class GalleryComponent implements OnInit {
 
   constructor(
     private galleryService: GalleryService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private translationService: TranslationService
   ) {}
 
   ngOnInit(): void {
@@ -226,13 +233,17 @@ export class GalleryComponent implements OnInit {
     return item.id;
   }
 
-  // Format category for display
+  // Format category for display (i18n lookup; filtering still matches raw slugs)
   formatCategory(category: string): string {
-    if (category === 'todos') return 'Todas';
-    return category
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+    if (category === 'todos') {
+      return this.translationService.translate('gallery.all');
+    }
+    const key = 'gallery.categories.' + this.slugToKey(category);
+    return this.translationService.translate(key);
+  }
+
+  private slugToKey(slug: string): string {
+    return slug.replace(/-([a-zA-Z])/g, (_, c: string) => c.toUpperCase());
   }
 
   // Get media type icon for grid overlay
@@ -247,12 +258,4 @@ export class GalleryComponent implements OnInit {
     }
   }
 
-  // Get media type label for accessibility
-  getMediaTypeLabel(type: MediaType): string {
-    switch (type) {
-      case 'video': return 'Vídeo';
-      case 'audio': return 'Audio';
-      default: return 'Imagen';
-    }
-  }
 }

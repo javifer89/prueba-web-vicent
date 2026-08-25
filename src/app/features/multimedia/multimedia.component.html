@@ -1,11 +1,11 @@
 <section class="multimedia">
   <div class="container">
     <header class="page-header">
-      <h1>Multimedia</h1>
-      <p class="page-subtitle">Grabaciones, vídeos, entrevistas y podcasts</p>
+      <h1>{{ 'multimedia.title' | translate }}</h1>
+      <p class="page-subtitle">{{ 'multimedia.subtitle' | translate }}</p>
     </header>
 
-    <div class="multimedia-tabs" role="tablist" aria-label="Categorías multimedia">
+    <div class="multimedia-tabs" role="tablist" [attr.aria-label]="'multimedia.tabsAria' | translate">
       <button
         role="tab"
         *ngFor="let tab of tabs; let i = index"
@@ -15,7 +15,7 @@
         [attr.aria-controls]="tab.id + '-panel'"
         [id]="tab.id + '-tab'"
       >
-        {{ tab.label }}
+        {{ ('multimedia.tabs.' + tab.id) | translate }}
       </button>
     </div>
 
@@ -44,13 +44,13 @@
               </div>
               <div class="media-actions">
                 <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
-                  Abrir en nueva pestaña
+                  {{ 'multimedia.openInNewTab' | translate }}
                 </a>
               </div>
             </div>
           </article>
         </div>
-        <p class="no-media" *ngIf="audioItems.length === 0">No hay grabaciones de audio disponibles.</p>
+        <p class="no-media" *ngIf="audioItems.length === 0">{{ 'multimedia.noAudio' | translate }}</p>
       </div>
 
       <!-- Vídeo -->
@@ -65,7 +65,7 @@
           <article *ngFor="let item of videoItems" class="media-card video">
             <div class="media-thumbnail video-thumb">
               <div class="video-preview" [style.background-image]="'url(' + item.thumbnail + ')'">
-                <button class="play-button" (click)="playVideo(item)" aria-label="Reproducir {{ item.title }}">
+                <button class="play-button" (click)="playVideo(item)" [attr.aria-label]="'multimedia.play' | translate:{ title: item.title }">
                   <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
@@ -80,13 +80,13 @@
               </div>
               <div class="media-actions">
                 <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-primary">
-                  Ver en {{ item.platform }}
+                  {{ 'multimedia.watchOn' | translate:{ platform: item.platform || '' } }}
                 </a>
               </div>
             </div>
           </article>
         </div>
-        <p class="no-media" *ngIf="videoItems.length === 0">No hay vídeos disponibles.</p>
+        <p class="no-media" *ngIf="videoItems.length === 0">{{ 'multimedia.noVideo' | translate }}</p>
       </div>
 
       <!-- Entrevistas -->
@@ -112,13 +112,13 @@
               </div>
               <div class="media-actions">
                 <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
-                  Leer/Ver entrevista
+                  {{ 'multimedia.readInterview' | translate }}
                 </a>
               </div>
             </div>
           </article>
         </div>
-        <p class="no-media" *ngIf="interviewItems.length === 0">No hay entrevistas disponibles.</p>
+        <p class="no-media" *ngIf="interviewItems.length === 0">{{ 'multimedia.noInterviews' | translate }}</p>
       </div>
 
       <!-- Otros -->
@@ -142,13 +142,13 @@
               <p class="media-meta">{{ item.description }}</p>
               <div class="media-actions">
                 <a [href]="item.url" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">
-                  Acceder
+                  {{ 'multimedia.access' | translate }}
                 </a>
               </div>
             </div>
           </article>
         </div>
-        <p class="no-media" *ngIf="otherItems.length === 0">No hay contenido adicional disponible.</p>
+        <p class="no-media" *ngIf="otherItems.length === 0">{{ 'multimedia.noOthers' | translate }}</p>
       </div>
     </div>
   </div>
