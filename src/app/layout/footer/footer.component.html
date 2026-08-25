@@ -1,40 +1,24 @@
 <footer class="main-footer" role="contentinfo">
   <div class="footer-content">
-    <div class="footer-section about">
-      <h3>Compositor</h3>
-      <p>Sitio oficial del compositor de música clásica y contemporánea.</p>
+    <div class="footer-left">
+      <p class="footer-copyright">
+        &copy; {{ currentYear }}
+        <svg class="footer-logo" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <circle cx="60" cy="60" r="58" stroke="currentColor" stroke-width="2"/>
+          <path d="M60 30v60M30 60h60" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="20" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        {{ 'footer.copyright' | translate }}
+      </p>
+      <p class="footer-tagline">{{ 'footer.tagline' | translate }}</p>
     </div>
 
-    <div class="footer-section links">
-      <h4>Secciones</h4>
-      <ul class="footer-links">
-        <li *ngFor="let link of navLinks">
-          <a [routerLink]="link.path" routerLinkActive="active">{{ link.label }}</a>
-        </li>
-      </ul>
+    <div class="footer-right">
+      <nav class="footer-legal" [attr.aria-label]="'footer.legalNav' | translate">
+        <a routerLink="/politica-privacidad" class="footer-legal__link">{{ 'footer.privacy' | translate }}</a>
+        <span class="footer-legal__sep" aria-hidden="true">|</span>
+        <a routerLink="/uso-cookies" class="footer-legal__link">{{ 'footer.cookies' | translate }}</a>
+      </nav>
     </div>
-
-    <div class="footer-section contact">
-      <h4>Contacto</h4>
-      <ul class="footer-contact">
-        <li><a href="mailto:info@compositor.com">info@compositor.com</a></li>
-        <li><a href="tel:+34123456789">+34 123 456 789</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-section social">
-      <h4>Redes Sociales</h4>
-      <div class="social-links">
-        <a *ngFor="let social of socialLinks" [href]="social.url" [aria-label]="social.label">
-          <svg *ngIf="social.icon === 'twitter'" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <svg *ngIf="social.icon === 'instagram'" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          <svg *ngIf="social.icon === 'youtube'" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} Compositor de Música Clásica. Todos los derechos reservados.</p>
   </div>
 </footer>

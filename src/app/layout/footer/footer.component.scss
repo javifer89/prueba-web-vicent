@@ -1,132 +1,95 @@
 .main-footer {
-  background-color: #0a0a0a;
-  color: #e8e8e8;
-  font-family: "Source Sans Pro", sans-serif;
-  padding: 4rem 1rem 2rem;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  padding: 2rem 1rem;
 
   .footer-content {
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 2rem 0;
-    border-bottom: 1px solid #2a2a2a;
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem 0;
 
-  .footer-section {
-    h3 {
-      color: #ffffff;
-      font-family: "Playfair Display", serif;
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    p {
-      font-size: 0.875rem;
-      line-height: 1.6;
-      color: #b0b0b0;
-      margin: 0;
-    }
-
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-
-      li {
-        margin-bottom: 0.5rem;
-
-        a {
-          color: #e8e8e8;
-          text-decoration: none;
-          font-size: 0.875rem;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: #ffffff;
-          }
-        }
-      }
-    }
-
-    .footer-contact {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-
-      li {
-        margin-bottom: 0.75rem;
-
-        a {
-          color: #e8e8e8;
-          text-decoration: none;
-          font-size: 0.875rem;
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-
-          &[href^="mailto:"] {
-            color: #4f46e5;
-          }
-
-          &[href^="tel:"] {
-            color: #e8e8e8;
-          }
-        }
-      }
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-
-      a {
-        width: 32px;
-        height: 32px;
-        background-color: #2a2a2a;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #e8e8e8;
-        text-decoration: none;
-        font-size: 1rem;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-
-        &:hover {
-          background-color: #4f46e5;
-          transform: translateY(-2px);
-        }
-      }
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
     }
   }
 
-  .footer-bottom {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #2a2a2a;
-    text-align: center;
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+  }
+
+  .footer-copyright {
+    margin: 0;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .footer-logo {
+    width: 24px;
+    height: 24px;
+    color: var(--color-white);
+    flex-shrink: 0;
+  }
+
+  .footer-tagline {
+    margin: 0;
     font-size: 0.75rem;
-    color: #6b6b6b;
+    color: var(--color-lighter-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-    #year {
-      color: #e8e8e8;
-      font-style: italic;
+  .footer-right {
+    @media (max-width: 768px) {
+      width: 100%;
     }
   }
 
-  @media (max-width: 768px) {
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .footer-bottom {
-      font-size: 0.7rem;
+    &__link {
+      color: var(--color-lighter-gray);
+      text-decoration: none;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color var(--transition-fast);
+
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+
+    &__sep {
+      color: var(--color-medium-gray);
     }
   }
 }
