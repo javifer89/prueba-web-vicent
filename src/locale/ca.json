@@ -1,0 +1,125 @@
+{
+  "site": {
+    "name": "Vicent Egea Insa"
+  },
+  "meta": {
+    "title": "Compositor - Músika Clàssica i Contemporània",
+    "description": " lloc oficial del compositor de música clàssica i contemporània. Obres, biografia, agenda, graccions i contacte professional."
+  },
+  "nav": {
+    "inicio": "Inici",
+    "sobreMi": "Sobre mi",
+    "obras": "Obres",
+    "multimedia": "Multimèdia",
+    "noticias": "Notícies",
+    "contacto": "Contacte",
+    "main": "Navegació principal",
+    "sobre": "Encara"
+  },
+  "biography": {
+    "titulo": "Biografia",
+    "formacion": "Formació",
+    "trayectoria": "Trayectoria professional",
+    "direccion": "Direcció",
+    "composicion": "Composició",
+    "docencia": "Docència"
+  },
+  "home": {
+    "heroTitle": "Vicent Egea Insa",
+    "heroSubtitle": "Compositor i Director d'Orquesta",
+    "heroAria": "Portada",
+    "scrollDown": "Desplaçament a la següent secció",
+    "testimonialsTitle": "Referències",
+    "testimonialsImageAlt": "Vicent Egea Insa dirigint",
+    "nextTestimonial": "Próxim testimoni",
+    "featuredNewsTitle": "Notícies Destacades",
+    "newsTitle": "Últimes Notícies",
+    "viewAllNews": "Veure totes les notícies",
+    "ctaAria": "Formulari de performances",
+    "ctaText": "Omple aquest formulari per informar sobre una interpretació",
+    "home.testimonials": [
+      {
+        "name": "JOSE FRANCH",
+        "role": "Clarinet Solist",
+        "quote": "Colaborar amb Vicent Egea Insa en la creació de obres noves va ser una experiència inoblidable. Vicent va aconseguir que m'embarcara en un viatge de sons i emocions que mai abans havia experimentat. Tot això gràcies a la seua prodigiosa creativitat i al seu gran control tècnic."
+      },
+      {
+        "name": "BEN KOPEC",
+        "role": "Hollywood Film and TV Producer",
+        "quote": "Vicent is a talented composer across multiple genres. I'm always pleased with the quality of work from him. His compositions are fresh, compelling, and well balanced."
+      },
+      {
+        "name": "HENK UMMELS",
+        "role": "Artistic director, Molenaar",
+        "quote": "Des de 2015 el mestre Vicent Egea Insa és un compositor respecte i valuós. Obres mestres com les seues peces per a solista i banda són d'un nivell excel·lent. A més de ser un compositor hàbil, Vicent és una persona molt agradable amb qui treballar. Comunicativament molt sociable i flexible."
+      },
+      {
+        "name": "ANDRÉS VALERO CASTELLS",
+        "role": "Director i compositor",
+        "quote": "El mestre Vicent Egea posa un gran talent per a la direcció, basat en un treball rigorós que procedeix d'un coneixement exhaustiu de la partitura i del respecte, l'interès i l'amor per allò que dirigeix. A més, ho exerceix amb la màxima energia que imprimeix als seus concerts i es converteix en l'intèrpret desitjat pels compositors."
+      },
+      {
+        "name": "BERNARDO ADAM FERRERO",
+        "role": "Director i compositor",
+        "quote": "Vicent Egea és sens dubte el tipus de director a qui confiria qualsevol de les meves obres amb tota garantia d'èxit. A més de la seua qualitat humana, professionalment està molt ben format; això, juntament amb la seua experiència, fan d'ell una aposta segura per a qualsevol formació simfònica."
+      }
+    ]
+  },
+  "agenda": {
+    "title": "Agenda",
+    "subtitle": "Esdeveniments pròxims",
+    "agenda.filterAria": "Filtrar agenda",
+    "agenda.upcoming": "Pròxims",
+    "agenda.past": "Anys passats",
+    "agenda.performersLabel": "Intèrpretes",
+    "agenda.moreInfo": "Més informació",
+    "agenda.viewDetails": "Veure detalls",
+    "agenda.noUpcoming": "No hay events pròxims",
+    "agenda.noPast": "No hi ha events passats"
+  },
+  "multimedia": {
+    "title": "Multimèdia",
+    "subtitle": "Contingut multimèdia",
+    "multimedia.tabsAria": "Seleccionar tipus de contingut",
+    "multimedia.tabs.audio": "Àudio",
+    "multimedia.tabs.video": "Vídeo",
+    "multimedia.tabs.interviews": "Entrevistes",
+    "multimedia.tabs.others": "Altres",
+    "multimedia.openInNewTab": "Obrir en nueva pestaña",
+    "multimedia.play": "Reproduir",
+    "multimedia.watchOn": "Veure a",
+    "multimedia.readInterview": "Llegir entrevista",
+    "multimedia.access": "Accés",
+    "multimedia.noAudio": "No hi disponible àudio",
+    "multimedia.noVideo": "No hi available vídeo disponible",
+    "multimedia.noInterviews": "No hi disponible entrevista disponible",
+    "multimedia.noOthers": "No hi available més contenu disponible",
+    "multimedia.audio": "Àudio",
+    "multimedia.video": "Vídeo",
+    "multimedia.interviews": "Entrevistes",
+    "multimedia.others": "Altres"
+  },
+  "news": {
+    "title": "Notícies",
+    "filterAria": "Filtrar notícies",
+    "empty": "No hi have notícies",
+    "todas": "Totes",
+    "audiovisual": "Audiovisual",
+    "concert": "Concert",
+    "cursos": "Cursos",
+    "direccion": "Dirección",
+    "estrenos": "Estrenos",
+    "sinCategorizar": "Sin categorizar"
+  },
+  "footer": {
+    "copyright": "Derechs de autor © {{year}} Vicent Egea Insa",
+    "tagline": "Compositor i director d'orquesta",
+    "privacy": "Política de privacitat",
+    "cookies": "Cookies",
+    "legalNav": "Legal"
+  },
+  "legal": {
+    "privacyTitle": "Política de privacitat",
+    "cookiesTitle": "Cookies"
+  }
+}
