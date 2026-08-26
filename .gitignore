@@ -2,3 +2,4 @@
 .atl/
 node_modules
 *.tsbuildinfo
+.angular/cache/22.1.5/prueba-web-vicent/.tsbuildinfo
