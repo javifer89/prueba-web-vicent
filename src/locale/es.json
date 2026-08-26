@@ -28,7 +28,34 @@
     "viewAllNews": "Ver todas las noticias",
     "ctaAria": "Formulario de performances",
     "ctaText": "Rellene este formulario para informar sobre una interpretación",
-    "ctaButton": "FORMULARIO PERFORMANCES"
+    "ctaButton": "FORMULARIO PERFORMANCES",
+    "testimonials": [
+      {
+        "name": "JOSE FRANCH",
+        "role": "Clarinet Solist",
+        "quote": "Colaborar junto con Vicent Egea Insa en la creación de nuevas obras fue una experiencia inolvidable. Vicent consiguió que me embarcara en un viaje de sonidos y emociones que nunca antes había experimentado. Todo ello gracias a su prodigiosa creatividad y gran control técnico."
+      },
+      {
+        "name": "BEN KOPEC",
+        "role": "Hollywood Film and TV Producer",
+        "quote": "Vicent is a talented composer across multiple genres. I'm always pleased with the quality of work from him. His compositions are fresh, compelling, and well balanced."
+      },
+      {
+        "name": "HENK UMMELS",
+        "role": "Artistic director, Molenaar",
+        "quote": "Desde 2015 el Maestro Vicent Egea Insa es un compositor respetado y valioso. Obras maestras como sus piezas para solista y banda son de excelente nivel. Además de ser un compositor hábil, Vicent es una persona muy agradable con quien trabajar. Comunicativamente muy sociable y flexible."
+      },
+      {
+        "name": "ANDRÉS VALERO CASTELLS",
+        "role": "Director y compositor",
+        "quote": "El maestro Vicent Egea posee un gran talento para la dirección basado en un riguroso trabajo procedente de un conocimiento exhaustivo de la partitura y del respeto, interés y amor por lo que dirige. Todo ello, además, lo ejerce con la máxima energía que imprime a sus conciertos y se convierte en el intérprete deseado por los compositores."
+      },
+      {
+        "name": "BERNARDO ADAM FERRERO",
+        "role": "Director y compositor",
+        "quote": "Vicent Egea es sin duda el tipo de director a quien pondría en sus manos cualquiera de mis obras, con toda garantía de éxito. Además de su cualidad humana, profesionalmente está muy bien formado, eso junto a su experiencia hacen de él una apuesta segura para cualquier formación sinfónica."
+      }
+    ]
   },
   "news": {
     "title": "Noticias",
@@ -42,7 +69,79 @@
       "estrenos": "Estrenos",
       "sinCategorizar": "Sin categorizar"
     },
-    "empty": "No hay noticias en esta categoría."
+    "empty": "No hay noticias en esta categoría.",
+    "items": [
+      {
+        "slug": "estreno-eternal-echoes-portugal",
+        "category": "estrenos",
+        "date": "2024-04-15",
+        "image": "https://images.unsplash.com/photo-1517665421576-ef4c10e0d7bd?w=800&q=80",
+        "title": "Estreno de Eternal Echoes en Portugal"
+      },
+      {
+        "slug": "estreno-mundial-resilience-eeuu",
+        "category": "estrenos",
+        "date": "2024-04-10",
+        "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+        "title": "Estreno mundial de Resilience en Estados Unidos"
+      },
+      {
+        "slug": "presentacion-cd-gioia",
+        "category": "audiovisual",
+        "date": "2024-03-20",
+        "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+        "title": "Presentación del CD Gioia"
+      },
+      {
+        "slug": "primer-concierto-director-titular",
+        "category": "concert",
+        "date": "2024-03-15",
+        "image": "https://images.unsplash.com/photo-1517665421576-ef4c10e0d7bd?w=800&q=80",
+        "title": "Primer concierto de Vicent Egea como director titular de la Armónica de Buñol"
+      },
+      {
+        "slug": "nuevo-curso-composicion",
+        "category": "cursos",
+        "date": "2024-02-20",
+        "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+        "title": "Inicio de un nuevo curso de composición"
+      },
+      {
+        "slug": "il-campanello-opera",
+        "category": "direccion",
+        "date": "2024-02-10",
+        "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+        "title": "Il Campanello ópera"
+      },
+      {
+        "slug": "estreno-leonardo-dreams",
+        "category": "estrenos",
+        "date": "2024-01-25",
+        "image": "https://images.unsplash.com/photo-1517665421576-ef4c10e0d7bd?w=800&q=80",
+        "title": "Estreno de Leonardo Dreams"
+      },
+      {
+        "slug": "estreno-apocriphos-vancouver",
+        "category": "sinCategorizar",
+        "date": "2024-01-10",
+        "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&q=80",
+        "title": "Estreno de Apocriphos en la British Columbia de Vancouver"
+      },
+      {
+        "slug": "homenaje-lliria",
+        "category": "concert",
+        "date": "2023-12-20",
+        "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
+        "title": "Homenaje en Llíria y estrenos con la Orquesta del Principado de Asturias"
+      },
+      {
+        "slug": "bso-cocktailbrothers",
+        "category": "audiovisual",
+        "date": "2023-12-05",
+        "image": "https://images.unsplash.com/photo-1517665421576-ef4c10e0d7bd?w=800&q=80",
+        "title": "Vicent Egea compondrá la BSO de Cocktail&Brothers"
+      }
+    ]
   },
   "footer": {
     "copyright": "Vicent Egea Insa",
@@ -61,7 +160,45 @@
     "moreInfo": "Más información",
     "viewDetails": "Ver detalles",
     "noUpcoming": "No hay eventos programados próximamente.",
-    "noPast": "No hay eventos en el archivo histórico."
+    "noPast": "No hay eventos en el archivo histórico.",
+    "events": {
+      "1": {
+        "title": "Estreno de \"Concierto Orquestal\"",
+        "description": "Estreno absoluto del Concierto Orquestal, encargo de la Filarmónica de Madrid para su temporada 2024-25.",
+        "month": "NOV",
+        "program": "Concierto Orquestal (estreno) / Obras de R. Strauss y Mahler"
+      },
+      "2": {
+        "title": "Concierto de Música de Cámara",
+        "description": "Programa monográfico de música de cámara con el Cuarteto Quiroga.",
+        "month": "DIC",
+        "program": "Cuarteto de Cuerdas Nº 1 / Cuarteto Nº 2 (estreno) / Obras de Bartók"
+      },
+      "3": {
+        "title": "Festival Internacional de Música Contemporánea",
+        "description": "Participación en el Festival de Alicante con estreno de nueva obra para ensemble y electrónica.",
+        "month": "FEB",
+        "program": "Nueva obra para ensemble y electrónica (estreno)"
+      },
+      "4": {
+        "title": "Estreno de \"Cuarteto de Cuerdas Nº 1\"",
+        "description": "Estreno absoluto del Cuarteto de Cuerdas Nº 1 encargo del Cuarteto Quiroga.",
+        "month": "MAR",
+        "program": "Cuarteto de Cuerdas Nº 1 / Obras de Beethoven y Berg"
+      },
+      "5": {
+        "title": "Residencia en Academia de España en Roma",
+        "description": "Concierto de clausura de la residencia con obras de cámara compuestas durante la estancia.",
+        "month": "JUN",
+        "program": "Obras de cámara (estrenos)"
+      },
+      "6": {
+        "title": "Concierto en Philharmonie de Berlín",
+        "description": "Interpretación de obra orquestal en el ciclo de música contemporánea.",
+        "month": "NOV",
+        "program": "Concierto para orquesta / Obras de Ligeti y Xenakis"
+      }
+    }
   },
   "about": {
     "title": "Biografía",
@@ -86,10 +223,22 @@
     ],
     "awardsTitle": "Premios y Reconocimientos",
     "awards": [
-      { "name": "Premio Nacional de Composición", "detail": "(2018) - Ministerio de Cultura" },
-      { "name": "Premio BBVA Fundación Frontiers of Knowledge", "detail": "(2021) - Categoría Música Contemporánea" },
-      { "name": "Premio Reina Sofía de Composición", "detail": "(2015) - Fundación Albéniz" },
-      { "name": "Beca Leonardo a Investigadores y Creadores Culturales", "detail": "(2019) - Fundación BBVA" }
+      {
+        "name": "Premio Nacional de Composición",
+        "detail": "(2018) - Ministerio de Cultura"
+      },
+      {
+        "name": "Premio BBVA Fundación Frontiers of Knowledge",
+        "detail": "(2021) - Categoría Música Contemporánea"
+      },
+      {
+        "name": "Premio Reina Sofía de Composición",
+        "detail": "(2015) - Fundación Albéniz"
+      },
+      {
+        "name": "Beca Leonardo a Investigadores y Creadores Culturales",
+        "detail": "(2019) - Fundación BBVA"
+      }
     ],
     "residenciesTitle": "Residencias",
     "residencies": [
@@ -100,12 +249,31 @@
     ],
     "dataTitle": "Datos Profesionales",
     "data": [
-      { "label": "Nombre completo", "value": "Nombre Apellidos" },
-      { "label": "Nacimiento", "value": "Madrid, 1985" },
-      { "label": "Nacionalidad", "value": "Española" },
-      { "label": "Web", "value": "compositor.example.com", "href": "https://compositor.example.com" },
-      { "label": "Editorial", "value": "Ediciones Musicales Contemporáneas" },
-      { "label": "Management", "value": "Agencia Cultural XYZ" }
+      {
+        "label": "Nombre completo",
+        "value": "Nombre Apellidos"
+      },
+      {
+        "label": "Nacimiento",
+        "value": "Madrid, 1985"
+      },
+      {
+        "label": "Nacionalidad",
+        "value": "Española"
+      },
+      {
+        "label": "Web",
+        "value": "compositor.example.com",
+        "href": "https://compositor.example.com"
+      },
+      {
+        "label": "Editorial",
+        "value": "Ediciones Musicales Contemporáneas"
+      },
+      {
+        "label": "Management",
+        "value": "Agencia Cultural XYZ"
+      }
     ],
     "collaborationsTitle": "Colaboraciones Recientes",
     "collaborations": [
@@ -209,7 +377,64 @@
     "noAudio": "No hay grabaciones de audio disponibles.",
     "noVideo": "No hay vídeos disponibles.",
     "noInterviews": "No hay entrevistas disponibles.",
-    "noOthers": "No hay contenido adicional disponible."
+    "noOthers": "No hay contenido adicional disponible.",
+    "items": {
+      "audio": [
+        {
+          "title": "Concierto Orquestal - Grabación Completa",
+          "description": "Estreno en el Teatro Real, Madrid. Noviembre 2024."
+        },
+        {
+          "title": "Cuarteto de Cuerdas Nº 1 - Cuarteto Quiroga",
+          "description": "Grabación de estudio, 2021. Encargo del CNDM."
+        },
+        {
+          "title": "Obra para Piano y Electrónica",
+          "description": "Interpretación en el Festival de Alicante, 2023."
+        }
+      ],
+      "video": [
+        {
+          "title": "Entrevista: Proceso Composicional",
+          "description": "Charla sobre metodología y técnicas de composición contemporánea."
+        },
+        {
+          "title": "Estreno \"Concierto Orquestal\" - Teatro Real",
+          "description": "Vídeo completo del estreno absoluto, noviembre 2024."
+        },
+        {
+          "title": "Masterclass en Conservatorio Superior",
+          "description": "Sesión de trabajo con estudiantes de composición."
+        }
+      ],
+      "interviews": [
+        {
+          "title": "El compositor y la tecnología",
+          "description": "Entrevista para Revista Scherzo sobre electrónica en tiempo real.",
+          "date": "Octubre 2024"
+        },
+        {
+          "title": "Música del siglo XXI: retos y oportunidades",
+          "description": "Panel de expertos en el Festival de Alicante.",
+          "date": "Septiembre 2024"
+        },
+        {
+          "title": "De la partitura al escenario",
+          "description": "Podcast \"Compositores Hoy\" - Episodio 12.",
+          "date": "Julio 2024"
+        }
+      ],
+      "others": [
+        {
+          "title": "Catálogo de Obras (PDF)",
+          "description": "Catálogo completo actualizado con fichas técnicas."
+        },
+        {
+          "title": "Dossier de Prensa 2024",
+          "description": "Material gráfico, biografías y notas de programa para medios."
+        }
+      ]
+    }
   },
   "contact": {
     "title": "Contacto",
