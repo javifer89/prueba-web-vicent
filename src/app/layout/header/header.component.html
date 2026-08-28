@@ -15,16 +15,58 @@
     </button>
 
     <ul class="nav-list" [class.open]="isMenuOpen" role="menubar">
-      <li *ngFor="let item of navItems" class="nav-item" role="none">
-        <a
-          [routerLink]="item.path"
-          routerLinkActive="active"
-          class="nav-link"
-          role="menuitem"
-          (click)="closeMenu()"
-        >
-          {{ item.label }}
-        </a>
+      <li *ngFor="let item of navItems; let i = index" class="nav-item" role="none">
+        <!-- Si el ítem tiene dropdown, mostramos un menú en lugar de un enlace simple -->
+        <ng-container *ngIf="item.dropdown; else simpleLink">
+          <a
+            class="nav-link dropdown-toggle"
+            role="menuitem"
+            [attr.aria-haspopup]="true"
+            [attr.aria-expanded]="isDropdownOpen(i)"
+            (click)="toggleDropdown(i)"
+          >
+            {{ item.label | translate }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </a>
+          <ul class="dropdown-menu" role="menu" [class.open]="isDropdownOpen(i)">
+            <li *ngFor="let sub of item.dropdown" class="dropdown-item">
+              <ng-container *ngIf="sub.action === 'changeLang' && sub.lang; else normalLink">
+                <button
+                  class="dropdown-link"
+                  role="menuitem"
+                  (click)="handleDropdownAction(sub)"
+                >
+                  {{ sub.label | translate }}
+                </button>
+              </ng-container>
+              <ng-template #normalLink>
+                <a
+                  [routerLink]="sub.path"
+                  routerLinkActive="active"
+                  class="dropdown-link"
+                  role="menuitem"
+                  (click)="closeMenu()"
+                >
+                  {{ sub.label | translate }}
+                </a>
+              </ng-template>
+            </li>
+          </ul>
+        </ng-container>
+        <!-- Enlace simple para los demás ítems -->
+        <ng-template #simpleLink>
+          <a
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            class="nav-link"
+            role="menuitem"
+            (click)="closeMenu()"
+          >
+            {{ item.label | translate }}
+          </a>
+        </ng-template>
       </li>
     </ul>
   </nav>

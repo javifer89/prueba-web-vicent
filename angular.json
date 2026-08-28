@@ -29,6 +29,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "*.json",
+                "input": "src/locale",
+                "output": "locale"
               }
             ],
             "styles": [
@@ -85,6 +90,11 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              {
+                "glob": "*.json",
+                "input": "src/locale",
+                "output": "locale"
+              },
               {
                 "glob": "**/*",
                 "input": "public"
