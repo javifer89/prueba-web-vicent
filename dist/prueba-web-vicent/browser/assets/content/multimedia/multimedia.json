@@ -1,0 +1,318 @@
+{
+  "metadata": {
+    "id": "multimedia",
+    "type": "multimedia",
+    "translations": {
+      "ca": {
+        "title": "Multimèdia",
+        "subtitle": "Gravacions, vídeos, entrevistes i podcasts",
+        "tabs": {
+          "audio": "Àudio",
+          "video": "Vídeo",
+          "interviews": "Entrevistes",
+          "others": "Altres"
+        },
+        "noAudio": "No hi ha gravacions d'àudio disponibles.",
+        "noVideo": "No hi ha vídeos disponibles.",
+        "noInterviews": "No hi ha entrevistes disponibles.",
+        "noOthers": "No hi ha més contingut disponible.",
+        "openInNewTab": "Obrir en nova pestanya",
+        "play": "Reproduir",
+        "watchOn": "Veure a",
+        "readInterview": "Llegir entrevista",
+        "access": "Accedir"
+      },
+      "es": {
+        "title": "Multimedia",
+        "subtitle": "Grabaciones, vídeos, entrevistas y podcasts",
+        "tabs": {
+          "audio": "Audio",
+          "video": "Vídeo",
+          "interviews": "Entrevistas",
+          "others": "Otros"
+        },
+        "noAudio": "No hay grabaciones de audio disponibles.",
+        "noVideo": "No hay vídeos disponibles.",
+        "noInterviews": "No hay entrevistas disponibles.",
+        "noOthers": "No hay contenido adicional disponible.",
+        "openInNewTab": "Abrir en nueva pestaña",
+        "play": "Reproducir",
+        "watchOn": "Ver en",
+        "readInterview": "Leer entrevista",
+        "access": "Acceder"
+      },
+      "en": {
+        "title": "Multimedia",
+        "subtitle": "Recordings, videos, interviews and podcasts",
+        "tabs": {
+          "audio": "Audio",
+          "video": "Video",
+          "interviews": "Interviews",
+          "others": "Others"
+        },
+        "noAudio": "No audio recordings available.",
+        "noVideo": "No videos available.",
+        "noInterviews": "No interviews available.",
+        "noOthers": "No other content available.",
+        "openInNewTab": "Open in new tab",
+        "play": "Play",
+        "watchOn": "Watch on",
+        "readInterview": "Read interview",
+        "access": "Access"
+      }
+    },
+    "status": {
+      "ca": "original",
+      "es": "translated",
+      "en": "translated"
+    },
+    "updatedAt": {
+      "ca": "2024-01-15",
+      "es": "2024-01-16",
+      "en": "2024-01-16"
+    },
+    "sourceLocale": "ca"
+  },
+  "data": {
+    "ca": {
+      "audio": [
+        {
+          "title": "Concert Orquestral - Gravació Completa",
+          "description": "Estrena al Teatre Real, Madrid. Novembre 2024.",
+          "url": "https://example.com/audio/concierto-orquestal.mp3",
+          "platform": "custom"
+        },
+        {
+          "title": "Quartet de Corda Nº 1 - Quartet Quiroga",
+          "description": "Gravació d'estudi, 2021. Encàrrec del CNDM.",
+          "url": "https://example.com/audio/cuarteto1.mp3",
+          "platform": "custom"
+        },
+        {
+          "title": "Obra per a Piano i Electrònica",
+          "description": "Interpretació al Festival d'Alacant, 2023.",
+          "url": "https://soundcloud.com/example/piano-electronica",
+          "platform": "soundcloud"
+        }
+      ],
+      "video": [
+        {
+          "title": "Entrevista: Procés Composicional",
+          "description": "Xerrada sobre metodologia i tècniques de composició contemporània.",
+          "url": "https://youtube.com/watch?v=example1",
+          "thumbnail": "https://img.youtube.com/vi/example1/maxresdefault.jpg",
+          "platform": "youtube"
+        },
+        {
+          "title": "Estrena \"Concert Orquestral\" - Teatre Real",
+          "description": "Vídeo complet de l'estrena absoluta, novembre 2024.",
+          "url": "https://youtube.com/watch?v=example2",
+          "thumbnail": "https://img.youtube.com/vi/example2/maxresdefault.jpg",
+          "platform": "youtube"
+        },
+        {
+          "title": "Masterclass al Conservatori Superior",
+          "description": "Sessió de treball amb estudiants de composició.",
+          "url": "https://vimeo.com/example3",
+          "thumbnail": "https://i.vimeocdn.com/video/example3.webp",
+          "platform": "vimeo"
+        }
+      ],
+      "interviews": [
+        {
+          "title": "El compositor i la tecnologia",
+          "description": "Entrevista per a Revista Scherzo sobre electrònica en temps real.",
+          "url": "https://scherzo.example.com/entrevista-tecnologia",
+          "source": "Revista Scherzo",
+          "date": "Octubre 2024"
+        },
+        {
+          "title": "Música del segle XXI: reptes i oportunitats",
+          "description": "Taula d'experts al Festival d'Alacant.",
+          "url": "https://festivalalicante.example.com/panel-2024",
+          "source": "Festival d'Alacant",
+          "date": "Setembre 2024"
+        },
+        {
+          "title": "De la partitura a l'escenari",
+          "description": "Podcast \"Compositors Avui\" - Episodi 12.",
+          "url": "https://podcast.example.com/episodi-12",
+          "source": "Podcast Compositors Avui",
+          "date": "Juliol 2024"
+        }
+      ],
+      "others": [
+        {
+          "title": "Catàleg d'Obres (PDF)",
+          "description": "Catàleg complet actualitzat amb fitxes tècniques.",
+          "url": "/assets/pdfs/catalogo-obras.pdf"
+        },
+        {
+          "title": "Dossier de Premsa 2024",
+          "description": "Material gràfic, biografies i notes de programa per a mitjans.",
+          "url": "/assets/pdfs/dossier-prensa-2024.pdf"
+        }
+      ]
+    },
+    "es": {
+      "audio": [
+        {
+          "title": "Concierto Orquestal - Grabación Completa",
+          "description": "Estreno en el Teatro Real, Madrid. Noviembre 2024.",
+          "url": "https://example.com/audio/concierto-orquestal.mp3",
+          "platform": "custom"
+        },
+        {
+          "title": "Cuarteto de Cuerdas Nº 1 - Cuarteto Quiroga",
+          "description": "Grabación de estudio, 2021. Encargo del CNDM.",
+          "url": "https://example.com/audio/cuarteto1.mp3",
+          "platform": "custom"
+        },
+        {
+          "title": "Obra para Piano y Electrónica",
+          "description": "Interpretación en el Festival de Alicante, 2023.",
+          "url": "https://soundcloud.com/example/piano-electronica",
+          "platform": "soundcloud"
+        }
+      ],
+      "video": [
+        {
+          "title": "Entrevista: Proceso Composicional",
+          "description": "Charla sobre metodología y técnicas de composición contemporánea.",
+          "url": "https://youtube.com/watch?v=example1",
+          "thumbnail": "https://img.youtube.com/vi/example1/maxresdefault.jpg",
+          "platform": "youtube"
+        },
+        {
+          "title": "Estreno \"Concierto Orquestal\" - Teatro Real",
+          "description": "Vídeo completo del estreno absoluto, noviembre 2024.",
+          "url": "https://youtube.com/watch?v=example2",
+          "thumbnail": "https://img.youtube.com/vi/example2/maxresdefault.jpg",
+          "platform": "youtube"
+        },
+        {
+          "title": "Masterclass en Conservatorio Superior",
+          "description": "Sesión de trabajo con estudiantes de composición.",
+          "url": "https://vimeo.com/example3",
+          "thumbnail": "https://i.vimeocdn.com/video/example3.webp",
+          "platform": "vimeo"
+        }
+      ],
+      "interviews": [
+        {
+          "title": "El compositor y la tecnología",
+          "description": "Entrevista para Revista Scherzo sobre electrónica en tiempo real.",
+          "url": "https://scherzo.example.com/entrevista-tecnologia",
+          "source": "Revista Scherzo",
+          "date": "Octubre 2024"
+        },
+        {
+          "title": "Música del siglo XXI: retos y oportunidades",
+          "description": "Panel de expertos en el Festival de Alicante.",
+          "url": "https://festivalalicante.example.com/panel-2024",
+          "source": "Festival de Alicante",
+          "date": "Septiembre 2024"
+        },
+        {
+          "title": "De la partitura al escenario",
+          "description": "Podcast \"Compositores Hoy\" - Episodio 12.",
+          "url": "https://podcast.example.com/episodio-12",
+          "source": "Podcast Compositores Hoy",
+          "date": "Julio 2024"
+        }
+      ],
+      "others": [
+        {
+          "title": "Catálogo de Obras (PDF)",
+          "description": "Catálogo completo actualizado con fichas técnicas.",
+          "url": "/assets/pdfs/catalogo-obras.pdf"
+        },
+        {
+          "title": "Dossier de Prensa 2024",
+          "description": "Material gráfico, biografías y notas de programa para medios.",
+          "url": "/assets/pdfs/dossier-prensa-2024.pdf"
+        }
+      ]
+    },
+    "en": {
+      "audio": [
+        {
+          "title": "Orchestral Concert - Full Recording",
+          "description": "Premiere at Teatro Real, Madrid. November 2024.",
+          "url": "https://example.com/audio/concierto-orquestal.mp3",
+          "platform": "custom"
+        },
+        {
+          "title": "String Quartet No. 1 - Quiroga Quartet",
+          "description": "Studio recording, 2021. CNDM commission.",
+          "url": "https://example.com/audio/cuarteto1.mp3",
+          "platform": "custom"
+        },
+        {
+          "title": "Work for Piano and Electronics",
+          "description": "Performance at Alicante Festival, 2023.",
+          "url": "https://soundcloud.com/example/piano-electronica",
+          "platform": "soundcloud"
+        }
+      ],
+      "video": [
+        {
+          "title": "Interview: Compositional Process",
+          "description": "Talk about methodology and contemporary composition techniques.",
+          "url": "https://youtube.com/watch?v=example1",
+          "thumbnail": "https://img.youtube.com/vi/example1/maxresdefault.jpg",
+          "platform": "youtube"
+        },
+        {
+          "title": "Premiere \"Orchestral Concert\" - Teatro Real",
+          "description": "Full video of world premiere, November 2024.",
+          "url": "https://youtube.com/watch?v=example2",
+          "thumbnail": "https://img.youtube.com/vi/example2/maxresdefault.jpg",
+          "platform": "youtube"
+        },
+        {
+          "title": "Masterclass at Superior Conservatory",
+          "description": "Working session with composition students.",
+          "url": "https://vimeo.com/example3",
+          "thumbnail": "https://i.vimeocdn.com/video/example3.webp",
+          "platform": "vimeo"
+        }
+      ],
+      "interviews": [
+        {
+          "title": "The Composer and Technology",
+          "description": "Interview for Scherzo Magazine on real-time electronics.",
+          "url": "https://scherzo.example.com/entrevista-tecnologia",
+          "source": "Scherzo Magazine",
+          "date": "October 2024"
+        },
+        {
+          "title": "21st Century Music: Challenges and Opportunities",
+          "description": "Expert panel at Alicante Festival.",
+          "url": "https://festivalalicante.example.com/panel-2024",
+          "source": "Alicante Festival",
+          "date": "September 2024"
+        },
+        {
+          "title": "From Score to Stage",
+          "description": "Podcast \"Composers Today\" - Episode 12.",
+          "url": "https://podcast.example.com/episode-12",
+          "source": "Podcast Composers Today",
+          "date": "July 2024"
+        }
+      ],
+      "others": [
+        {
+          "title": "Works Catalog (PDF)",
+          "description": "Complete updated catalog with technical sheets.",
+          "url": "/assets/pdfs/catalogo-obras.pdf"
+        },
+        {
+          "title": "Press Kit 2024",
+          "description": "Graphic material, biographies and program notes for media.",
+          "url": "/assets/pdfs/dossier-prensa-2024.pdf"
+        }
+      ]
+    }
+  }
+}

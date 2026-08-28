@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "id": "news",
+    "type": "news",
+    "translations": {
+      "ca": {
+        "title": "Notícies",
+        "filterAria": "Filtrar notícies",
+        "empty": "No hi ha notícies",
+        "categories": {
+          "all": "Totes",
+          "audiovisual": "Audiovisual",
+          "concert": "Concert",
+          "cursos": "Cursos",
+          "direccion": "Direcció",
+          "estrenos": "Estrenes",
+          "uncategorized": "Sense categoritzar"
+        }
+      },
+      "es": {
+        "title": "Noticias",
+        "filterAria": "Filtrar noticias",
+        "empty": "No hay noticias",
+        "categories": {
+          "all": "Todas",
+          "audiovisual": "Audiovisual",
+          "concert": "Concierto",
+          "cursos": "Cursos",
+          "direccion": "Dirección",
+          "estrenos": "Estrenos",
+          "uncategorized": "Sin categorizar"
+        }
+      },
+      "en": {
+        "title": "News",
+        "filterAria": "Filter news",
+        "empty": "No news",
+        "categories": {
+          "all": "All",
+          "audiovisual": "Audiovisual",
+          "concert": "Concert",
+          "cursos": "Courses",
+          "direccion": "Direction",
+          "estrenos": "Premieres",
+          "uncategorized": "Uncategorized"
+        }
+      }
+    },
+    "status": {
+      "ca": "original",
+      "es": "translated",
+      "en": "translated"
+    },
+    "updatedAt": {
+      "ca": "2024-01-15",
+      "es": "2024-01-16",
+      "en": "2024-01-16"
+    },
+    "sourceLocale": "ca"
+  },
+  "data": {
+    "ca": [],
+    "es": [],
+    "en": []
+  }
+}

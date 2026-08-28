@@ -2,14 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { Observable } from 'rxjs';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 import { Composition, CompositionCategory } from '../models/composition.model';
-import { CompositionService } from '../../../core/services/composition.service';
+import { EditorialContentService } from '../../../core/services/editorial-content.service';
+
+interface CompositionsContent {
+  ca: Composition[];
+  es: Composition[];
+  en: Composition[];
+}
 
 @Component({
   selector: 'app-composition-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: './composition-list.component.html',
   styleUrls: ['./composition-list.component.scss'],
 })
@@ -26,17 +32,19 @@ export class CompositionListComponent implements OnInit {
   ];
   searchTerm: string = '';
 
-  constructor(private service: CompositionService) {}
+  constructor(private editorialContentService: EditorialContentService) {}
 
   ngOnInit(): void {
     this.loadCompositions();
   }
 
-  loadCompositions(): void {
-    this.service.getAll().subscribe(compositions => {
-      this.compositions = compositions;
-      this.filteredCompositions = compositions;
-    });
+  private loadCompositions(): void {
+    this.editorialContentService.getLocalizedContent<Composition[]>('compositions', 'catalog').subscribe(
+      content => {
+        this.compositions = content || [];
+        this.filteredCompositions = this.compositions;
+      }
+    );
   }
 
   onCategoryChange(event: Event): void {

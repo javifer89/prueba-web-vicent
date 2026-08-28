@@ -1,0 +1,195 @@
+{
+  "metadata": {
+    "id": "gallery",
+    "type": "gallery",
+    "translations": {
+      "ca": {
+        "title": "Galeria",
+        "subtitle": "Una selecció de moments, assaigs, estrens i retrats al llarg de la meua trajectòria.",
+        "allCategories": "Totes",
+        "noItems": "No hi ha elements en aquesta categoria.",
+        "mediaTypes": {
+          "image": "Imatge",
+          "video": "Vídeo",
+          "audio": "Àudio"
+        }
+      },
+      "es": {
+        "title": "Galería",
+        "subtitle": "Una selección de momentos, ensayos, estrenos y retratos a lo largo de mi trayectoria.",
+        "allCategories": "Todas",
+        "noItems": "No hay elementos en esta categoría.",
+        "mediaTypes": {
+          "image": "Imagen",
+          "video": "Vídeo",
+          "audio": "Audio"
+        }
+      },
+      "en": {
+        "title": "Gallery",
+        "subtitle": "A selection of moments, rehearsals, premieres and portraits throughout my career.",
+        "allCategories": "All",
+        "noItems": "No items in this category.",
+        "mediaTypes": {
+          "image": "Image",
+          "video": "Video",
+          "audio": "Audio"
+        }
+      }
+    },
+    "status": {
+      "ca": "original",
+      "es": "translated",
+      "en": "translated"
+    },
+    "updatedAt": {
+      "ca": "2024-01-15",
+      "es": "2024-01-16",
+      "en": "2024-01-16"
+    },
+    "sourceLocale": "ca"
+  },
+  "data": {
+    "ca": [
+      {
+        "id": "portrait-1",
+        "type": "image",
+        "url": "/assets/images/gallery/portrait-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/portrait-1.jpg",
+        "description": "Retrat oficial 2024",
+        "category": "retrats",
+        "date": "2024-01-15"
+      },
+      {
+        "id": "portrait-2",
+        "type": "image",
+        "url": "/assets/images/gallery/portrait-2.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/portrait-2.jpg",
+        "description": "Sessió de fotos a l'estudi",
+        "category": "retrats",
+        "date": "2023-06-20"
+      },
+      {
+        "id": "concert-img-1",
+        "type": "image",
+        "url": "/assets/images/gallery/concert-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/concert-1.jpg",
+        "description": "Concert a l'Auditori Nacional",
+        "category": "concerts",
+        "date": "2024-03-15"
+      },
+      {
+        "id": "concert-img-2",
+        "type": "image",
+        "url": "/assets/images/gallery/concert-2.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/concert-2.jpg",
+        "description": "Assaig amb l'Orquestra Filharmònica",
+        "category": "concerts",
+        "date": "2024-02-28"
+      },
+      {
+        "id": "premiere-img-1",
+        "type": "image",
+        "url": "/assets/images/gallery/premiere-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/premiere-1.jpg",
+        "description": "Estrena \"Concert Orquestral\" - Teatre Real",
+        "category": "estrens",
+        "date": "2024-11-15"
+      }
+    ],
+    "es": [
+      {
+        "id": "portrait-1",
+        "type": "image",
+        "url": "/assets/images/gallery/portrait-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/portrait-1.jpg",
+        "description": "Retrato oficial 2024",
+        "category": "retratos",
+        "date": "2024-01-15"
+      },
+      {
+        "id": "portrait-2",
+        "type": "image",
+        "url": "/assets/images/gallery/portrait-2.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/portrait-2.jpg",
+        "description": "Sesión de fotos en estudio",
+        "category": "retratos",
+        "date": "2023-06-20"
+      },
+      {
+        "id": "concert-img-1",
+        "type": "image",
+        "url": "/assets/images/gallery/concert-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/concert-1.jpg",
+        "description": "Concierto en el Auditorio Nacional",
+        "category": "conciertos",
+        "date": "2024-03-15"
+      },
+      {
+        "id": "concert-img-2",
+        "type": "image",
+        "url": "/assets/images/gallery/concert-2.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/concert-2.jpg",
+        "description": "Ensayo con la Orquesta Filarmónica",
+        "category": "conciertos",
+        "date": "2024-02-28"
+      },
+      {
+        "id": "premiere-img-1",
+        "type": "image",
+        "url": "/assets/images/gallery/premiere-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/premiere-1.jpg",
+        "description": "Estreno \"Concierto Orquestal\" - Teatro Real",
+        "category": "estrenos",
+        "date": "2024-11-15"
+      }
+    ],
+    "en": [
+      {
+        "id": "portrait-1",
+        "type": "image",
+        "url": "/assets/images/gallery/portrait-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/portrait-1.jpg",
+        "description": "Official portrait 2024",
+        "category": "portraits",
+        "date": "2024-01-15"
+      },
+      {
+        "id": "portrait-2",
+        "type": "image",
+        "url": "/assets/images/gallery/portrait-2.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/portrait-2.jpg",
+        "description": "Studio photo session",
+        "category": "portraits",
+        "date": "2023-06-20"
+      },
+      {
+        "id": "concert-img-1",
+        "type": "image",
+        "url": "/assets/images/gallery/concert-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/concert-1.jpg",
+        "description": "Concert at National Auditorium",
+        "category": "concerts",
+        "date": "2024-03-15"
+      },
+      {
+        "id": "concert-img-2",
+        "type": "image",
+        "url": "/assets/images/gallery/concert-2.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/concert-2.jpg",
+        "description": "Rehearsal with Philharmonic Orchestra",
+        "category": "concerts",
+        "date": "2024-02-28"
+      },
+      {
+        "id": "premiere-img-1",
+        "type": "image",
+        "url": "/assets/images/gallery/premiere-1.jpg",
+        "thumbnail": "/assets/images/gallery/thumbs/premiere-1.jpg",
+        "description": "Premiere \"Orchestral Concert\" - Teatro Real",
+        "category": "premieres",
+        "date": "2024-11-15"
+      }
+    ]
+  }
+}

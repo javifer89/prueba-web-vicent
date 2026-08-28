@@ -1,0 +1,303 @@
+{
+  "metadata": {
+    "id": "catalog",
+    "type": "compositions",
+    "translations": {
+      "ca": {
+        "catalogTitle": "Catàleg d'Obres",
+        "categoryLabel": "Categoria",
+        "searchLabel": "Buscar",
+        "allCategories": "Totes",
+        "durationLabel": "Durada",
+        "instrumentationLabel": "Instrumentació",
+        "descriptionLabel": "Descripció",
+        "viewDetails": "Veure detalls",
+        "noResults": "No s'han trobat obres amb els criteris seleccionats.",
+        "noFiles": "No hi ha partitures disponibles per a aquesta obra.",
+        "noRecordings": "No hi ha gravacions disponibles.",
+        "noVideos": "No hi ha vídeos disponibles.",
+        "noImages": "No hi ha imatges disponibles.",
+        "premiereInfo": "Informació de l'Estrena",
+        "premiereDate": "Data",
+        "premierePlace": "Lloc",
+        "premierePerformers": "Intèrpretes",
+        "premiereDirector": "Director",
+        "premiereFestival": "Festival/Institució",
+        "toBeConfirmed": "Per confirmar",
+        "notFound": "Obra no trobada.",
+        "backToCatalog": "Tornar al catàleg",
+        "categories": {
+          "ORCHESTRA": "Orquestra",
+          "CHAMBER": "Música de càmera",
+          "PIANO": "Piano",
+          "VOCAL": "Música vocal",
+          "ELECTRONIC": "Electrònica",
+          "OTHER": "Altres"
+        }
+      },
+      "es": {
+        "catalogTitle": "Catálogo de Obras",
+        "categoryLabel": "Categoría",
+        "searchLabel": "Buscar",
+        "allCategories": "Todas",
+        "durationLabel": "Duración",
+        "instrumentationLabel": "Instrumentación",
+        "descriptionLabel": "Descripción",
+        "viewDetails": "Ver detalles",
+        "noResults": "No se encontraron obras con los criterios seleccionados.",
+        "noFiles": "No hay partituras disponibles para esta obra.",
+        "noRecordings": "No hay grabaciones disponibles.",
+        "noVideos": "No hay vídeos disponibles.",
+        "noImages": "No hay imágenes disponibles.",
+        "premiereInfo": "Información del Estreno",
+        "premiereDate": "Fecha",
+        "premierePlace": "Lugar",
+        "premierePerformers": "Intérpretes",
+        "premiereDirector": "Director",
+        "premiereFestival": "Festival/Institución",
+        "toBeConfirmed": "Por confirmar",
+        "notFound": "Obra no encontrada.",
+        "backToCatalog": "Volver al catálogo",
+        "categories": {
+          "ORCHESTRA": "Orquesta",
+          "CHAMBER": "Música de cámara",
+          "PIANO": "Piano",
+          "VOCAL": "Música vocal",
+          "ELECTRONIC": "Electrónica",
+          "OTHER": "Otro"
+        }
+      },
+      "en": {
+        "catalogTitle": "Works Catalog",
+        "categoryLabel": "Category",
+        "searchLabel": "Search",
+        "allCategories": "All",
+        "durationLabel": "Duration",
+        "instrumentationLabel": "Instrumentation",
+        "descriptionLabel": "Description",
+        "viewDetails": "View details",
+        "noResults": "No works found with the selected criteria.",
+        "noFiles": "No scores available for this work.",
+        "noRecordings": "No recordings available.",
+        "noVideos": "No videos available.",
+        "noImages": "No images available.",
+        "premiereInfo": "Premiere Information",
+        "premiereDate": "Date",
+        "premierePlace": "Venue",
+        "premierePerformers": "Performers",
+        "premiereDirector": "Conductor",
+        "premiereFestival": "Festival/Institution",
+        "toBeConfirmed": "To be confirmed",
+        "notFound": "Work not found.",
+        "backToCatalog": "Back to catalog",
+        "categories": {
+          "ORCHESTRA": "Orchestra",
+          "CHAMBER": "Chamber Music",
+          "PIANO": "Piano",
+          "VOCAL": "Vocal",
+          "ELECTRONIC": "Electronic",
+          "OTHER": "Other"
+        }
+      }
+    },
+    "status": {
+      "ca": "original",
+      "es": "translated",
+      "en": "translated"
+    },
+    "updatedAt": {
+      "ca": "2024-01-15",
+      "es": "2024-01-16",
+      "en": "2024-01-16"
+    },
+    "sourceLocale": "ca"
+  },
+  "data": {
+    "ca": [
+      {
+        "id": "1",
+        "slug": "quartet-de-corda-n1",
+        "title": "Quartet de Corda Nº 1",
+        "year": 2020,
+        "duration": "12:30",
+        "instrumentation": "2 violins, viola, violoncèl",
+        "category": "ORCHESTRA",
+        "description": "Una obra en quatre moviments que explora la relació entre els quatre instruments de corda. Encàrrec del Quartet Quiroga.",
+        "premiere": {
+          "date": "2021-03-15",
+          "place": "Auditori Nacional",
+          "performers": ["Quartet Quiroga"],
+          "director": "",
+          "festival": "Cicle de Càmera"
+        },
+        "files": [
+          {
+            "name": "Partitura completa.pdf",
+            "type": "pdf",
+            "url": "/assets/pdfs/quarteto1-partitura.pdf",
+            "description": "Partitura completa per a quartet de corda"
+          }
+        ],
+        "recordings": [],
+        "videos": [],
+        "images": [],
+        "performers": [],
+        "notes": "Estrenada pel Quartet Quiroga a l'Auditori Nacional de Madrid."
+      },
+      {
+        "id": "2",
+        "slug": "concert-orquestral",
+        "title": "Concert Orquestral",
+        "year": 2022,
+        "duration": "25:00",
+        "instrumentation": "Orquestra completa (3.3.3.3/4.3.3.1/timp+3perc/arp/cordes)",
+        "category": "ORCHESTRA",
+        "description": "Concert per a orquestra en un sol moviment, encàrrec de la Filharmònica de Madrid. Explora textures orquestrals denses i moments de gran transparència.",
+        "premiere": {
+          "date": "2022-11-20",
+          "place": "Teatre Real",
+          "performers": ["Orquestra Filharmònica de Madrid"],
+          "director": "Pedro Halffter",
+          "festival": "Temporada 2022-23"
+        },
+        "files": [
+          {
+            "name": "Partitura orquestral.pdf",
+            "type": "pdf",
+            "url": "/assets/pdfs/concierto-orquestal.pdf",
+            "description": "Partitura per a orquestra completa"
+          }
+        ],
+        "recordings": [],
+        "videos": [],
+        "images": [],
+        "performers": [],
+        "notes": "Obra d'encàrrec de la Filharmònica de Madrid per a la seva temporada 2022-23."
+      }
+    ],
+    "es": [
+      {
+        "id": "1",
+        "slug": "cuarteto-de-cuerdas-n1",
+        "title": "Cuarteto de Cuerdas Nº 1",
+        "year": 2020,
+        "duration": "12:30",
+        "instrumentation": "2 violines, viola, cello",
+        "category": "ORCHESTRA",
+        "description": "Una obra en cuatro movimientos que explora la relación entre los cuatro instrumentos de cuerda. Encargada por el Cuarteto Quiroga.",
+        "premiere": {
+          "date": "2021-03-15",
+          "place": "Auditorio Nacional",
+          "performers": ["Cuarteto Quiroga"],
+          "director": "",
+          "festival": "Ciclo de Cámara"
+        },
+        "files": [
+          {
+            "name": "Partitura completa.pdf",
+            "type": "pdf",
+            "url": "/assets/pdfs/quarteto1-partitura.pdf",
+            "description": "Partitura completa para cuarteto de cuerda"
+          }
+        ],
+        "recordings": [],
+        "videos": [],
+        "images": [],
+        "performers": [],
+        "notes": "Estrenada por el Cuarteto Quiroga en el Auditorio Nacional de Madrid."
+      },
+      {
+        "id": "2",
+        "slug": "concierto-orquestal",
+        "title": "Concierto Orquestal",
+        "year": 2022,
+        "duration": "25:00",
+        "instrumentation": "Orquesta completa (3.3.3.3/4.3.3.1/timp+3perc/arp/cuerdas)",
+        "category": "ORCHESTRA",
+        "description": "Concierto para orquesta en un solo movimiento, encargo de la Filarmónica de Madrid. Explora texturas orquestales densas y momentos de gran transparencia.",
+        "premiere": {
+          "date": "2022-11-20",
+          "place": "Teatro Real",
+          "performers": ["Orquesta Filarmónica de Madrid"],
+          "director": "Pedro Halffter",
+          "festival": "Temporada 2022-23"
+        },
+        "files": [
+          {
+            "name": "Partitura orquestal.pdf",
+            "type": "pdf",
+            "url": "/assets/pdfs/concierto-orquestal.pdf",
+            "description": "Partitura para orquesta completa"
+          }
+        ],
+        "recordings": [],
+        "videos": [],
+        "images": [],
+        "performers": [],
+        "notes": "Obra encargo de la Filarmónica de Madrid para su temporada 2022-23."
+      }
+    ],
+    "en": [
+      {
+        "id": "1",
+        "slug": "string-quartet-n1",
+        "title": "String Quartet No. 1",
+        "year": 2020,
+        "duration": "12:30",
+        "instrumentation": "2 violins, viola, cello",
+        "category": "ORCHESTRA",
+        "description": "A work in four movements exploring the relationship between the four string instruments. Commissioned by the Quiroga Quartet.",
+        "premiere": {
+          "date": "2021-03-15",
+          "place": "National Auditorium",
+          "performers": ["Quiroga Quartet"],
+          "director": "",
+          "festival": "Chamber Series"
+        },
+        "files": [
+          {
+            "name": "Full score.pdf",
+            "type": "pdf",
+            "url": "/assets/pdfs/quarteto1-partitura.pdf",
+            "description": "Full score for string quartet"
+          }
+        ],
+        "recordings": [],
+        "videos": [],
+        "images": [],
+        "performers": [],
+        "notes": "Premiered by the Quiroga Quartet at the National Auditorium in Madrid."
+      },
+      {
+        "id": "2",
+        "slug": "orchestral-concert",
+        "title": "Orchestral Concert",
+        "year": 2022,
+        "duration": "25:00",
+        "instrumentation": "Full orchestra (3.3.3.3/4.3.3.1/timp+3perc/harp/strings)",
+        "category": "ORCHESTRA",
+        "description": "Concerto for orchestra in a single movement, commissioned by the Madrid Philharmonic. Explores dense orchestral textures and moments of great transparency.",
+        "premiere": {
+          "date": "2022-11-20",
+          "place": "Teatro Real",
+          "performers": ["Madrid Philharmonic Orchestra"],
+          "director": "Pedro Halffter",
+          "festival": "2022-23 Season"
+        },
+        "files": [
+          {
+            "name": "Orchestral score.pdf",
+            "type": "pdf",
+            "url": "/assets/pdfs/concierto-orquestal.pdf",
+            "description": "Full orchestral score"
+          }
+        ],
+        "recordings": [],
+        "videos": [],
+        "images": [],
+        "performers": [],
+        "notes": "Work commissioned by the Madrid Philharmonic for its 2022-23 season."
+      }
+    ]
+  }
+}

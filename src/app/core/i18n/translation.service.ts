@@ -20,7 +20,7 @@ export class TranslationService {
   public translations$ = this.translationsSubject.asObservable();
 
   private readonly locales: Locale[] = ['es', 'ca', 'en'];
-  private readonly defaultLocale: Locale = 'es';
+  private readonly defaultLocale: Locale = 'ca';
 
   constructor() {
     this.initLocale();

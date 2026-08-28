@@ -6,20 +6,20 @@
       <div class="detail-meta">
         <span class="detail-year">{{ composition.year }}</span>
         <span class="detail-duration">{{ composition.duration }}</span>
-        <span class="detail-category">{{ composition.category }}</span>
+        <span class="detail-category">{{ ('compositions.categories.' + composition.category) | translate }}</span>
       </div>
     </div>
 
     <div class="detail-content">
       <div class="detail-description">
-        <h2>Descripción</h2>
+        <h2>{{ 'compositions.detail.description' | translate }}</h2>
         <p>
           {{ composition.description }}
         </p>
       </div>
 
       <div class="detail-files">
-        <h2>Partituras y Materiales</h2>
+        <h2>{{ 'compositions.detail.files' | translate }}</h2>
 
         <ul class="files-list" *ngIf="composition.files.length > 0">
           <li *ngFor="let file of composition.files" class="file-item">
@@ -31,19 +31,19 @@
               target="_blank"
               rel="noopener"
             >
-              Descargar
+              {{ 'compositions.detail.download' | translate }}
             </a>
           </li>
         </ul>
 
         <p class="no-files" *ngIf="composition.files.length === 0">
-          No hay partituras disponibles para esta obra.
+          {{ 'compositions.detail.noFiles' | translate }}
         </p>
       </div>
 
       <div class="detail-media">
         <div class="media-section">
-          <h3>Audio</h3>
+          <h3>{{ 'compositions.detail.audio' | translate }}</h3>
           <ul class="media-list" *ngIf="composition.recordings.length > 0">
             <li *ngFor="let recording of composition.recordings" class="media-item">
               <span class="media-title">{{ recording.title }}</span>
@@ -53,17 +53,17 @@
                 rel="noopener"
                 class="media-link"
               >
-                Escuchar
+                {{ 'compositions.detail.listen' | translate }}
               </a>
             </li>
           </ul>
           <p *ngIf="composition.recordings.length === 0" class="no-media">
-            No hay grabaciones disponibles.
+            {{ 'compositions.detail.noRecordings' | translate }}
           </p>
         </div>
 
         <div class="media-section">
-          <h3>Vídeo</h3>
+          <h3>{{ 'compositions.detail.video' | translate }}</h3>
           <ul class="media-list" *ngIf="composition.videos.length > 0">
             <li *ngFor="let video of composition.videos" class="media-item">
               <span class="media-title">{{ video.title }}</span>
@@ -81,47 +81,47 @@
             </li>
           </ul>
           <p *ngIf="composition.videos.length === 0" class="no-media">
-            No hay vídeos disponibles.
+            {{ 'compositions.detail.noVideos' | translate }}
           </p>
         </div>
 
         <div class="media-section">
-          <h3>Imágenes</h3>
+          <h3>{{ 'compositions.detail.images' | translate }}</h3>
           <ul class="media-list" *ngIf="composition.images.length > 0">
             <li *ngFor="let image of composition.images" class="media-item">
               <img
                 [src]="image.url"
-                [alt]="image.description || 'Imagen de la obra'"
+                [alt]="image.description || ('compositions.detail.imageAlt' | translate)"
                 class="gallery-thumbnail"
               />
             </li>
           </ul>
           <p *ngIf="composition.images.length === 0" class="no-media">
-            No hay imágenes disponibles.
+            {{ 'compositions.detail.noImages' | translate }}
           </p>
         </div>
       </div>
 
       <div class="detail-premiere" *ngIf="composition.premiere">
-        <h2>Información del Estreno</h2>
+        <h2>{{ 'compositions.detail.premiereInfo' | translate }}</h2>
         <dl class="premiere-details">
-          <dt>Fecha:</dt>
-          <dd>{{ composition.premiere.date || 'Por confirmar' }}</dd>
+          <dt>{{ 'compositions.detail.premiereDate' | translate }}:</dt>
+          <dd>{{ composition.premiere.date || ('compositions.detail.toBeConfirmed' | translate) }}</dd>
 
-          <dt>Lugar:</dt>
-          <dd>{{ composition.premiere.place || 'Por confirmar' }}</dd>
+          <dt>{{ 'compositions.detail.premierePlace' | translate }}:</dt>
+          <dd>{{ composition.premiere.place || ('compositions.detail.toBeConfirmed' | translate) }}</dd>
 
-          <dt>Intérpretes:</dt>
+          <dt>{{ 'compositions.detail.premierePerformers' | translate }}:</dt>
           <dd>
-            {{ composition.premiere.performers?.join(', ') || 'Por confirmar' }}
+            {{ composition.premiere.performers?.join(', ') || ('compositions.detail.toBeConfirmed' | translate) }}
           </dd>
 
-          <dt>Director:</dt>
-          <dd>{{ composition.premiere.director || 'Por confirmar' }}</dd>
+          <dt>{{ 'compositions.detail.premiereDirector' | translate }}:</dt>
+          <dd>{{ composition.premiere.director || ('compositions.detail.toBeConfirmed' | translate) }}</dd>
 
-          <dt>Festival/Institución:</dt>
+          <dt>{{ 'compositions.detail.premiereFestival' | translate }}:</dt>
           <dd>
-            {{ composition.premiere.festival || 'Por confirmar' }}
+            {{ composition.premiere.festival || ('compositions.detail.toBeConfirmed' | translate) }}
           </dd>
         </dl>
       </div>
@@ -130,6 +130,6 @@
 </section>
 
 <div class="not-found" *ngIf="!composition">
-  <p>Obra no encontrada.</p>
-  <a routerLink="/obras" class="btn btn-secondary">Volver al catálogo</a>
+  <p>{{ 'compositions.detail.notFound' | translate }}</p>
+  <a routerLink="/obras" class="btn btn-secondary">{{ 'compositions.detail.backToCatalog' | translate }}</a>
 </div>

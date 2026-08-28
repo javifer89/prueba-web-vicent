@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "id": "main",
+    "type": "biography",
+    "translations": {
+      "ca": {
+        "titulo": "Biografia",
+        "formacion": "Formació",
+        "trayectoria": "Trayectoria professional",
+        "direccion": "Direcció",
+        "composicion": "Composició",
+        "docencia": "Docència"
+      },
+      "es": {
+        "titulo": "Biografía",
+        "formacion": "Formación",
+        "trayectoria": "Trayectoria profesional",
+        "direccion": "Dirección",
+        "composicion": "Composición",
+        "docencia": "Docencia"
+      },
+      "en": {
+        "titulo": "Biography",
+        "formacion": "Formation",
+        "trayectoria": "Professional trajectory",
+        "direccion": "Direction",
+        "composicion": "Composition",
+        "docencia": "Teaching"
+      }
+    },
+    "status": {
+      "ca": "original",
+      "es": "translated",
+      "en": "translated"
+    },
+    "updatedAt": {
+      "ca": "2024-01-15",
+      "es": "2024-01-16",
+      "en": "2024-01-16"
+    },
+    "sourceLocale": "ca"
+  },
+  "data": {
+    "ca": {
+      "formacion": "Vicent Sellés Álamo neix a La Vila Joiosa el 1996. Inicia la seua formació musical en l'àmbit de la interpretació del clarinet, obtenint el Títol Superior de Música en l'especialitat de Clarinet (Interpretació) pel Conservatori Superior de Música de València. Durant aquests estudis realitza el tercer curs al Koninklijk Conservatorium de Brussel·les com a alumne d'intercanvi dins del programa Erasmus+. Posteriorment completa el Màster d'Investigació i Interpretació Musical al Conservatori Superior de Música d'Alacant. En l'àmbit de la direcció, cursa els dos primers anys de l'especialitat de Direcció de Banda al Conservatori Superior de Castilla-La Mancha. Actualment continua aquests estudis al Conservatori Superior Progreso Musical. Ha participat en cursos de direcció amb mestres com Carlos Garcés, Miguel Etchegoncelay, José Rafael Pascual Vilaplana, José Alberto Pina, Paulo Martins, Óscar Navarro i Tobias Gossmann, entre d'altres. Com a compositor, es troba cursant el Grau Superior de Composició al Conservatori Superior de Música d'Alacant. La seua formació com a compositor s'ha complementat amb cursos i masterclasses de professors com Saül Gómez, Ernesto Aurignac, Stephen Melillo, Vicente Ortiz, Tomàs Gilabert, Joan Valent, Ricardo Llorca, Carlos Pellicer, Pedro Salinas i José Suñer, entre d'altres.",
+      "trayectoria": {
+        "direccion": "Com a director, Vicent Sellés ha desenvolupat una trajectòria vinculada principalment al món de la música de banda. Ha estat director convidat de la Lira Orxetana i de la Banda Simfònica de l'Ateneu Musical de la Vila Joiosa. Actualment és director titular de la Banda Simfònica de l'Agrupació Musicomunicipal Santa Maria Magdalena de Poble Nou de Benitatxell. Fins al juliol de 2025 va ser director titular de la Banda Jove de l'Ateneu Musical de la Vila Joiosa, agrupació amb la qual va realitzar el registre discogràfic Festera i Jove, format per repertori original de música de Moros i Cristians escrita per a banda juvenil. L'any 2024 va ser convidat a dirigir la marxa mora Zalé Arráez del compositor Francisco Lacalle per donar inici a les festes de Moros i Cristians de la seua ciutat natal, la Vila Joiosa.",
+        "composicio": "La seua faceta com a compositor se centra principalment en la música simfònica, la música festera, la música de càmera i les formacions tradicionals valencianes. El seu catàleg reflecteix un interès pel diàleg entre la tradició musical mediterrània i la creació contemporània, explorant les possibilitats expressives i tímbriques de les agrupacions de vent. Entre els seus reconeixements destaquen:<ul class=\"recognition-list\"><li>Primer Premi del V Concurs de Composició Arturo Balaguer \"el de Canya\" (La Pobla de Vallbona) per Pucciniana.</li><li>Segon Premi del Certamen de Composició Musical \"I Centenari Musical de l'Ermita del Santíssim Crist del Remei\" de Finestrat per (RE)m(E)i.</li><li>Primer Premi del I Concurs de Composició de Música Festera \"125 Aniversari Moros del Cordó\" de Mutxamel per 125 Anys de Cordó.</li><li>Primer Premi del III Concurs de Composició de pasdobles d'Alginet \"Pasqual Pérez Choví\" per Tio Gabi.</li><li>Segon Premi del III Concurs de Pasdobles de les Reines Patronals de Segorbe per Victoria Moya Martínez.</li></ul>També compta amb obres finalistes en concursos de composició com Catal, Aguiló i Tempesta Aràbiga, a més d'encàrrecs habituals per a diferents localitats dins de l'àmbit de les festes de Moros i Cristians. Així mateix, rep encàrrecs de prestigiosos intèrprets, com del violinista David Sala, i de grups de càmera professionals, com l'Euterpre Wind Quintet o el Duo van Duá.",
+        "docencia": "Compatix la seua activitat artística amb l'ensenyament musical. Compte amb experiència docent en les especialitats de clarinet, llenguatge musical, cor, conjunt instrumental, harmonia i anàlisi en escoles i conservatoris de les provincies d'Alacant i València. Actualment pertany al Cos de Professors Interins de Música i Arts Escèniques de la Comunitat Valenciana."
+      }
+    },
+    "es": {
+      "formacion": "Vicent Sellés Álamo nace en La Vila Joiosa en 1996. Inicia su formación musical en el ámbito de la interpretación del clarinete, obteniendo el Título Superior de Música en la especialidad de Clarinete (Interpretación) por el Conservatorio Superior de Música de Valencia. Durante estos estudios realiza el tercer curso en el Koninklijk Conservatorium de Bruselas como alumno de intercambio dentro del programa Erasmus+. Posteriormente completa el Máster de Investigación e Interpretación Musical en el Conservatorio Superior de Música de Alicante. En el ámbito de la dirección, cursa los dos primeros años de la especialidad de Dirección de Banda en el Conservatorio Superior de Castilla-La Mancha. Actualmente continúa estos estudios en el Conservatorio Superior Progreso Musical. Ha participado en cursos de dirección con maestros como Carlos Garcés, Miguel Etchegoncelay, José Rafael Pascual Vilaplana, José Alberto Pina, Paulo Martins, Óscar Navarro y Tobias Gossmann, entre otros. Como compositor, se encuentra cursando el Grado Superior de Composición en el Conservatorio Superior de Música de Alicante. Su formación como compositor se ha complementado con cursos y masterclasses de profesores como Saül Gómez, Ernesto Aurignac, Stephen Melillo, Vicente Ortiz, Tomàs Gilabert, Joan Valent, Ricardo Llorca, Carlos Pellicer, Pedro Salinas y José Suñer, entre otros.",
+      "trayectoria": {
+        "direccion": "Como director, Vicent Sellés ha desarrollado una trayectoria vinculada principalmente al mundo de la música de banda. Ha sido director invitado de la Lira Orxetana y de la Banda Simfònica de l'Ateneu Musical de la Vila Joiosa. Actualmente es director titular de la Banda Simfònica de l'Agrupació Musicomunicipal Santa Maria Magdalena de Poble Nou de Benitatxell. Hasta julio de 2025 fue director titular de la Banda Jove de l'Ateneu Musical de la Vila Joiosa, agrupación con la que realizó el registro discográfico Festera i Jove, formado por repertorio original de música de Moros i Cristians escrita para banda juvenil. El año 2024 fue invitado a dirigir la marcha mora Zalé Arráez del compositor Francisco Lacalle para dar inicio a las fiestas de Moros y Cristianos de su ciudad natal, la Vila Joiosa.",
+        "composicion": "Su faceta como compositor se centra principalmente en la música sinfónica, la música festera, la música de cámara y las formaciones tradicionales valencianas. Su catálogo refleja un interés por el diálogo entre la tradición musical mediterránea y la creación contemporánea, explorando las posibilidades expresivas y tímbricas de las agrupaciones de viento. Entre sus reconocimientos destacan:<ul class=\"recognition-list\"><li>Primer Premio del V Concurso de Composició Arturo Balaguer \"el de Canya\" (La Pobla de Vallbona) por Pucciniana.</li><li>Segundo Premio del Certamen de Composición Musical \"I Centenari Musical de l'Ermita del Santíssim Crist del Remei\" de Finestrat por (RE)m(E)i.</li><li>Primer Premio del I Concurso de Composición de Música Festera \"125 Aniversari Moros del Cordó\" de Mutxamel por 125 Anys de Cordó.</li><li>Primer Premio del III Concurso de Composición de pasodobles de Alginet \"Pasqual Pérez Choví\" por Tio Gabi.</li><li>Segundo Premio del III Concurso de Pasdobles de las Reinas Patronales de Segorbe por Victoria Moya Martínez.</li></ul>También cuenta con obras finalistas en concursos de composición como Catal, Aguiló y Tempesta Aràbiga, además de encargos habituales para diferentes localidades dentro del ámbito de las fiestas de Moros y Cristianos. Asimismo, recibe encargos de prestigiosos intérpretes, como del violinista David Sala, y de grupos de cámara profesionales, como el Euterpre Wind Quintet o el Duo van Duá.",
+        "docencia": "Compagina su actividad artística con la enseñanza musical. Cuenta con experiencia docente en las especialidades de clarinete, lenguaje musical, coro, conjunto instrumental, armonía y análisis en escuelas y conservatorios de las provincias de Alicante y Valencia. Actualmente pertenece al Cuerpo de Profesores Interinos de Música y Artes Escénicas de la Comunidad Valenciana."
+      }
+    },
+    "en": {
+      "formacion": "Vicent Sellés Álamo was born in La Vila Joiosa in 1996. He began his musical training in clarinet performance, obtaining the Superior Music Degree in Clarinet (Performance) from the Conservatori Superior de Música de València. During these studies he completed his third year at the Koninklijk Conservatorium in Brussels as an Erasmus+ exchange student. He later completed the Master's in Musical Research and Performance at the Conservatori Superior de Música d'Alacant. In conducting, he studied the first two years of the Band Conducting specialty at the Conservatori Superior de Castilla-La Mancha. He currently continues these studies at the Conservatori Superior Progreso Musical. He has taken conducting courses with maestros such as Carlos Garcés, Miguel Etchegoncelay, José Rafael Pascual Vilaplana, José Alberto Pina, Paulo Martins, Óscar Navarro and Tobias Gossmann, among others. As a composer, he is currently pursuing the Superior Degree in Composition at the Conservatori Superior de Música d'Alacant. His composition training has been complemented by courses and masterclasses with professors such as Saül Gómez, Ernesto Aurignac, Stephen Melillo, Vicente Ortiz, Tomàs Gilabert, Joan Valent, Ricardo Llorca, Carlos Pellicer, Pedro Salinas and José Suñer, among others.",
+      "trayectoria": {
+        "direccion": "As a conductor, Vicent Sellés has developed a career primarily linked to the wind band world. He has been guest conductor of the Lira Orxetana and the Banda Simfònica de l'Ateneu Musical de la Vila Joiosa. He is currently principal conductor of the Banda Simfònica de l'Agrupació Musicomunicipal Santa Maria Magdalena de Poble Nou de Benitatxell. Until July 2025 he was principal conductor of the Banda Jove de l'Ateneu Musical de la Vila Joiosa, with which he recorded the album Festera i Jove, featuring original Moros i Cristians repertoire for youth band. In 2024 he was invited to conduct the mora march Zalé Arráez by composer Francisco Lacalle to open the Moors and Christians festivities in his hometown, La Vila Joiosa.",
+        "composicion": "His work as a composer focuses mainly on symphonic music, festive music (música festera), chamber music and traditional Valencian ensembles. His catalogue reflects an interest in the dialogue between Mediterranean musical tradition and contemporary creation, exploring the expressive and timbral possibilities of wind ensembles. Among his awards:<ul class=\"recognition-list\"><li>First Prize, 5th Arturo Balaguer Composition Competition \"el de Canya\" (La Pobla de Vallbona) for Pucciniana.</li><li>Second Prize, \"I Centenari Musical de l'Ermita del Santíssim Crist del Remei\" Composition Competition (Finestrat) for (RE)m(E)i.</li><li>First Prize, 1st Festive Music Composition Competition \"125 Aniversari Moros del Cordó\" (Mutxamel) for 125 Anys de Cordó.</li><li>First Prize, 3rd Pasodoble Composition Competition Alginet \"Pasqual Pérez Choví\" for Tio Gabi.</li><li>Second Prize, 3rd Pasodoble Competition of the Patron Saints (Segorbe) for Victoria Moya Martínez.</li></ul>He also has finalist works in competitions such as Catal, Aguiló and Tempesta Aràbiga, plus regular commissions for various towns within the Moros i Cristians festivities. He also receives commissions from prestigious performers such as violinist David Sala, and professional chamber groups such as the Euterpre Wind Quintet or Duo van Duá.",
+        "docencia": "He combines his artistic activity with music teaching. He has teaching experience in clarinet, music theory, choir, instrumental ensemble, harmony and analysis at schools and conservatories in the provinces of Alicante and Valencia. He currently belongs to the Interim Teaching Staff of Music and Performing Arts of the Valencian Community."
+      }
+    }
+  }
+}

@@ -1,39 +1,35 @@
 <main class="home">
   <section class="hero">
     <div class="hero-content">
-      <h1 class="hero-title">Nombre del Compositor</h1>
-      <p class="hero-subtitle">Música clásica y contemporánea</p>
+      <h1 class="hero-title">{{ 'home.heroTitle' | translate }}</h1>
+      <p class="hero-subtitle">{{ 'home.heroSubtitle' | translate }}</p>
     </div>
   </section>
 
   <section class="featured-work">
     <div class="container">
-      <h2 class="section-title">Obra Destacada</h2>
+      <h2 class="section-title">{{ 'home.featuredWorkTitle' | translate }}</h2>
       <div class="featured-card">
-        <h3>Título de la Composición</h3>
-        <p class="featured-instrumentation">Instrumentación: Cámara, piano</p>
-        <a routerLink="/obras" class="btn btn-primary">Ver todas las obras</a>
+        <h3>{{ 'home.heroTitle' | translate }}</h3>
+        <p class="featured-instrumentation">{{ 'home.featuredWorkInstrumentation' | translate }}</p>
+        <a routerLink="/obras" class="btn btn-primary">{{ 'home.viewAllWorks' | translate }}</a>
       </div>
     </div>
   </section>
 
   <section class="upcoming-activities">
     <div class="container">
-      <h2 class="section-title">Próximas Actividades</h2>
+      <h2 class="section-title">{{ 'home.upcomingActivitiesTitle' | translate }}</h2>
       <ul class="activities-list">
-        <li class="activity-item">
-          <span class="activity-date">15 OCT 2024</span>
+        <li *ngFor="let activity of homeContent?.upcomingActivities" class="activity-item">
+          <span class="activity-date">{{ activity.day }} {{ activity.month }} {{ activity.year }}</span>
           <div class="activity-info">
-            <h3>Estreno de "Nueva Obra"</h3>
-            <p class="activity-place">Teatro Nacional, Madrid</p>
+            <h3>{{ activity.title }}</h3>
+            <p class="activity-place">{{ activity.place }}</p>
           </div>
         </li>
-        <li class="activity-item">
-          <span class="activity-date">20 OCT 2024</span>
-          <div class="activity-info">
-            <h3>Concierto Camerístico</h3>
-            <p class="activity-place">Sala de Cámara, Barcelona</p>
-          </div>
+        <li *ngIf="!homeContent?.upcomingActivities?.length" class="no-activities">
+          {{ 'agenda.noUpcoming' | translate }}
         </li>
       </ul>
     </div>
@@ -41,17 +37,17 @@
 
   <section class="latest-recordings">
     <div class="container">
-      <h2 class="section-title">Últimas Grabaciones</h2>
+      <h2 class="section-title">{{ 'home.latestRecordingsTitle' | translate }}</h2>
       <div class="recordings-grid">
         <article class="recording-card">
-          <span class="recording-label">Audio</span>
-          <h3>Grabación Integral</h3>
-          <p>Disponible en todas las plataformas</p>
+          <span class="recording-label">{{ 'home.recordingAudioLabel' | translate }}</span>
+          <h3>{{ 'home.recording1Title' | translate }}</h3>
+          <p>{{ 'home.recording1Desc' | translate }}</p>
         </article>
         <article class="recording-card">
-          <span class="recording-label">Video</span>
-          <h3>Concierto En Vivo</h3>
-          <p>Transmisión completa</p>
+          <span class="recording-label">{{ 'home.recordingVideoLabel' | translate }}</span>
+          <h3>{{ 'home.recording2Title' | translate }}</h3>
+          <p>{{ 'home.recording2Desc' | translate }}</p>
         </article>
       </div>
     </div>

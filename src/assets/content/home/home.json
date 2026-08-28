@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "id": "main",
+    "type": "home",
+    "translations": {
+      "ca": {
+        "heroTitle": "Vicent Egea Insa",
+        "heroSubtitle": "Compositor i Director d'Orquesta",
+        "heroAria": "Portada",
+        "scrollDown": "Desplaçament a la següent secció",
+        "featuredWorkTitle": "Obra Destacada",
+        "featuredWorkInstrumentation": "Instrumentació: Càmera, piano",
+        "viewAllWorks": "Veure totes les obres",
+        "upcomingActivitiesTitle": "Pròximes Activitats",
+        "latestRecordingsTitle": "Últimes Gravacions",
+        "recordingAudioLabel": "Àudio",
+        "recordingVideoLabel": "Vídeo",
+        "recording1Title": "Gravació Integral",
+        "recording1Desc": "Disponible a totes les plataformes",
+        "recording2Title": "Concert En Directe",
+        "recording2Desc": "Transmissió completa"
+      },
+      "es": {
+        "heroTitle": "Vicent Egea Insa",
+        "heroSubtitle": "Compositor y Director de Orquesta",
+        "heroAria": "Portada",
+        "scrollDown": "Desplazarse a la siguiente sección",
+        "featuredWorkTitle": "Obra Destacada",
+        "featuredWorkInstrumentation": "Instrumentación: Cámara, piano",
+        "viewAllWorks": "Ver todas las obras",
+        "upcomingActivitiesTitle": "Próximas Actividades",
+        "latestRecordingsTitle": "Últimas Grabaciones",
+        "recordingAudioLabel": "Audio",
+        "recordingVideoLabel": "Vídeo",
+        "recording1Title": "Grabación Integral",
+        "recording1Desc": "Disponible en todas las plataformas",
+        "recording2Title": "Concierto En Vivo",
+        "recording2Desc": "Transmisión completa"
+      },
+      "en": {
+        "heroTitle": "Vicent Egea Insa",
+        "heroSubtitle": "Composer and Orchestra Director",
+        "heroAria": "Cover",
+        "scrollDown": "Scroll down to next section",
+        "featuredWorkTitle": "Featured Work",
+        "featuredWorkInstrumentation": "Instrumentation: Chamber, piano",
+        "viewAllWorks": "View all works",
+        "upcomingActivitiesTitle": "Upcoming Activities",
+        "latestRecordingsTitle": "Latest Recordings",
+        "recordingAudioLabel": "Audio",
+        "recordingVideoLabel": "Video",
+        "recording1Title": "Complete Recording",
+        "recording1Desc": "Available on all platforms",
+        "recording2Title": "Live Concert",
+        "recording2Desc": "Full broadcast"
+      }
+    },
+    "status": {
+      "ca": "original",
+      "es": "translated",
+      "en": "translated"
+    },
+    "updatedAt": {
+      "ca": "2024-01-15",
+      "es": "2024-01-16",
+      "en": "2024-01-16"
+    },
+    "sourceLocale": "ca"
+  },
+  "data": {
+    "ca": {
+      "upcomingActivities": [
+        {
+          "date": "2024-10-15",
+          "day": "15",
+          "month": "OCT",
+          "year": "2024",
+          "title": "Estrena de \"Nova Obra\"",
+          "place": "Teatre Nacional, Madrid"
+        },
+        {
+          "date": "2024-10-20",
+          "day": "20",
+          "month": "OCT",
+          "year": "2024",
+          "title": "Concert Camerístic",
+          "place": "Sala de Càmera, Barcelona"
+        }
+      ]
+    },
+    "es": {
+      "upcomingActivities": [
+        {
+          "date": "2024-10-15",
+          "day": "15",
+          "month": "OCT",
+          "year": "2024",
+          "title": "Estreno de \"Nueva Obra\"",
+          "place": "Teatro Nacional, Madrid"
+        },
+        {
+          "date": "2024-10-20",
+          "day": "20",
+          "month": "OCT",
+          "year": "2024",
+          "title": "Concierto Camerístico",
+          "place": "Sala de Cámara, Barcelona"
+        }
+      ]
+    },
+    "en": {
+      "upcomingActivities": [
+        {
+          "date": "2024-10-15",
+          "day": "15",
+          "month": "OCT",
+          "year": "2024",
+          "title": "Premiere of \"New Work\"",
+          "place": "National Theater, Madrid"
+        },
+        {
+          "date": "2024-10-20",
+          "day": "20",
+          "month": "OCT",
+          "year": "2024",
+          "title": "Chamber Concert",
+          "place": "Chamber Hall, Barcelona"
+        }
+      ]
+    }
+  }
+}

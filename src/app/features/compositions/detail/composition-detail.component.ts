@@ -4,12 +4,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { map, catchError, switchMap } from 'rxjs/operators';
 import { Composition } from '../models/composition.model';
-import { CompositionService } from '../../../core/services/composition.service';
+import { EditorialContentService } from '../../../core/services/editorial-content.service';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-composition-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './composition-detail.component.html',
   styleUrls: ['./composition-detail.component.scss'],
 })
@@ -20,7 +21,7 @@ export class CompositionDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private service: CompositionService
+    private editorialContentService: EditorialContentService
   ) {}
 
   ngOnInit(): void {
@@ -28,7 +29,9 @@ export class CompositionDetailComponent implements OnInit {
       map(params => params.get('slug')),
       switchMap(slug => {
         if (!slug) return of(undefined);
-        return this.service.getBySlug(slug);
+        return this.editorialContentService.getLocalizedContent<Composition[]>('compositions', 'catalog').pipe(
+          map(compositions => compositions?.find(c => c.slug === slug))
+        );
       }),
       catchError(() => of(undefined))
     );
