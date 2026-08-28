@@ -4,7 +4,7 @@
   },
   "meta": {
     "title": "Compositor - Músika Clàssica i Contemporània",
-    "description": " lloc oficial del compositor de música clàssica i contemporània. Obres, biografia, agenda, graccions i contacte professional."
+    "description": "Lloc oficial del compositor de música clàssica i contemporània. Obres, biografia, agenda, graccions i contacte professional."
   },
   "nav": {
     "inicio": "Inici",
@@ -14,7 +14,14 @@
     "noticias": "Notícies",
     "contacto": "Contacte",
     "main": "Navegació principal",
-    "sobre": "Encara"
+    "sobre": "Encara",
+    "agenda": "Agenda",
+    "biografia": "Biografia",
+    "galeria": "Galeria",
+    "idioma": "Idioma",
+    "idioma.es": "Español",
+    "idioma.ca": "Valencià",
+    "idioma.en": "English"
   },
   "biography": {
     "titulo": "Biografia",
@@ -31,7 +38,7 @@
     "scrollDown": "Desplaçament a la següent secció",
     "testimonialsTitle": "Referències",
     "testimonialsImageAlt": "Vicent Egea Insa dirigint",
-    "nextTestimonial": "Próxim testimoni",
+    "nextTestimonial": "Pròxim testimoni",
     "featuredNewsTitle": "Notícies Destacades",
     "newsTitle": "Últimes Notícies",
     "viewAllNews": "Veure totes les notícies",
@@ -41,7 +48,7 @@
       {
         "name": "JOSE FRANCH",
         "role": "Clarinet Solist",
-        "quote": "Colaborar amb Vicent Egea Insa en la creació de obres noves va ser una experiència inoblidable. Vicent va aconseguir que m'embarcara en un viatge de sons i emocions que mai abans havia experimentat. Tot això gràcies a la seua prodigiosa creativitat i al seu gran control tècnic."
+        "quote": "Colaborar amb Vicent Egea Insa en la creació d'obres noves va ser una experiència inoblidable. Vicent va aconseguir que m'embarcara en un viatge de sons i emocions que mai abans havia experimentat. Tot això gràcies a la seua prodigiosa creativitat i al seu gran control tècnic."
       },
       {
         "name": "BEN KOPEC",
@@ -74,7 +81,7 @@
     "agenda.performersLabel": "Intèrpretes",
     "agenda.moreInfo": "Més informació",
     "agenda.viewDetails": "Veure detalls",
-    "agenda.noUpcoming": "No hay events pròxims",
+    "agenda.noUpcoming": "No hi ha events pròxims",
     "agenda.noPast": "No hi ha events passats"
   },
   "multimedia": {
@@ -85,15 +92,15 @@
     "multimedia.tabs.video": "Vídeo",
     "multimedia.tabs.interviews": "Entrevistes",
     "multimedia.tabs.others": "Altres",
-    "multimedia.openInNewTab": "Obrir en nueva pestaña",
+    "multimedia.openInNewTab": "Obrir en nova pestanya",
     "multimedia.play": "Reproduir",
     "multimedia.watchOn": "Veure a",
     "multimedia.readInterview": "Llegir entrevista",
     "multimedia.access": "Accés",
-    "multimedia.noAudio": "No hi disponible àudio",
-    "multimedia.noVideo": "No hi available vídeo disponible",
-    "multimedia.noInterviews": "No hi disponible entrevista disponible",
-    "multimedia.noOthers": "No hi available més contenu disponible",
+    "multimedia.noAudio": "No hi ha àudio disponible",
+    "multimedia.noVideo": "No hi ha vídeo disponible",
+    "multimedia.noInterviews": "No hi ha entrevistes disponibles",
+    "multimedia.noOthers": "No hi ha més contingut disponible",
     "multimedia.audio": "Àudio",
     "multimedia.video": "Vídeo",
     "multimedia.interviews": "Entrevistes",
@@ -102,17 +109,17 @@
   "news": {
     "title": "Notícies",
     "filterAria": "Filtrar notícies",
-    "empty": "No hi have notícies",
+    "empty": "No hi ha notícies",
     "todas": "Totes",
     "audiovisual": "Audiovisual",
     "concert": "Concert",
     "cursos": "Cursos",
-    "direccion": "Dirección",
-    "estrenos": "Estrenos",
-    "sinCategorizar": "Sin categorizar"
+    "direccion": "Direcció",
+    "estrenos": "Estrenes",
+    "sinCategorizar": "Sense categoritzar"
   },
   "footer": {
-    "copyright": "Derechs de autor © {{year}} Vicent Egea Insa",
+    "copyright": "Drets d'autor © {{year}} Vicent Egea Insa",
     "tagline": "Compositor i director d'orquesta",
     "privacy": "Política de privacitat",
     "cookies": "Cookies",

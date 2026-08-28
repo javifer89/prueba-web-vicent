@@ -14,7 +14,14 @@
     "noticias": "News",
     "contacto": "Contact",
     "main": "Main navigation",
-    "sobre": "About"
+    "sobre": "About",
+    "agenda": "Agenda",
+    "biografia": "Biography",
+    "galeria": "Gallery",
+    "idioma": "Language",
+    "idioma.es": "Español",
+    "idioma.ca": "Valencià",
+    "idioma.en": "English"
   },
   "biography": {
     "titulo": "Biography",
