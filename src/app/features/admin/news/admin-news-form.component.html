@@ -1,0 +1,231 @@
+<div class="admin-news-form-page">
+  <header class="form-header">
+    <div class="header-left">
+      <a routerLink="/admin/news" class="btn btn-icon btn-secondary" title="Volver">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+      </a>
+      <div>
+        <h1>{{ mode === 'create' ? 'Nueva noticia' : 'Editar noticia' }}</h1>
+        <p class="form-subtitle">{{ mode === 'create' ? 'Crea una nueva noticia para la web' : 'Modifica los datos de la noticia' }}</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="saving">
+          Guardar borrador
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onPublish()" [disabled]="saving">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          Publicar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  @if (error) {
+    <div class="alert alert-error" role="alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="15" y1="9" x2="9" y2="15" />
+        <line x1="9" y1="9" x2="15" y2="15" />
+      </svg>
+      <span>{{ error }}</span>
+    </div>
+  }
+
+  <form [formGroup]="form" class="news-form" (ngSubmit)="onSaveDraft()">
+    <div class="form-layout">
+      <main class="form-main">
+        <section class="form-section">
+          <h2>Contenido principal</h2>
+
+          <div class="locale-tabs" role="tablist" aria-label="Idiomas">
+            @for (locale of locales; track locale) {
+              <button
+                type="button"
+                role="tab"
+                [role.selected]="activeLocale === locale"
+                [class.active]="activeLocale === locale"
+                (click)="setActiveLocale(locale)"
+                class="locale-tab"
+              >
+                {{ localeLabels[locale] }}
+              </button>
+            }
+          </div>
+
+          <div class="tab-panel" role="tabpanel" [attr.aria-labelledby]="'tab-' + activeLocale">
+            @if (activeLocale === 'ca') {
+              <div class="form-group">
+                <label for="title_ca" class="form-label required">Título *</label>
+                <input type="text" id="title_ca" formControlName="title_ca" class="form-input" [class.invalid]="hasError('title_ca', 'required')" placeholder="Título en valenciano" />
+                @if (hasError('title_ca', 'required')) { <span class="form-error">El título es obligatorio</span> }
+              </div>
+
+              <div class="form-group">
+                <label for="excerpt_ca" class="form-label required">Extracto *</label>
+                <textarea id="excerpt_ca" formControlName="excerpt_ca" class="form-textarea" rows="3" placeholder="Resumen breve para listados y SEO" [class.invalid]="hasError('excerpt_ca', 'required')"></textarea>
+                @if (hasError('excerpt_ca', 'required')) { <span class="form-error">El extracto es obligatorio</span> }
+              </div>
+
+              <div class="form-group">
+                <label for="content_ca" class="form-label required">Contenido *</label>
+                <textarea id="content_ca" formControlName="content_ca" class="form-textarea" rows="12" placeholder="Contenido completo (HTML permitido)" [class.invalid]="hasError('content_ca', 'required')"></textarea>
+                @if (hasError('content_ca', 'required')) { <span class="form-error">El contenido es obligatorio</span> }
+                <div class="form-hint">Puedes usar HTML básico: p, strong, em, ul, ol, a, h2-h4</div>
+              </div>
+            }
+
+            @if (activeLocale === 'es') {
+              <div class="form-group">
+                <label for="title_es" class="form-label">Título (castellano)</label>
+                <input type="text" id="title_es" formControlName="title_es" class="form-input" placeholder="Título en castellano" />
+              </div>
+
+              <div class="form-group">
+                <label for="excerpt_es" class="form-label">Extracto (castellano)</label>
+                <textarea id="excerpt_es" formControlName="excerpt_es" class="form-textarea" rows="3" placeholder="Resumen breve en castellano"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="content_es" class="form-label">Contenido (castellano)</label>
+                <textarea id="content_es" formControlName="content_es" class="form-textarea" rows="12" placeholder="Contenido completo en castellano (HTML permitido)"></textarea>
+              </div>
+            }
+
+            @if (activeLocale === 'en') {
+              <div class="form-group">
+                <label for="title_en" class="form-label">Title (English)</label>
+                <input type="text" id="title_en" formControlName="title_en" class="form-input" placeholder="Title in English" />
+              </div>
+
+              <div class="form-group">
+                <label for="excerpt_en" class="form-label">Excerpt (English)</label>
+                <textarea id="excerpt_en" formControlName="excerpt_en" class="form-textarea" rows="3" placeholder="Brief summary in English"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="content_en" class="form-label">Content (English)</label>
+                <textarea id="content_en" formControlName="content_en" class="form-textarea" rows="12" placeholder="Full content in English (HTML allowed)"></textarea>
+              </div>
+            }
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>SEO <span class="section-badge">Opcional</span></h2>
+          <div class="seo-grid">
+            @for (locale of locales; track locale) {
+              <div class="seo-locale-block" [class.active]="activeLocale === locale">
+                <h4>{{ localeLabels[locale] }}</h4>
+                <div class="form-group">
+                  <label [for]="'seo_title_' + locale" class="form-label">Título SEO</label>
+                  <input type="text" [id]="'seo_title_' + locale" [formControlName]="'seo_title_' + locale" class="form-input" [attr.placeholder]="'T\u00edtulo SEO (' + locale + ')'" maxlength="60" />
+                  <span class="field-hint"><span class="char-count">{{ (form.get('seo_title_' + locale)?.value || '').length }}</span>/60</span>
+                </div>
+                <div class="form-group">
+                  <label [for]="'seo_description_' + locale" class="form-label">Meta description</label>
+                  <textarea [id]="'seo_description_' + locale" [formControlName]="'seo_description_' + locale" class="form-textarea" rows="2" [attr.placeholder]="'Meta description (' + locale + ')'" maxlength="160"></textarea>
+                  <span class="field-hint"><span class="char-count">{{ (form.get('seo_description_' + locale)?.value || '').length }}</span>/160</span>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+      </main>
+
+      <aside class="form-sidebar">
+        <section class="form-section sidebar-section">
+          <h2>Imagen de portada</h2>
+
+          <div class="cover-upload">
+            @if (coverPreview) {
+              <div class="cover-preview">
+                <img [src]="coverPreview" alt="Vista previa de la portada" />
+                <button type="button" class="btn btn-icon btn-danger btn-sm" (click)="removeCover()" title="Eliminar imagen">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+              </div>
+            } @else {
+              <div class="cover-placeholder" (click)="coverInput.click()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="M21 15l-5-5L5 21" />
+                </svg>
+                <span>Subir imagen de portada</span>
+                <input #coverInput type="file" accept="image/jpeg,image/png,image/webp" (change)="onCoverSelect($event)" hidden />
+              </div>
+            }
+            <p class="form-hint">JPG, PNG o WebP \u00b7 M\u00e1x. 10 MB \u00b7 Recomendado 1200\u00d7900px</p>
+          </div>
+        </section>
+
+        <section class="form-section sidebar-section">
+          <h2>Configuraci\u00f3n</h2>
+
+          <div class="form-group">
+            <label for="slug" class="form-label required">Slug *</label>
+            <div class="input-with-btn">
+              <input type="text" id="slug" formControlName="slug" class="form-input" [class.invalid]="hasError('slug', 'required') || hasError('slug', 'pattern')" placeholder="mi-noticia" />
+              <button type="button" class="btn btn-secondary btn-sm" (click)="generateSlug()" title="Generar desde t\u00edtulo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M12 20h9" />
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                </svg>
+              </button>
+            </div>
+            @if (hasError('slug', 'required')) { <span class="form-error">El slug es obligatorio</span> }
+            @if (hasError('slug', 'pattern')) { <span class="form-error">Solo min\u00fasculas, n\u00fameros y guiones</span> }
+            <p class="form-hint">URL amigable \u00fanica. Se usa en la URL p\u00fablica.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="category" class="form-label">Categor\u00eda</label>
+            <select id="category" formControlName="category" class="form-select">
+              <option value="">\u2014 Sin categor\u00eda \u2014</option>
+              @for (cat of categories$ | async; track cat.id) {
+                <option [value]="cat.id">{{ cat.name_ca }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="featured" class="checkbox-input" />
+              <span class="checkbox-checkmark"></span>
+              <span class="checkbox-text">Marcar como destacada</span>
+            </label>
+            <p class="form-hint">Aparecer\u00e1 en la portada y listados destacados</p>
+          </div>
+
+          <div class="form-group">
+            <label for="status" class="form-label">Estado</label>
+            <select id="status" formControlName="status" class="form-select">
+              <option value="draft">Borrador</option>
+              <option value="published">Publicado</option>
+              <option value="archived">Archivado</option>
+            </select>
+          </div>
+
+          @if (mode === 'edit') {
+            <div class="form-group">
+              <label for="published_at" class="form-label">Fecha de publicaci\u00f3n</label>
+              <input type="date" id="published_at" formControlName="published_at" class="form-input" />
+              <p class="form-hint">Si est\u00e1 vac\u00edo al publicar, se usar\u00e1 la fecha actual</p>
+            </div>
+          }
+        </section>
+      </aside>
+    </div>
+  </form>
+</div>
