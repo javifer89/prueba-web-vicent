@@ -1,0 +1,161 @@
+<main class="news-page">
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-title">{{ 'news.title' | translate }}</h1>
+      <p class="page-subtitle">{{ 'news.subtitle' | translate }}</p>
+    </div>
+  </header>
+
+  <section class="news-filters">
+    <div class="container">
+      <div class="filters-row">
+        <div class="search-box">
+          <label for="news-search" class="sr-only">{{ 'news.searchLabel' | translate }}</label>
+          <input
+            id="news-search"
+            type="search"
+            class="search-input"
+            [value]="searchQuery()"
+            (input)="onSearch($event.target.value)"
+            (keydown.escape)="clearSearch()"
+            [placeholder]="'news.searchPlaceholder' | translate"
+            [attr.aria-label]="'news.searchLabel' | translate"
+          />
+          @if (searchQuery()) {
+            <button
+              type="button"
+              class="search-clear"
+              (click)="clearSearch()"
+              [attr.aria-label]="'news.clearSearch' | translate"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/>
+              </svg>
+            </button>
+          }
+        </div>
+
+        <div class="category-filter">
+          <label for="news-category" class="sr-only">{{ 'news.filterLabel' | translate }}</label>
+          <select
+            id="news-category"
+            class="category-select"
+            [value]="selectedCategory()"
+            (change)="onCategoryChange($event.target.value)"
+          >
+            <option value="all">{{ 'news.categories.all' | translate }}</option>
+            @for (cat of categories$ | async; track cat.id) {
+              <option [value]="cat.slug">{{ cat.name_ca }} ({{ cat.newsCount }})</option>
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news-grid-section">
+    <div class="container">
+      @if (loading() && !(news$ | async)?.items?.length) {
+        <div class="loading-state" aria-live="polite">
+          <div class="spinner"></div>
+          <p>{{ 'news.loading' | translate }}</p>
+        </div>
+      } @else {
+        @if (error()) {
+          <div class="error-state" role="alert">
+            <p>{{ error() }}</p>
+            <button class="btn btn-secondary" (click)="currentPage.set(currentPage())">
+              {{ 'news.retry' | translate }}
+            </button>
+          </div>
+        } @else {
+          @if ((news$ | async)?.items?.length; as news) {
+            <div class="news-grid" role="list" [attr.aria-label]="'news.listAria' | translate">
+              @for (item of news; track item.id) {
+                <article class="news-card" role="listitem">
+                  @if (getCoverUrl(item, '400x250'); as coverUrl) {
+                    <a [routerLink]="['/noticias', item.slug]" class="news-card-image" [attr.aria-label]="getLocalizedTitle(item)">
+                      <img [src]="coverUrl" [alt]="getLocalizedTitle(item)" loading="lazy" />
+                    </a>
+                  }
+                  <div class="news-card-content">
+                    <div class="news-card-meta">
+                      <time [dateTime]="item.published_at || item.created" class="news-date">
+                        {{ formatDate(item.published_at || item.created) }}
+                      </time>
+                      @if (item.category && item.category !== 'expanded') {
+                        <span class="news-category">{{ getCategoryName(item.category) }}</span>
+                      }
+                    </div>
+                    <h2 class="news-card-title">
+                      <a [routerLink]="['/noticias', item.slug]">{{ getLocalizedTitle(item) }}</a>
+                    </h2>
+                    <p class="news-card-excerpt">{{ getLocalizedExcerpt(item) }}</p>
+                    <a [routerLink]="['/noticias', item.slug]" class="news-card-link">
+                      {{ 'news.readMore' | translate }}
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" fill="currentColor"/>
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+              }
+            </div>
+
+            @let newsResult = news$ | async;
+            @if (newsResult?.totalPages > 1) {
+              <nav class="pagination" [attr.aria-label]="'news.paginationAria' | translate">
+                <button
+                  class="pagination-btn"
+                  [disabled]="currentPage() === 1"
+                  (click)="onPageChange(currentPage() - 1, newsResult.totalPages)"
+                  [attr.aria-label]="'news.prevPage' | translate"
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor"/>
+                  </svg>
+                </button>
+
+                @for (page of getPageNumbers(newsResult.totalPages); track page) {
+                  <button
+                    class="pagination-btn pagination-page"
+                    [class.active]="page === currentPage()"
+                    (click)="onPageChange(page, newsResult.totalPages)"
+                    [attr.aria-label]="getPageAriaLabel(page)"
+                    [attr.aria-current]="page === currentPage() ? 'page' : null"
+                  >
+                    {{ page }}
+                  </button>
+                }
+
+                <button
+                  class="pagination-btn"
+                  [disabled]="currentPage() === newsResult.totalPages"
+                  (click)="onPageChange(currentPage() + 1, newsResult.totalPages)"
+                  [attr.aria-label]="'news.nextPage' | translate"
+                >
+                  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" fill="currentColor"/>
+                  </svg>
+                </button>
+              </nav>
+            }
+          } @else {
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" width="64" height="64" aria-hidden="true">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14H6v-2h4v-2H6v-2h4v-2H6V7h4V5H6c-.55 0-1 .45-1 1v14c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-2zM14 17H10v-2h4v2zm0-4H10v-2h4v2zm0-4H10V7h4v2z" fill="currentColor"/>
+              </svg>
+              <h3>{{ 'news.emptyTitle' | translate }}</h3>
+              <p>{{ 'news.emptyDescription' | translate }}</p>
+              @if (selectedCategory() !== 'all' || searchQuery()) {
+                <button class="btn btn-secondary" (click)="onCategoryChange('all'); searchQuery.set('')">
+                  {{ 'news.clearFilters' | translate }}
+                </button>
+              }
+            </div>
+          }
+        }
+      }
+    </div>
+  </section>
+</main>
