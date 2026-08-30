@@ -74,7 +74,7 @@ export class AdminNewsFormComponent implements OnInit {
   private loadCategories(): void {
     this.categories$ = this.pb.getFullList<Category>('categories', {
       filter: 'type="news"',
-      sort: 'order,name_ca',
+      sort: 'name_ca',
     });
   }
 
