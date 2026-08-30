@@ -1,0 +1,128 @@
+<div class="admin-categories-page">
+  <header class="form-header">
+    <div class="header-left">
+      <h1>Gestión de Categorías</h1>
+      <p class="form-subtitle">Organiza el contenido por tipo y orden</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/admin/categories/new" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+        Nueva categoría
+      </a>
+    </div>
+  </header>
+
+  <section class="filters-section">
+    <div class="filters-row">
+      <div class="search-box">
+        <label for="categories-search" class="sr-only">Buscar categorías</label>
+        <input
+          id="categories-search"
+          type="search"
+          class="search-input"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearchChange()"
+          placeholder="Buscar por nombre o slug..."
+          [attr.aria-label]="'Buscar categorías'"
+        />
+      </div>
+
+      <div class="type-filter">
+        <label for="categories-type" class="sr-only">Filtrar por tipo</label>
+        <select
+          id="categories-type"
+          class="type-select"
+          [(ngModel)]="typeFilter"
+          (ngModelChange)="onTypeChange()"
+        >
+          @for (opt of typeOptions; track opt.value) {
+            <option [value]="opt.value">{{ opt.label }}</option>
+          }
+        </select>
+      </div>
+    </div>
+  </section>
+
+  @if (loading) {
+    <div class="loading-state" aria-live="polite">
+      <div class="spinner"></div>
+      <p>Cargando categorías...</p>
+    </div>
+  } @else {
+    @if (categories$ | async; as categories) {
+      @if (categories.length) {
+        <div class="categories-table-wrapper">
+          <table class="categories-table" role="grid">
+            <thead>
+              <tr>
+                <th scope="col">Nombre (CA)</th>
+                <th scope="col">Slug</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Orden</th>
+                <th scope="col">Color</th>
+                <th scope="col" class="actions-col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (cat of categories; track cat.id) {
+                <tr>
+                  <td>{{ cat.name_ca }}</td>
+                  <td class="slug-cell">{{ cat.slug }}</td>
+                  <td>
+                    <span class="type-badge" [class]="'type-' + cat.type">{{ getTypeLabel(cat.type) }}</span>
+                  </td>
+                  <td class="order-cell">{{ cat.order || 0 }}</td>
+                  <td>
+                    @if (cat.color) {
+                      <span class="color-preview" [style.background-color]="cat.color"></span>
+                      <span class="color-hex">{{ cat.color }}</span>
+                    } @else {
+                      <span class="no-color">—</span>
+                    }
+                  </td>
+                  <td class="actions-col">
+                    <a [routerLink]="['/admin/categories', cat.id, 'edit']" class="btn btn-icon btn-secondary" title="Editar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                      </svg>
+                    </a>
+                    <button
+                      type="button"
+                      class="btn btn-icon btn-danger"
+                      title="Eliminar"
+                      (click)="onDelete(cat)"
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" width="64" height="64" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="currentColor"/>
+          </svg>
+          <h3>No hay categorías</h3>
+          <p>Crea tu primera categoría para empezar a organizar el contenido.</p>
+          <a routerLink="/admin/categories/new" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Crear categoría
+          </a>
+        </div>
+      }
+    }
+  }
+</div>
