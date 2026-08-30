@@ -1,0 +1,148 @@
+<div class="admin-events-page">
+  <header class="form-header">
+    <div class="header-left">
+      <h1>Gestión de Eventos</h1>
+      <p class="form-subtitle">Administra conciertos, recitales y eventos</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/admin/events/new" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+        Nuevo evento
+      </a>
+    </div>
+  </header>
+
+  <section class="filters-section">
+    <div class="filters-row">
+      <div class="search-box">
+        <label for="events-search" class="sr-only">Buscar eventos</label>
+        <input
+          id="events-search"
+          type="search"
+          class="search-input"
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearchChange()"
+          placeholder="Buscar por título, lugar, ciudad..."
+          [attr.aria-label]="'Buscar eventos'"
+        />
+      </div>
+
+      <div class="status-filter">
+        <label for="events-status" class="sr-only">Filtrar por estado</label>
+        <select
+          id="events-status"
+          class="status-select"
+          [(ngModel)]="statusFilter"
+          (ngModelChange)="onStatusChange()"
+        >
+          <option value="all">Todos</option>
+          <option value="upcoming">Próximos</option>
+          <option value="past">Pasados</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  @if (loading) {
+    <div class="loading-state" aria-live="polite">
+      <div class="spinner"></div>
+      <p>Cargando eventos...</p>
+    </div>
+  } @else {
+    @if (events$ | async; as events) {
+      @if (events.length) {
+        <div class="events-table-wrapper">
+          <table class="events-table" role="grid">
+            <thead>
+              <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Lugar / Ciudad</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Destacado</th>
+                <th scope="col" class="actions-col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (event of events; track event.id) {
+                <tr>
+                  <td>{{ event.title_ca }}</td>
+                  <td class="date-cell">{{ formatDate(event.date) }}</td>
+                  <td>
+                    <div>{{ event.place }}</div>
+                    <div class="city-cell">{{ event.city }}, {{ event.country }}</div>
+                  </td>
+                  <td>
+                    <span class="status-badge" [class]="'status-' + event.status">{{ getStatusLabel(event.status) }}</span>
+                  </td>
+                  <td class="featured-cell">
+                    @if (event.featured) {
+                      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" class="featured-icon">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+                      </svg>
+                    } @else {
+                      <span class="no-featured">—</span>
+                    }
+                  </td>
+                  <td class="actions-col">
+                    <a [routerLink]="['/admin/events', event.id, 'edit']" class="btn btn-icon btn-secondary" title="Editar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 20h9" />
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                      </svg>
+                    </a>
+                    @if (event.status === 'past') {
+                      <button type="button" class="btn btn-icon btn-secondary" title="Marcar como próximo" (click)="onSetUpcoming(event)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M23 4l-3 3L7 14l-3 3 8 8 9-9-8-8z" />
+                        </svg>
+                      </button>
+                    } @else {
+                      <button type="button" class="btn btn-icon btn-secondary" title="Marcar como pasado" (click)="onSetPast(event)">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <path d="M1 4l3 3L17 14l3 3-8 8-9-9 8-8z" />
+                        </svg>
+                      </button>
+                    }
+                    <button
+                      type="button"
+                      class="btn btn-icon btn-danger"
+                      title="Eliminar"
+                      (click)="onDelete(event)"
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      } @else {
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" width="64" height="64" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <h3>No hay eventos</h3>
+          <p>Crea tu primer evento para empezar.</p>
+          <a routerLink="/admin/events/new" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Crear evento
+          </a>
+        </div>
+      }
+    }
+  }
+</div>
