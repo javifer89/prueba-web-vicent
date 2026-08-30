@@ -1,0 +1,334 @@
+<div class="admin-composition-form-page">
+  <header class="form-header">
+    <div class="header-left">
+      <a routerLink="/admin/compositions" class="btn btn-icon btn-secondary" title="Volver">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+      </a>
+      <div>
+        <h1>{{ mode === 'create' ? 'Nueva composición' : 'Editar composición' }}</h1>
+        <p class="form-subtitle">{{ mode === 'create' ? 'Añade una nueva obra al catálogo' : 'Modifica los datos de la composición' }}</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="saving">
+          Guardar borrador
+        </button>
+        <button type="button" class="btn btn-primary" (click)="onPublish()" [disabled]="saving">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          Publicar
+        </button>
+        <button type="button" class="btn btn-warning" (click)="onArchive()" [disabled]="saving">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" />
+            <path d="M21 12l-6 6" />
+          </svg>
+          Archivar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  @if (error) {
+    <div class="alert alert-error" role="alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="15" y1="9" x2="9" y2="15" />
+        <line x1="9" y1="9" x2="15" y2="15" />
+      </svg>
+      <span>{{ error }}</span>
+    </div>
+  }
+
+  <form [formGroup]="form" class="composition-form" (ngSubmit)="onSaveDraft()">
+    <div class="form-layout">
+      <main class="form-main">
+        <section class="form-section">
+          <h2>Información básica</h2>
+
+          <div class="locale-tabs" role="tablist" aria-label="Idiomas">
+            @for (locale of locales; track locale) {
+              <button
+                type="button"
+                role="tab"
+                [class.active]="activeLocale === locale"
+                (click)="setActiveLocale(locale)"
+                class="locale-tab"
+              >
+                {{ localeLabels[locale] }}
+              </button>
+            }
+          </div>
+
+          <div class="tab-panel" role="tabpanel">
+            @if (activeLocale === 'ca') {
+              <div class="form-group">
+                <label for="title_ca" class="form-label required">Título *</label>
+                <input type="text" id="title_ca" formControlName="title_ca" class="form-input" [class.invalid]="hasError('title_ca', 'required')" placeholder="Título en valenciano" />
+                @if (hasError('title_ca', 'required')) { <span class="form-error">El título es obligatorio</span> }
+              </div>
+
+              <div class="form-group">
+                <label for="instrumentation_ca" class="form-label required">Instrumentación *</label>
+                <input type="text" id="instrumentation_ca" formControlName="instrumentation_ca" class="form-input" [class.invalid]="hasError('instrumentation_ca', 'required')" placeholder="Ej: Flauta, clarinete, violín, violonchelo y piano" />
+                @if (hasError('instrumentation_ca', 'required')) { <span class="form-error">La instrumentación es obligatoria</span> }
+              </div>
+
+              <div class="form-group">
+                <label for="description_ca" class="form-label required">Descripción *</label>
+                <textarea id="description_ca" formControlName="description_ca" class="form-textarea" rows="6" placeholder="Descripción de la obra, estructura, carácter..." [class.invalid]="hasError('description_ca', 'required')"></textarea>
+                @if (hasError('description_ca', 'required')) { <span class="form-error">La descripción es obligatoria</span> }
+              </div>
+
+              <div class="form-group">
+                <label for="notes_ca" class="form-label">Notas (programa de mano, etc.)</label>
+                <textarea id="notes_ca" formControlName="notes_ca" class="form-textarea" rows="3" placeholder="Notas adicionales para el programa de mano"></textarea>
+              </div>
+            }
+
+            @if (activeLocale === 'es') {
+              <div class="form-group">
+                <label for="title_es" class="form-label">Título (Castellano)</label>
+                <input type="text" id="title_es" formControlName="title_es" class="form-input" placeholder="Título en castellano" />
+              </div>
+
+              <div class="form-group">
+                <label for="instrumentation_es" class="form-label">Instrumentación (Castellano)</label>
+                <input type="text" id="instrumentation_es" formControlName="instrumentation_es" class="form-input" placeholder="Ej: Flauta, clarinete, violín, violonchelo y piano" />
+              </div>
+
+              <div class="form-group">
+                <label for="description_es" class="form-label">Descripción (Castellano)</label>
+                <textarea id="description_es" formControlName="description_es" class="form-textarea" rows="6" placeholder="Descripción de la obra en castellano"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="notes_es" class="form-label">Notas (Castellano)</label>
+                <textarea id="notes_es" formControlName="notes_es" class="form-textarea" rows="3" placeholder="Notas adicionales"></textarea>
+              </div>
+            }
+
+            @if (activeLocale === 'en') {
+              <div class="form-group">
+                <label for="title_en" class="form-label">Title (English)</label>
+                <input type="text" id="title_en" formControlName="title_en" class="form-input" placeholder="Title in English" />
+              </div>
+
+              <div class="form-group">
+                <label for="instrumentation_en" class="form-label">Instrumentation (English)</label>
+                <input type="text" id="instrumentation_en" formControlName="instrumentation_en" class="form-input" placeholder="E.g., Flute, clarinet, violin, cello and piano" />
+              </div>
+
+              <div class="form-group">
+                <label for="description_en" class="form-label">Description (English)</label>
+                <textarea id="description_en" formControlName="description_en" class="form-textarea" rows="6" placeholder="Description of the work in English"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="notes_en" class="form-label">Notes (English)</label>
+                <textarea id="notes_en" formControlName="notes_en" class="form-textarea" rows="3" placeholder="Additional notes"></textarea>
+              </div>
+            }
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Detalles técnicos</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="slug" class="form-label required">Slug *</label>
+              <div class="input-with-btn">
+                <input type="text" id="slug" formControlName="slug" class="form-input" [class.invalid]="hasError('slug', 'required') || hasError('slug', 'pattern')" placeholder="mi-composicion" />
+                <button type="button" class="btn btn-secondary btn-sm" (click)="generateSlug()" title="Generar desde título">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M12 20h9" />
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                  </svg>
+                </button>
+              </div>
+              @if (hasError('slug', 'required')) { <span class="form-error">El slug es obligatorio</span> }
+              @if (hasError('slug', 'pattern')) { <span class="form-error">Solo minúsculas, números y guiones</span> }
+              <p class="form-hint">URL amigable única. Se usa en la URL pública.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="year" class="form-label required">Año *</label>
+              <input type="number" id="year" formControlName="year" class="form-input" min="1900" max="2100" [class.invalid]="hasError('year', 'required')" />
+              @if (hasError('year', 'required')) { <span class="form-error">El año es obligatorio</span> }
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="duration" class="form-label">Duración</label>
+              <input type="text" id="duration" formControlName="duration" class="form-input" placeholder="Ej: 12', 15 min, ca. 20'" />
+              <p class="form-hint">Formato libre: 12', 15 min, ca. 20', etc.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="category" class="form-label">Categoría</label>
+              <select id="category" formControlName="category" class="form-select">
+                <option value="">— Sin categoría —</option>
+                @for (cat of categories$ | async; track cat.id) {
+                  <option [value]="cat.id">{{ cat.name_ca }}</option>
+                }
+              </select>
+            </div>
+          </div>
+
+          <div class="locale-tabs" role="tablist" aria-label="Idiomas para instrumentación">
+            @for (locale of locales; track locale) {
+              <button
+                type="button"
+                role="tab"
+                [class.active]="activeLocale === locale"
+                (click)="setActiveLocale(locale)"
+                class="locale-tab"
+              >
+                {{ localeLabels[locale] }}
+              </button>
+            }
+          </div>
+
+          <div class="tab-panel" role="tabpanel">
+            @if (activeLocale === 'ca') {
+              <div class="form-group">
+                <label for="instrumentation_ca" class="form-label required">Instrumentación *</label>
+                <input type="text" id="instrumentation_ca" formControlName="instrumentation_ca" class="form-input" [class.invalid]="hasError('instrumentation_ca', 'required')" placeholder="Ej: Flauta, clarinete, violín, violonchelo y piano" />
+                @if (hasError('instrumentation_ca', 'required')) { <span class="form-error">La instrumentación es obligatoria</span> }
+              </div>
+            }
+            @if (activeLocale === 'es') {
+              <div class="form-group">
+                <label for="instrumentation_es" class="form-label">Instrumentación (Castellano)</label>
+                <input type="text" id="instrumentation_es" formControlName="instrumentation_es" class="form-input" placeholder="Ej: Flauta, clarinete, violín, violonchelo y piano" />
+              </div>
+            }
+            @if (activeLocale === 'en') {
+              <div class="form-group">
+                <label for="instrumentation_en" class="form-label">Instrumentation (English)</label>
+                <input type="text" id="instrumentation_en" formControlName="instrumentation_en" class="form-input" placeholder="E.g., Flute, clarinet, violin, cello and piano" />
+              </div>
+            }
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Detalles de estreno y participantes</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="premiere_date" class="form-label">Fecha de estreno</label>
+              <input type="date" id="premiere_date" formControlName="premiere_date" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label for="premiere_place" class="form-label">Lugar del estreno</label>
+              <input type="text" id="premiere_place" formControlName="premiere_place" class="form-input" placeholder="Sala, ciudad, país" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="premiere_director" class="form-label">Director/a</label>
+              <input type="text" id="premiere_director" formControlName="premiere_director" class="form-input" placeholder="Nombre del director/a" />
+            </div>
+
+            <div class="form-group">
+              <label for="premiere_festival" class="form-label">Festival / Ciclo</label>
+              <input type="text" id="premiere_festival" formControlName="premiere_festival" class="form-input" placeholder="Nombre del festival o ciclo" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="premiere_performers" class="form-label">Intérpretes del estreno</label>
+            <input type="text" id="premiere_performers" formControlName="premiere_performers" class="form-input" placeholder="Nombres separados por comas" />
+            <p class="form-hint">Separar nombres con comas. Se almacenará como array JSON.</p>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h2>Archivos multimedia</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="files" class="form-label">Partituras / PDFs</label>
+              <input type="text" id="files" formControlName="files" class="form-input" placeholder="IDs de media separados por comas" />
+              <p class="form-hint">IDs de media (PDFs, partituras) separados por comas. Se almacenará como array JSON.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="recordings" class="form-label">Grabaciones (Audio)</label>
+              <input type="text" id="recordings" formControlName="recordings" class="form-input" placeholder="IDs de media separados por comas" />
+              <p class="form-hint">IDs de media (audio) separados por comas.</p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="videos" class="form-label">Videos</label>
+              <input type="text" id="videos" formControlName="videos" class="form-input" placeholder="IDs de media separados por comas" />
+              <p class="form-hint">IDs de media (video) separados por comas.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="images" class="form-label">Imágenes</label>
+              <input type="text" id="images" formControlName="images" class="form-input" placeholder="IDs de media separados por comas" />
+              <p class="form-hint">IDs de media (imágenes) separados por comas.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="performers" class="form-label">Intérpretes / Grabaciones recomendadas</label>
+            <input type="text" id="performers" formControlName="performers" class="form-input" placeholder="Nombres separados por comas" />
+            <p class="form-hint">Lista de intérpretes o grabaciones recomendadas (array JSON).</p>
+          </div>
+        </section>
+      </main>
+
+      <aside class="form-sidebar">
+        <section class="form-section sidebar-section">
+          <h2>Configuración</h2>
+
+          <div class="form-group">
+            <label for="status" class="form-label required">Estado *</label>
+            <select id="status" formControlName="status" class="form-select">
+              <option value="draft">Borrador</option>
+              <option value="published">Publicado</option>
+              <option value="archived">Archivado</option>
+            </select>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="featured" class="checkbox-input" />
+              <span class="checkbox-checkmark"></span>
+              <span class="checkbox-text">Marcar como destacada</span>
+            </label>
+            <p class="form-hint">Aparecerá en la portada y listados destacados</p>
+          </div>
+        </section>
+
+        <section class="form-section sidebar-section">
+          <h2>Vista previa</h2>
+          <div class="preview-card">
+            <div class="preview-badge">
+              {{ form.get('title_ca')?.value || 'Título de la composición' }}
+            </div>
+            <div class="preview-meta">
+              <span class="preview-year">{{ form.get('year')?.value || 'Año' }}</span>
+              <span class="preview-instrumentation">{{ form.get('instrumentation_ca')?.value || 'Instrumentación' }}</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </form>
+</div>
