@@ -47,6 +47,7 @@ export class AuthService {
     try {
       const authData = await this.pb.client.collection('admins').authWithPassword<AdminUser>(email, password);
       this._user.set(authData.record as unknown as AdminUser);
+          this._loading.set(false);
       await this.router.navigate(['/admin']);
     } catch (error) {
       this._loading.set(false);
