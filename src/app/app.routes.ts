@@ -3,6 +3,14 @@ import { AdminLayoutComponent } from './features/admin/layout/admin-layout.compo
 import { AdminLoginComponent } from './features/admin/login/admin-login.component';
 import { AdminNewsListComponent } from './features/admin/news/admin-news-list.component';
 import { AdminNewsFormComponent } from './features/admin/news/admin-news-form.component';
+import { AdminCategoriesListComponent } from './features/admin/categories/admin-categories-list.component';
+import { AdminCategoriesFormComponent } from './features/admin/categories/admin-categories-form.component';
+import { AdminEventsListComponent } from './features/admin/events/admin-events-list.component';
+import { AdminEventsFormComponent } from './features/admin/events/admin-events-form.component';
+import { AdminCompositionsListComponent } from './features/admin/compositions/admin-compositions-list.component';
+import { AdminCompositionsFormComponent } from './features/admin/compositions/admin-compositions-form.component';
+import { AdminMediaListComponent } from './features/admin/media/admin-media-list.component';
+import { AdminMediaFormComponent } from './features/admin/media/admin-media-form.component';
 import { adminAuthGuard, adminGuestGuard } from './core/services/admin-auth.guard';
 import { HomeComponent } from './features/home/home.component';
 import { CompositionListComponent } from './features/compositions/list/composition-list.component';
@@ -74,13 +82,21 @@ export const routes: Routes = [
       { path: 'news', component: AdminNewsListComponent },
       { path: 'news/new', component: AdminNewsFormComponent },
       { path: 'news/:id/edit', component: AdminNewsFormComponent },
+      { path: 'categories', component: AdminCategoriesListComponent },
+      { path: 'categories/new', component: AdminCategoriesFormComponent },
+      { path: 'categories/:id/edit', component: AdminCategoriesFormComponent },
+      { path: 'events', component: AdminEventsListComponent },
+      { path: 'events/new', component: AdminEventsFormComponent },
+      { path: 'events/:id/edit', component: AdminEventsFormComponent },
+      { path: 'compositions', component: AdminCompositionsListComponent },
+      { path: 'compositions/new', component: AdminCompositionsFormComponent },
+      { path: 'compositions/:id/edit', component: AdminCompositionsFormComponent },
+      { path: 'media', component: AdminMediaListComponent },
+      { path: 'media/new', component: AdminMediaFormComponent },
+      { path: 'media/:id/edit', component: AdminMediaFormComponent },
       // TODO: Add other admin routes
-      { path: 'events', component: AdminNewsListComponent }, // placeholder
-      { path: 'compositions', component: AdminNewsListComponent }, // placeholder
-      { path: 'media', component: AdminNewsListComponent }, // placeholder
       { path: 'galleries', component: AdminNewsListComponent }, // placeholder
       { path: 'biography', component: AdminNewsListComponent }, // placeholder
-      { path: 'categories', component: AdminNewsListComponent }, // placeholder
       { path: 'settings', component: AdminNewsListComponent }, // placeholder
     ],
   },
