@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Observable, map, startWith, switchMap, of, catchError } from 'rxjs';
+import { Observable, map, startWith, switchMap, of, catchError, shareReplay } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { NewsService } from './news.service';
 import { Category } from '../../../core/services/pocketbase/models';
@@ -35,7 +35,16 @@ export class NewsListComponent implements OnInit {
   loading = signal(false);
   error = signal<string | null>(null);
 
-  news$!: Observable<NewsPageResult>;
+  // Signal interno con el resultado raw
+  private _newsResult = signal<NewsPageResult>({ items: [], totalItems: 0, page: 1, totalPages: 1 });
+
+  // Computed signals para el template (garantizan arrays planos)
+  readonly newsItems = computed(() => this._newsResult().items ?? []);
+  readonly totalItems = computed(() => this._newsResult().totalItems ?? 0);
+  readonly currentPageNum = computed(() => this._newsResult().page ?? 1);
+  readonly totalPages = computed(() => this._newsResult().totalPages ?? 1);
+  readonly hasItems = computed(() => this.newsItems().length > 0);
+
   categories$!: Observable<CategoryWithCount[]>;
 
   currentPage = signal(1);
@@ -43,15 +52,16 @@ export class NewsListComponent implements OnInit {
   selectedCategory = signal<string>('all');
   searchQuery = signal('');
 
+  // toObservable en field initializer (contexto de inyección válido)
+  private readonly page$ = toObservable(this.currentPage);
+
   ngOnInit(): void {
     this.loadCategories();
     this.setupNewsStream();
   }
 
   private setupNewsStream(): void {
-    const page$ = toObservable(this.currentPage);
-
-    this.news$ = page$.pipe(
+    const newsStream$ = this.page$.pipe(
       startWith(this.currentPage()),
       switchMap(page => {
         this.loading.set(true);
@@ -74,27 +84,34 @@ export class NewsListComponent implements OnInit {
           expand: 'category,cover',
         }).pipe(
           map(result => ({
-            items: result.items,
-            totalItems: result.totalItems,
-            page: result.page,
-            totalPages: result.totalPages,
+            items: result.items ?? [],
+            totalItems: result.totalItems ?? 0,
+            page: result.page ?? 1,
+            totalPages: result.totalPages ?? 1,
           })),
           catchError(err => {
             this.error.set('Error cargando las noticias: ' + (err.message || 'Error desconocido'));
             return of({ items: [], totalItems: 0, page: 1, totalPages: 1 });
           })
         );
-      })
+      }),
+      shareReplay(1)
     );
+
+    newsStream$.subscribe(data => {
+      this._newsResult.set(data);
+      this.loading.set(false);
+    });
   }
 
   private loadCategories(): void {
     this.categories$ = this.pb.getFullList<Category>('categories', {
       filter: 'type="news"',
-      sort: 'order,name_ca',
+      sort: 'name_ca',
     }).pipe(
       map(cats => cats.map(cat => ({ ...cat, newsCount: 0 }))),
-      catchError(() => of([]))
+      catchError(() => of([])),
+      shareReplay(1)
     );
   }
 

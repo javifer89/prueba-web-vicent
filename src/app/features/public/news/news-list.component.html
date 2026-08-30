@@ -55,7 +55,7 @@
 
   <section class="news-grid-section">
     <div class="container">
-      @if (loading() && !(news$ | async)?.items?.length) {
+      @if (loading() && !hasItems()) {
         <div class="loading-state" aria-live="polite">
           <div class="spinner"></div>
           <p>{{ 'news.loading' | translate }}</p>
@@ -69,9 +69,9 @@
             </button>
           </div>
         } @else {
-          @if ((news$ | async)?.items?.length; as news) {
+          @if (hasItems()) {
             <div class="news-grid" role="list" [attr.aria-label]="'news.listAria' | translate">
-              @for (item of news; track item.id) {
+              @for (item of newsItems(); track item.id) {
                 <article class="news-card" role="listitem">
                   @if (getCoverUrl(item, '400x250'); as coverUrl) {
                     <a [routerLink]="['/noticias', item.slug]" class="news-card-image" [attr.aria-label]="getLocalizedTitle(item)">
@@ -102,13 +102,12 @@
               }
             </div>
 
-            @let newsResult = news$ | async;
-            @if (newsResult?.totalPages > 1) {
+            @if (totalPages() > 1) {
               <nav class="pagination" [attr.aria-label]="'news.paginationAria' | translate">
                 <button
                   class="pagination-btn"
                   [disabled]="currentPage() === 1"
-                  (click)="onPageChange(currentPage() - 1, newsResult.totalPages)"
+                  (click)="onPageChange(currentPage() - 1, totalPages())"
                   [attr.aria-label]="'news.prevPage' | translate"
                 >
                   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -116,11 +115,11 @@
                   </svg>
                 </button>
 
-                @for (page of getPageNumbers(newsResult.totalPages); track page) {
+                @for (page of getPageNumbers(totalPages()); track page) {
                   <button
                     class="pagination-btn pagination-page"
                     [class.active]="page === currentPage()"
-                    (click)="onPageChange(page, newsResult.totalPages)"
+                    (click)="onPageChange(page, totalPages())"
                     [attr.aria-label]="getPageAriaLabel(page)"
                     [attr.aria-current]="page === currentPage() ? 'page' : null"
                   >
@@ -130,8 +129,8 @@
 
                 <button
                   class="pagination-btn"
-                  [disabled]="currentPage() === newsResult.totalPages"
-                  (click)="onPageChange(currentPage() + 1, newsResult.totalPages)"
+                  [disabled]="currentPage() === totalPages()"
+                  (click)="onPageChange(currentPage() + 1, totalPages())"
                   [attr.aria-label]="'news.nextPage' | translate"
                 >
                   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
