@@ -4,8 +4,9 @@ export const environment = {
       apiTimeout: 30000,
       defaultLocale: 'ca' as const,
       supportedLocales: ['ca', 'es', 'en'] as const,
-      // DeepL API configuration for long-text translation
+      // DeepL API configuration for admin translation service
       // Get API key from: https://www.deepl.com/developers
-      // Uncomment and add your key to enable translation service
-      deeplApiKey: '' as string,
+      // This key is ONLY used in admin panel, NOT exposed to public frontend
+      // The TranslationService.init(apiKey) must be called with this key during app bootstrap
+      deeplApiKey: '' as string,  // ← Dejar vacío por defecto, el admin lo configura
     };

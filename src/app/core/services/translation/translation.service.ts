@@ -1,117 +1,238 @@
 import { Injectable, inject } from '@angular/core';
-import DeepL from 'deepl-node';
+import { PocketBaseService } from '../pocketbase/pocketbase.service';
+import { TranslationStatus, Locale } from '../core/services/pocketbase/models';
 
 @Injectable({ providedIn: 'root' })
 export class TranslationService {
-  private client: DeepL | null = null;
-  private initialized = false;
+  private pb = inject(PocketBaseService);
 
-  // Initialize with DeepL API key from environment
-  init(): void {
-    if (this.initialized) return;
+  /**
+   * Translation status constants
+   */
+  TranslationStatus = TranslationStatus;
 
-    // Get API key from environment - should be configured per deployment
-    const apiKey = 'your-deepl-api-key-here';
+  /**
+   * Supported locales
+   */
+  SupportedLocales: Locale[] = ['ca', 'es', 'en'];
 
+  /**
+   * Check if a translation exists for a record field and language
+   * Reads from PocketBase only - NO API calls
+   */
+  async existsTranslation(
+    recordId: string,
+    collection: string,
+    field: string,
+    lang: Locale
+  ): Promise<{
+    exists: boolean;
+    text: string;
+    status: TranslationStatus;
+  }> {
     try {
-      this.client = new DeepL(apiKey, { version: 'v2' });
-      this.initialized = true;
-      console.log('DeepL translation service initialized');
+      const record = await this.pb.getOne(collection, recordId, {
+        expand: false,
+      });
+
+      const textKey = `${field}_${lang}`;
+      const text = record[textKey as keyof typeof record] as string | undefined;
+      const statusKey = `translation_status_${lang}`;
+      const status = record[statusKey as keyof typeof record] as TranslationStatus | 'missing';
+
+      return {
+        exists: !!text,
+        text: text || '',
+        status: status,
+      };
     } catch (error) {
-      console.warn('DeepL API key not configured, falling back to i18n only');
-      this.client = null;
-      this.initialized = true;
+      console.error('Error checking translation existence:', error);
+      return {
+        exists: false,
+        text: '',
+        status: 'missing',
+      };
     }
   }
 
   /**
-   * Translate long text using DeepL API
-   * Use for biographies, news content, descriptions, etc.
+   * Get translated text for public frontend
+   * Reads from PocketBase only - NO API calls, NO translation
    */
-  translateText(text: string, targetLang: 'ca' | 'es' | 'en' = 'ca', sourceLang: 'auto' | 'en' = 'auto'): Promise<string> {
-    if (!this.client || !this.initialized) {
-      // Fall back to returning original text if DeepL not initialized
-      return Promise.resolve(text);
-    }
+  async getTranslatedText(
+    recordId: string,
+    collection: string,
+    field: string,
+    lang: Locale
+  ): Promise<string> {
+    try {
+      const record = await this.pb.getOne(collection, recordId, {
+        expand: false,
+      });
 
-    return new Promise((resolve, reject) => {
-      try {
-        this.client!.translateText(text, targetLang, sourceLang).then(
-          (result) => {
-            resolve(result.text);
-          },
-          (error) => {
-            console.error('DeepL translation error:', error);
-            // Fall back to original text on error
-            resolve(text);
+      const textKey = `${field}_${lang}`;
+      const text = record[textKey as keyof typeof record] as string | undefined;
+
+      if (text && text.trim().length > 0) {
+        return text;
+      }
+
+      // Fallback: return original language or empty
+      const originalKey = `${field}_ca`;
+      const originalText = record[originalKey as keyof typeof record] as string | undefined;
+      return originalText || text || '';
+    } catch (error) {
+      console.error('Error getting translated text:', error);
+      return '';
+    }
+  }
+
+  /**
+   * Get all translated fields for a record and language
+   * Public frontend use only
+   */
+  async getAllTranslatedFields(
+    recordId: string,
+    collection: string,
+    fieldPrefix: string,
+    lang: Locale
+  ): Promise<{
+    hasTranslation: boolean;
+    translatedText: string;
+    originalText: string;
+  }> {
+    try {
+      const record = await this.pb.getOne(collection, recordId, {
+        expand: false,
+      });
+
+      const translatedKey = `${fieldPrefix}_${lang}`;
+      const originalKey = fieldPrefix;
+
+      const hasTranslation = !!(
+        record[translatedKey as keyof typeof record] as string
+      );
+
+      const translatedText = hasTranslation
+        ? (record[translatedKey as keyof typeof record] as string)
+        : '';
+
+      const originalText = hasTranslation
+        ? ''
+        : (record[originalKey as keyof typeof record] as string) || '';
+
+      return {
+        hasTranslation,
+        translatedText,
+        originalText,
+      };
+    } catch (error) {
+      console.error('Error getting all translated fields:', error);
+      return {
+        hasTranslation: false,
+        translatedText: '',
+        originalText: '',
+      };
+    }
+  }
+
+  /**
+   * Get translation status for a record
+   */
+  async getRecordTranslationStatus(
+    recordId: string,
+    collection: string,
+    fieldPrefixes: string[]
+  ): Promise<Record<string, TranslationStatus>> {
+    try {
+      const record = await this.pb.getOne(collection, recordId, {
+        expand: false,
+      });
+
+      const statuses: Record<string, TranslationStatus> = {};
+
+      for (const prefix of fieldPrefixes) {
+        for (const lang of this.SupportedLocales) {
+          const statusKey = `${prefix}_${lang}`;
+          if (record[statusKey as keyof typeof record]) {
+            statuses[statusKey] = record[statusKey as keyof typeof record] as TranslationStatus;
+          } else {
+            statuses[statusKey] = 'missing';
           }
-        );
-      } catch (error) {
-        console.error('DeepL translation exception:', error);
-        resolve(text);
+        }
       }
-    });
+
+      return statuses;
+    } catch (error) {
+      console.error('Error getting record translation status:', error);
+      return {};
+    }
   }
 
   /**
-   * Translate multiple texts in parallel (for batch translation)
-   * Use for translating multiple fields of a biography or news article
+   * Mark translation as outdated when original content changes
+   * Admin operation - saves status to PocketBase
    */
-  translateBatch(texts: { original: string; targetLang: 'ca' | 'es' | 'en'; sourceLang?: 'auto' | 'en' }[]): Promise<string[]> {
-    if (!this.client || !this.initialized) {
-      return Promise.resolve(texts.map(() => ''));
+  async markAsOutdated(
+    recordId: string,
+    collection: string,
+    field: string,
+    lang: Locale
+  ): Promise<{
+    success: boolean;
+    newStatus: TranslationStatus;
+  }> {
+    try {
+      await this.pb.update(collection, recordId, {
+        [`translation_status_${lang}`]: 'outdated' as TranslationStatus,
+      });
+
+      return {
+        success: true,
+        newStatus: 'outdated' as TranslationStatus,
+      };
+    } catch (error) {
+      console.error('Error marking translation as outdated:', error);
+      return {
+        success: false,
+        newStatus: 'missing' as TranslationStatus,
+      };
+    }
+  }
+
+  /**
+   * Helper: Validate that all required languages have content
+   * Useful for admin forms before saving
+   */
+  validateLanguageCoverage(
+    formValues: Record<string, any>,
+    fieldPrefix: string
+  ): {
+    complete: boolean;
+    missingLangs: Locale[];
+    hasOriginal: boolean;
+  } {
+    const missingLangs: Locale[] = [];
+    const supportedLangs: Locale[] = ['ca', 'es', 'en'];
+    let hasOriginal = false;
+
+    for (const lang of supportedLangs) {
+      const value = formValues[`${fieldPrefix}_${lang}`];
+      if (value && value.trim().length > 0) {
+        // Has content in this language
+      } else {
+        missingLangs.push(lang);
+      }
+      // Check if original (ca) has content
+      if (lang === 'ca' && (formValues[`${fieldPrefix}_ca`] || '').trim().length > 0) {
+        hasOriginal = true;
+      }
     }
 
-    return new Promise((resolve, reject) => {
-      try {
-        const requests = texts.map(({ original, targetLang, sourceLang }) =>
-          this.translateText(original, targetLang, sourceLang)
-        );
-
-        Promise.all(requests).then(results => {
-          resolve(results);
-        });
-      } catch (error) {
-        console.error('DeepL batch translation error:', error);
-        resolve(texts.map(() => ''));
-      }
-    });
-  }
-
-  /**
-   * Short translation for navigation, labels, buttons
-   * Uses i18n pipeline for consistency with Angular i18n
-   * Keeps i18n keys for SEO and consistency
-   */
-  async translateShort(key: string, lang: 'ca' | 'es' | 'en' = 'ca'): Promise<string> {
-    // For short texts, we rely on the Angular i18n system
-    // This method is a placeholder - actual translation happens via translate pipe
-    // The key is returned as-is, the template uses [translate] directive
-    return Promise.resolve(key);
-  }
-
-  /**
-   * Detect if text is likely long content that should use DeepL
-   * Short texts (labels, navigation, button text) should use i18n
-   * Long texts (biographies, articles, descriptions) should use DeepL
-   */
-  isLongText(text: string): boolean {
-    // Heuristic: texts longer than 200 characters are likely long-form content
-    // that should use DeepL rather than i18n keys
-    return text.trim().length > 200;
-  }
-
-  /**
-   * Main translation entry point - auto-selects between DeepL and i18n
-   * - Short texts (< 200 chars): returns i18n key for template to handle
-   * - Long texts (> 200 chars): uses DeepL API
-   */
-  async translate(content: string, targetLang: 'ca' | 'es' | 'en' = 'ca'): Promise<string> {
-    if (this.isLongText(content)) {
-      return this.translateText(content, targetLang);
-    } else {
-      // For short texts, return the key - template uses i18n pipe
-      return Promise.resolve(content);
-    }
+    return {
+      complete: missingLangs.length === 0,
+      missingLangs,
+      hasOriginal,
+    };
   }
 }
