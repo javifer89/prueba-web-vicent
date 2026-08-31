@@ -7,6 +7,7 @@ import { BiographyAdminService } from '../biography-admin.service';
 import { Biography } from '../../core/services/pocketbase/models';
 import { PocketBaseService } from '../../core/services/pocketbase';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { TranslationService } from '../../core/services/translation/translation.service';
 
 type EditorMode = 'create' | 'edit';
 
@@ -29,6 +30,9 @@ export class AdminBiographyFormComponent implements OnInit {
   loading = false;
   saving = false;
   error = '';
+  currentLocale: 'ca' | 'es' | 'en' = 'ca';
+  locales: ('ca' | 'es' | 'en')[] = ['ca', 'es', 'en'];
+  translationService = inject(TranslationService);
 
   form!: FormGroup;
   portraitFile: File | null = null;
@@ -139,6 +143,21 @@ export class AdminBiographyFormComponent implements OnInit {
 
     try {
       const formValue = this.form.getRawValue();
+      
+      // Translate long texts using DeepL if API key is configured
+      const translatedSummary_ca = await this.translationService.translate(
+        formValue.summary_ca || '',
+        'ca'
+      );
+      const translatedSummary_es = await this.translationService.translate(
+        formValue.summary_es || '',
+        'es'
+      );
+      const translatedSummary_en = await this.translationService.translate(
+        formValue.summary_en || '',
+        'en'
+      );
+
       const body = {
         name_ca: formValue.name_ca,
         name_es: formValue.name_es,
@@ -148,9 +167,9 @@ export class AdminBiographyFormComponent implements OnInit {
         country_ca: formValue.country_ca || null,
         country_es: formValue.country_es || null,
         country_en: formValue.country_en || null,
-        summary_ca: formValue.summary_ca || null,
-        summary_es: formValue.summary_es || null,
-        summary_en: formValue.summary_en || null,
+        summary_ca: translatedSummary_ca || null,
+        summary_es: translatedSummary_es || null,
+        summary_en: translatedSummary_en || null,
       };
 
       if (this.mode === 'create') {
