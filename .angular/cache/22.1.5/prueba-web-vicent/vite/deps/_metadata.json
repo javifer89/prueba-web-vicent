@@ -1,91 +1,111 @@
 {
-  "hash": "35abba9b",
-  "configHash": "df06d1db",
-  "lockfileHash": "bbe1e0dd",
-  "browserHash": "30ce054a",
+  "hash": "4457b438",
+  "configHash": "15f753e8",
+  "lockfileHash": "46eaecf4",
+  "browserHash": "ee945069",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "8b629bfd",
+      "fileHash": "e153f763",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "ac6b1a20",
+      "fileHash": "a01a7fa0",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "982ac086",
+      "fileHash": "89750715",
+      "needsInterop": false
+    },
+    "@angular/core/rxjs-interop": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/rxjs-interop.mjs",
+      "file": "@angular_core_rxjs-interop.js",
+      "fileHash": "8c726b5e",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "d6979f8b",
+      "fileHash": "25c03e40",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "a9059a96",
+      "fileHash": "8ab2c940",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "7d14b2be",
+      "fileHash": "35df2a88",
+      "needsInterop": false
+    },
+    "pocketbase": {
+      "src": "../../../../../../node_modules/pocketbase/dist/pocketbase.es.mjs",
+      "file": "pocketbase.js",
+      "fileHash": "81d15591",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "18388897",
+      "fileHash": "496eafad",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "641d8188",
+      "fileHash": "f37efd7b",
       "needsInterop": false
     },
     "zone.js": {
       "src": "../../../../../../node_modules/zone.js/fesm2015/zone.js",
       "file": "zone__js.js",
-      "fileHash": "1af40d4c",
+      "fileHash": "5cd50fdd",
       "needsInterop": true
     }
   },
   "chunks": {
-    "_xhr-chunk-CarqVa51": {
-      "file": "_xhr-chunk-CarqVa51.js",
+    "_resource-chunk-DXTgPfy5": {
+      "file": "_resource-chunk-DXTgPfy5.js",
       "isDynamicEntry": false
     },
-    "common-DOjEblK5": {
-      "file": "common-DOjEblK5.js",
+    "_xhr-chunk-CQ7wGqcq": {
+      "file": "_xhr-chunk-CQ7wGqcq.js",
       "isDynamicEntry": false
     },
-    "core-BXqUIonT": {
-      "file": "core-BXqUIonT.js",
+    "asyncToGenerator-BJgYDK9H": {
+      "file": "asyncToGenerator-BJgYDK9H.js",
+      "isDynamicEntry": false
+    },
+    "common-DLNKuFo4": {
+      "file": "common-DLNKuFo4.js",
+      "isDynamicEntry": false
+    },
+    "core-GmQ8_i8C": {
+      "file": "core-GmQ8_i8C.js",
       "isDynamicEntry": false
     },
     "esm5-1bPjeIHk": {
       "file": "esm5-1bPjeIHk.js",
       "isDynamicEntry": false
     },
-    "http-D9nXiMeM": {
-      "file": "http-D9nXiMeM.js",
+    "http-C2jjuBfi": {
+      "file": "http-C2jjuBfi.js",
       "isDynamicEntry": false
     },
     "operators-cDZ5DjJy": {
       "file": "operators-cDZ5DjJy.js",
       "isDynamicEntry": false
     },
-    "platform-browser-vp1WBtpc": {
-      "file": "platform-browser-vp1WBtpc.js",
+    "platform-browser-B933ZBxk": {
+      "file": "platform-browser-B933ZBxk.js",
       "isDynamicEntry": false
     },
     "zipWith-DkrnN79P": {

@@ -5,3 +5,5 @@ node_modules
 .angular/cache/22.1.5/prueba-web-vicent/.tsbuildinfo
 dist
 .angular\cache
+.angular
+commit-all.ps1

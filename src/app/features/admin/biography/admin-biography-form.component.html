@@ -1,0 +1,141 @@
+<!-- Biography Form Template -->
+<div class="admin-form-container">
+
+  <!-- Form Header -->
+  <div class="form-header">
+    <h1 *ngIf="mode === 'create'" [translate]="'admin.media.new'"></h1>
+    <h1 *ngIf="mode === 'edit'" [translate]="'admin.media.edit'"></h1>
+    <span class="form-subtitle" *ngIf="biographyId">{{ biography?.name_ca || 'Biografía' }}</span>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="form-error" role="alert">
+    <span>{{ error }}</span>
+  </div>
+
+  <!-- Form Content -->
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="admin-form">
+
+    <!-- Portrait -->
+    <div class="form-section">
+      <h2>Retrato</h2>
+      
+      <div class="upload-area" (click)="fileInput.nativeElement.click()">
+        <ng-container *ngIf="mode === 'create' && portraitFile">
+          <div class="file-preview">
+            <img *ngIf="portraitPreview" [src]="portraitPreview" alt="{{ form.get('name_ca')?.value }}" />
+            <span *ngIf="!portraitPreview" class="no-preview">
+              {{ form.get('name_ca')?.value || 'Retrato' }}
+            </span>
+            <button type="button" class="remove-btn" (click)="removePortrait()" *ngIf="portraitFile">
+              <span>Eliminar</span>
+            </button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="mode === 'edit'">
+          <div *ngIf="biography?.portrait" class="existing-file">
+            <img [src]="pb.getFileUrlSync({ id: biographyId!, collectionId: 'biography', collectionName: 'biography' }, biography.portrait, { thumb: '400x400' })" alt="{{ biography.name_ca }}" />
+            <span class="file-name">{{ biography.name_ca }}</span>
+            <label class="delete-label">
+              <input type="checkbox" [(ngModel)]="portraitToDelete" />
+              <span>Eliminar retrato</span>
+            </label>
+          </div>
+        </ng-container>
+
+        <input type="file" #fileInput (change)="onFileSelect($event)" accept="image/*" class="file-input-hidden" />
+
+        <div class="upload-hint">Sube una imagen para el retrato (máx. 5MB)</div>
+      </div>
+    </div>
+
+    <!-- Name Sections (Multi-locale) -->
+    <div class="form-section">
+      <h2>Nombre</h2>
+      
+      <div class="form-group">
+        <label>Nombre (Catalán)</label>
+        <input formControlName="name_ca" type="text" placeholder="Nombre en catalán" />
+      </div>
+
+      <div class="form-group">
+        <label>Nombre (Español)</label>
+        <input formControlName="name_es" type="text" placeholder="Nombre en español" />
+      </div>
+
+      <div class="form-group">
+        <label>Nombre (English)</label>
+        <input formControlName="name_en" type="text" placeholder="Name in English" />
+      </div>
+    </div>
+
+    <!-- Birth/Death Years -->
+    <div class="form-section">
+      <h2>Años</h2>
+      
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Año nacimiento</label>
+          <input formControlName="birth_year" type="number" min="1900" max="2025" placeholder="Año" />
+        </div>
+        <div class="form-group half">
+          <label>Año fallecimiento</label>
+          <input formControlName="death_year" type="number" min="1900" max="2025" placeholder="Año" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Country Sections (Multi-locale) -->
+    <div class="form-section">
+      <h2>País</h2>
+      
+      <div class="form-group">
+        <label>País (Catalán)</label>
+        <input formControlName="country_ca" type="text" placeholder="País en catalán" />
+      </div>
+
+      <div class="form-group">
+        <label>País (Español)</label>
+        <input formControlName="country_es" type="text" placeholder="País en español" />
+      </div>
+
+      <div class="form-group">
+        <label>País (English)</label>
+        <input formControlName="country_en" type="text" placeholder="Country in English" />
+      </div>
+    </div>
+
+    <!-- Summary Sections (Multi-locale) -->
+    <div class="form-section">
+      <h2>Resumen</h2>
+
+      <div class="form-group">
+        <label>Resumen (Catalán)</label>
+        <textarea formControlName="summary_ca" rows="3" placeholder="Resumen en catalán"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Resumen (Español)</label>
+        <textarea formControlName="summary_es" rows="3" placeholder="Resumen en español"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Resumen (English)</label>
+        <textarea formControlName="summary_en" rows="3" placeholder="Summary in English"></textarea>
+      </div>
+    </div>
+
+    <!-- Submit & Cancel -->
+    <div class="form-actions">
+      <button type="button" (click)="onCancel()" class="btn-cancel">
+        Cancelar
+      </button>
+      <button type="submit" [disabled]="saving" class="btn-save">
+        <span *ngIf="!saving">Guardar</span>
+        <span *ngIf="saving" class="spinner-small"></span>
+      </button>
+    </div>
+
+  </form>
+</div>

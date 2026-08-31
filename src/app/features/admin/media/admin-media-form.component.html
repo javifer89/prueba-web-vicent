@@ -1,0 +1,221 @@
+<!-- Media Form Template -->
+<div class="admin-form-container">
+
+  <!-- Form Header -->
+  <div class="form-header">
+    <h1 *ngIf="mode === 'create'">New Media</h1>
+    <h1 *ngIf="mode === 'edit'">Edit Media</h1>
+    <span class="form-subtitle" *ngIf="mediaId">{{ media?.title_ca || 'Media' }}</span>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="form-error" role="alert">
+    <span>{{ error }}</span>
+  </div>
+
+  <!-- Form Content -->
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="admin-form">
+
+    <!-- File Upload Section -->
+    <div class="form-section">
+      <h2>File</h2>
+      
+      <div class="upload-area" (click)="fileInput.nativeElement.click()">
+        <ng-container *ngIf="mode === 'create' && coverFile">
+          <div class="file-preview">
+            <img *ngIf="filePreview" [src]="filePreview" alt="{{ form.get('title_ca')?.value }}" />
+            <span *ngIf="!filePreview" class="no-preview">
+              {{ form.get('title_ca')?.value || 'File' }}
+            </span>
+            <button type="button" class="remove-btn" (click)="removeFile()" *ngIf="coverFile">
+              Remove
+            </button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="mode === 'edit'">
+          <div *ngIf="media?.file" class="existing-file">
+            <img [src]="pb.getFileUrlSync({ id: mediaId, collectionId: 'media', collectionName: 'media' }, media.file, { thumb: '400x400' })" alt="{{ media.title_ca }}" />
+            <span class="file-name">{{ media.title_ca }}</span>
+            <label class="delete-label">
+              <input type="checkbox" [(ngModel)]="coverToDelete" />
+              Delete
+            </label>
+          </div>
+        </ng-container>
+
+        <input type="file" #fileInput (change)="onFileSelect($event)" accept="image/*,audio/*,video/*,application/pdf,*" class="file-input-hidden" />
+
+        <div class="upload-hint">
+          Upload image, audio, video, or PDF file (max 50MB). For YouTube/Vimeo/SoundCloud, enter the URL below.
+        </div>
+      </div>
+    </div>
+
+    <!-- Title Sections -->
+    <div class="form-section">
+      <h2>Title</h2>
+      
+      <div class="form-group">
+        <label>Title (Catalan)</label>
+        <input formControlName="title_ca" type="text" placeholder="Title in Catalan" />
+      </div>
+
+      <div class="form-group">
+        <label>Title (Spanish)</label>
+        <input formControlName="title_es" type="text" placeholder="Título en español" />
+      </div>
+
+      <div class="form-group">
+        <label>Title (English)</label>
+        <input formControlName="title_en" type="text" placeholder="Title in English" />
+      </div>
+    </div>
+
+    <!-- Description Sections -->
+    <div class="form-section">
+      <h2>Description</h2>
+
+      <div class="form-group">
+        <label>Description (Catalan)</label>
+        <textarea formControlName="description_ca" rows="3" placeholder="Description in Catalan"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Description (Spanish)</label>
+        <textarea formControlName="description_es" rows="3" placeholder="Descripción en español"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Description (English)</label>
+        <textarea formControlName="description_en" rows="3" placeholder="Description in English"></textarea>
+      </div>
+    </div>
+
+    <!-- Alt Text -->
+    <div class="form-section">
+      <h2>Alt Text</h2>
+
+      <div class="form-group">
+        <label>Alt Text (Catalan)</label>
+        <input formControlName="alt_ca" type="text" placeholder="Alternative text in Catalan" />
+      </div>
+
+      <div class="form-group">
+        <label>Alt Text (Spanish)</label>
+        <input formControlName="alt_es" type="text" placeholder="Texto alternativo en español" />
+      </div>
+
+      <div class="form-group">
+        <label>Alt Text (English)</label>
+        <input formControlName="alt_en" type="text" placeholder="Alt text in English" />
+      </div>
+    </div>
+
+    <!-- Media Type -->
+    <div class="form-section">
+      <h2>Type</h2>
+      
+      <div class="form-control-select">
+        <select formControlName="type">
+          <option value="image">Image</option>
+          <option value="audio">Audio</option>
+          <option value="video">Video</option>
+          <option value="pdf">PDF</option>
+          <option value="document">Document</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Category -->
+    <div class="form-section">
+      <h2>Category</h2>
+      
+      <div class="form-control-select">
+        <select formControlName="category">
+          <option value="">-- Select category --</option>
+          <option *ngFor="let cat of categories$ | async" [value]="cat.id">
+            {{ cat.name_ca || cat.name_es || cat.name_en || cat.title }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Date -->
+    <div class="form-section">
+      <h2>Date</h2>
+      
+      <div class="form-control-select">
+        <input formControlName="date" type="date" />
+      </div>
+    </div>
+
+    <!-- Location, Photographer, Composer, Performer -->
+    <div class="form-section">
+      <h2>Metadata</h2>
+      
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Location</label>
+          <input formControlName="location" type="text" placeholder="Location" />
+        </div>
+        <div class="form-group half">
+          <label>Photographer</label>
+          <input formControlName="photographer" type="text" placeholder="Photographer" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Composer</label>
+          <input formControlName="composer" type="text" placeholder="Composer" />
+        </div>
+        <div class="form-group half">
+          <label>Performer</label>
+          <input formControlName="performer" type="text" placeholder="Performer" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group half">
+          <label>Duration (min)</label>
+          <input formControlName="duration" type="number" min="0" placeholder="Duration in minutes" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform -->
+    <div class="form-section">
+      <h2>Platform</h2>
+      
+      <div class="form-control-select">
+        <select formControlName="platform">
+          <option value="direct">Direct (uploaded file)</option>
+          <option value="youtube">YouTube</option>
+          <option value="vimeo">Vimeo</option>
+          <option value="soundcloud">SoundCloud</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+
+      <div *ngIf="form.get('platform')?.value !== 'direct'" class="platform-fields">
+        <div class="form-group">
+          <label>External URL</label>
+          <input formControlName="external_url" type="url" placeholder="YouTube, Vimeo, or SoundCloud URL" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit & Cancel -->
+    <div class="form-actions">
+      <button type="button" (click)="onCancel()" class="btn-cancel">
+        Cancel
+      </button>
+      <button type="submit" [disabled]="saving" class="btn-save">
+        <span *ngIf="!saving">Save</span>
+        <span *ngIf="saving" class="spinner-small"></span>
+      </button>
+    </div>
+
+  </form>
+</div>
