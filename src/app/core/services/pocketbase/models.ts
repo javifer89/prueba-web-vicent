@@ -52,7 +52,6 @@ export interface News extends PocketBaseRecord {
   category?: string | Category;
   translation_status_es: TranslationStatus;
   translation_status_en: TranslationStatus;
-  translation_status_de: TranslationStatus;
   translation_last_gen: string;
 }
 
