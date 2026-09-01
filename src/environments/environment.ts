@@ -8,5 +8,10 @@ export const environment = {
       // Get API key from: https://www.deepl.com/developers
       // This key is ONLY used in admin panel, NOT exposed to public frontend
       // The TranslationService.init(apiKey) must be called with this key during app bootstrap
-      deeplApiKey: '' as string,  // ← Dejar vacío por defecto, el admin lo configura
+      // imagekit.io config
+      imagekitPublicKey: 'public_JpZ+6+PwSawQFq4AncHEclkYt1g=',  
+      imagekitEndpoint: 'https://ik.imagekit.io/javiferdev',
+      imagekitUploadPreset: 'portfolio-web', // Upload Preset name (crear en dashboard)
+      
+      deeplApiKey: '' as string,
     };
