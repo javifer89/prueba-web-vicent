@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, combineLatest, map, catchError, of, switchMap } from 'rxjs';
-import { BiographyAdminService } from '../biography-admin.service';
-import { Biography } from '../../core/services/pocketbase/models';
-import { PocketBaseService } from '../../core/services/pocketbase';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
-import { TranslationService } from '../../core/services/translation/translation.service';
+import { BiographyAdminService } from './biography-admin.service';
+import { Biography } from '../../../core/services/pocketbase/models';
+import { PocketBaseService } from '../../../core/services/pocketbase';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 type EditorMode = 'create' | 'edit';
 
@@ -16,7 +15,6 @@ type EditorMode = 'create' | 'edit';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './admin-biography-form.component.html',
-  styleUrls: ['./admin-biography-form.component.scss'],
 })
 export class AdminBiographyFormComponent implements OnInit {
   private fb = inject(FormBuilder);
@@ -30,9 +28,6 @@ export class AdminBiographyFormComponent implements OnInit {
   loading = false;
   saving = false;
   error = '';
-  currentLocale: 'ca' | 'es' | 'en' = 'ca';
-  locales: ('ca' | 'es' | 'en')[] = ['ca', 'es', 'en'];
-  translationService = inject(TranslationService);
 
   form!: FormGroup;
   portraitFile: File | null = null;
@@ -47,17 +42,18 @@ export class AdminBiographyFormComponent implements OnInit {
   private initForm(): void {
     this.form = this.fb.nonNullable.group({
       portrait: [null],
-      name_ca: ['', Validators.required],
-      name_es: [''],
-      name_en: [''],
-      birth_year: [null, [Validators.min(1900), Validators.max(2025)]],
-      death_year: [null, [Validators.min(1900), Validators.max(2025)]],
-      country_ca: [''],
-      country_es: [''],
-      country_en: [''],
-      summary_ca: [''],
-      summary_es: [''],
-      summary_en: [''],
+      formacion_ca: ['', Validators.required],
+      formacion_es: [''],
+      formacion_en: [''],
+      trayectoria_direccion_ca: ['', Validators.required],
+      trayectoria_direccion_es: [''],
+      trayectoria_direccion_en: [''],
+      trayectoria_composicion_ca: ['', Validators.required],
+      trayectoria_composicion_es: [''],
+      trayectoria_composicion_en: [''],
+      trayectoria_docencia_ca: ['', Validators.required],
+      trayectoria_docencia_es: [''],
+      trayectoria_docencia_en: [''],
     });
   }
 
@@ -83,22 +79,23 @@ export class AdminBiographyFormComponent implements OnInit {
 
   private patchForm(bio: Biography): void {
     this.form.patchValue({
-      name_ca: bio.name_ca,
-      name_es: bio.name_es || '',
-      name_en: bio.name_en || '',
-      birth_year: bio.birth_year || null,
-      death_year: bio.death_year || null,
-      country_ca: bio.country_ca || '',
-      country_es: bio.country_es || '',
-      country_en: bio.country_en || '',
-      summary_ca: bio.summary_ca || '',
-      summary_es: bio.summary_es || '',
-      summary_en: bio.summary_en || '',
+      formacion_ca: bio.formacion_ca,
+      formacion_es: bio.formacion_es || '',
+      formacion_en: bio.formacion_en || '',
+      trayectoria_direccion_ca: bio.trayectoria_direccion_ca,
+      trayectoria_direccion_es: bio.trayectoria_direccion_es || '',
+      trayectoria_direccion_en: bio.trayectoria_direccion_en || '',
+      trayectoria_composicion_ca: bio.trayectoria_composicion_ca,
+      trayectoria_composicion_es: bio.trayectoria_composicion_es || '',
+      trayectoria_composicion_en: bio.trayectoria_composicion_en || '',
+      trayectoria_docencia_ca: bio.trayectoria_docencia_ca,
+      trayectoria_docencia_es: bio.trayectoria_docencia_es || '',
+      trayectoria_docencia_en: bio.trayectoria_docencia_en || '',
     });
 
     if (bio.portrait) {
       this.portraitPreview = this.pb.getFileUrlSync(
-        { id: biographyId, collectionId: bio.collectionId, collectionName: 'biography' },
+        { id: bio.id, collectionId: bio.collectionId, collectionName: 'biography' },
         bio.portrait,
         { thumb: '400x400' }
       );
@@ -143,33 +140,19 @@ export class AdminBiographyFormComponent implements OnInit {
 
     try {
       const formValue = this.form.getRawValue();
-      
-      // Translate long texts using DeepL if API key is configured
-      const translatedSummary_ca = await this.translationService.translate(
-        formValue.summary_ca || '',
-        'ca'
-      );
-      const translatedSummary_es = await this.translationService.translate(
-        formValue.summary_es || '',
-        'es'
-      );
-      const translatedSummary_en = await this.translationService.translate(
-        formValue.summary_en || '',
-        'en'
-      );
-
       const body = {
-        name_ca: formValue.name_ca,
-        name_es: formValue.name_es,
-        name_en: formValue.name_en,
-        birth_year: formValue.birth_year || null,
-        death_year: formValue.death_year || null,
-        country_ca: formValue.country_ca || null,
-        country_es: formValue.country_es || null,
-        country_en: formValue.country_en || null,
-        summary_ca: translatedSummary_ca || null,
-        summary_es: translatedSummary_es || null,
-        summary_en: translatedSummary_en || null,
+        formacion_ca: formValue.formacion_ca,
+        formacion_es: formValue.formacion_es,
+        formacion_en: formValue.formacion_en,
+        trayectoria_direccion_ca: formValue.trayectoria_direccion_ca,
+        trayectoria_direccion_es: formValue.trayectoria_direccion_es,
+        trayectoria_direccion_en: formValue.trayectoria_direccion_en,
+        trayectoria_composicion_ca: formValue.trayectoria_composicion_ca,
+        trayectoria_composicion_es: formValue.trayectoria_composicion_es,
+        trayectoria_composicion_en: formValue.trayectoria_composicion_en,
+        trayectoria_docencia_ca: formValue.trayectoria_docencia_ca,
+        trayectoria_docencia_es: formValue.trayectoria_docencia_es,
+        trayectoria_docencia_en: formValue.trayectoria_docencia_en,
       };
 
       if (this.mode === 'create') {

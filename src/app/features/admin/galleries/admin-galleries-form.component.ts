@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, combineLatest, map, catchError, of, switchMap } from 'rxjs';
-import { MediaAdminService, MediaType, PlatformType } from '../../../features/admin/media/media-admin.service';
+import { GalleryAdminService } from './galleries-admin.service';
 import { Gallery } from '../../../core/services/pocketbase/models';
 import { PocketBaseService } from '../../../core/services/pocketbase';
 import { TranslatePipe } from '../../../core/i18n/translate.pipe';
@@ -15,13 +15,12 @@ type EditorMode = 'create' | 'edit';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './admin-galleries-form.component.html',
-  styleUrls: ['./admin-galleries-form.component.scss'],
 })
 export class AdminGalleriesFormComponent implements OnInit {
   private fb = inject(FormBuilder);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
-  private mediaService = inject(MediaAdminService);
+  private galleryService = inject(GalleryAdminService);
   private pb = inject(PocketBaseService);
 
   mode: EditorMode = 'create';
@@ -31,51 +30,32 @@ export class AdminGalleriesFormComponent implements OnInit {
   error = '';
 
   form!: FormGroup;
-  filePreview: string | null = null;
+  coverPreview: string | null = null;
   coverFile: File | null = null;
   coverToDelete = false;
-  categories$!: Observable<any[]>;
 
-  typeOptions: { value: MediaType; label: string }[] = [
-    { value: 'image', label: 'Imagen' },
-    { value: 'video', label: 'Video' },
-  ];
-
-  platformOptions: { value: PlatformType; label: string }[] = [
-    { value: 'direct', label: 'Directo (archivo subido)' },
-    { value: 'youtube', label: 'YouTube' },
-    { value: 'vimeo', label: 'Vimeo' },
-    { value: 'soundcloud', label: 'SoundCloud' },
-    { value: 'custom', label: 'Personalizado' },
+  statusOptions: { value: 'draft' | 'published' | 'archived'; label: string }[] = [
+    { value: 'draft', label: 'Borrador' },
+    { value: 'published', label: 'Publicado' },
+    { value: 'archived', label: 'Archivado' },
   ];
 
   ngOnInit(): void {
     this.initForm();
-    this.loadCategories();
     this.detectMode();
   }
 
   private initForm(): void {
     this.form = this.fb.nonNullable.group({
-      file: [null],
+      cover: [null],
       title_ca: ['', Validators.required],
       title_es: [''],
       title_en: [''],
       description_ca: [''],
       description_es: [''],
       description_en: [''],
-      alt_ca: [''],
-      alt_es: [''],
-      alt_en: [''],
-      type: ['image' as MediaType, Validators.required],
-      category: [''],
-      date: [''],
-    });
-  }
-
-  private loadCategories(): void {
-    this.categories$ = this.pb.getFullList('categories', {
-      sort: 'name_ca',
+      status: ['draft' as const, Validators.required],
+      featured: [false],
     });
   }
 
@@ -90,7 +70,7 @@ export class AdminGalleriesFormComponent implements OnInit {
 
   private loadGallery(id: string): void {
     this.loading = true;
-    this.mediaService.getOne(id).subscribe({
+    this.galleryService.getOne(id).subscribe({
       next: (gallery) => this.patchForm(gallery),
       error: (err) => {
         this.error = 'Error cargando la galería: ' + (err.message || 'Error desconocido');
@@ -107,18 +87,14 @@ export class AdminGalleriesFormComponent implements OnInit {
       description_ca: gallery.description_ca || '',
       description_es: gallery.description_es || '',
       description_en: gallery.description_en || '',
-      alt_ca: gallery.alt_ca || '',
-      alt_es: gallery.alt_es || '',
-      alt_en: gallery.alt_en || '',
-      type: gallery.type,
-      category: gallery.category || '',
-      date: gallery.date ? gallery.date.split('T')[0] : '',
+      status: gallery.status,
+      featured: gallery.featured,
     });
 
-    if (gallery.file) {
-      this.filePreview = this.pb.getFileUrlSync(
+    if (gallery.cover) {
+      this.coverPreview = this.pb.getFileUrlSync(
         { id: gallery.id, collectionId: gallery.collectionId, collectionName: 'galleries' },
-        gallery.file,
+        gallery.cover,
         { thumb: '400x400' }
       );
     }
@@ -137,17 +113,17 @@ export class AdminGalleriesFormComponent implements OnInit {
       // Preview for images
       if (file.type.startsWith('image/')) {
         const reader = new FileReader();
-        reader.onload = (e) => this.filePreview = e.target?.result as string;
+        reader.onload = (e) => this.coverPreview = e.target?.result as string;
         reader.readAsDataURL(file);
       } else {
-        this.filePreview = null;
+        this.coverPreview = null;
       }
     }
   }
 
-  removeFile(): void {
+  removeCover(): void {
     this.coverFile = null;
-    this.filePreview = null;
+    this.coverPreview = null;
     this.coverToDelete = true;
   }
 
@@ -169,18 +145,14 @@ export class AdminGalleriesFormComponent implements OnInit {
         description_ca: formValue.description_ca,
         description_es: formValue.description_es,
         description_en: formValue.description_en,
-        alt_ca: formValue.alt_ca,
-        alt_es: formValue.alt_es,
-        alt_en: formValue.alt_en,
-        type: formValue.type,
-        category: formValue.category || null,
-        date: formValue.date || null,
+        status: formValue.status,
+        featured: formValue.featured,
       };
 
       if (this.mode === 'create') {
-        await this.mediaService.create(body).toPromise();
+        await this.galleryService.create(body).toPromise();
       } else {
-        await this.mediaService.update(this.galleryId!, body).toPromise();
+        await this.galleryService.update(this.galleryId!, body).toPromise();
       }
 
       await this.router.navigate(['/admin/galleries']);

@@ -3,7 +3,7 @@ import PocketBase from 'pocketbase';
 import { environment } from '../../../../environments/environment';
 import { Observable, from, of, catchError, map } from 'rxjs';
 
-export type Locale = 'ca' | 'es' | 'en';
+export type Locale = 'es' | 'va' | 'en';
 
 export interface PocketBaseRecord {
   id: string;
@@ -193,13 +193,13 @@ export class PocketBaseService {
     );
   }
 
-  getLocalizedField<T>(record: any, fieldBase: string, locale: Locale, fallbackLocale: Locale = 'ca'): T {
+  getLocalizedField<T>(record: any, fieldBase: string, locale: Locale, fallbackLocale: Locale = 'va'): T {
     const localizedField = `${fieldBase}_${locale}`;
     const fallbackField = `${fieldBase}_${fallbackLocale}`;
     return (record[localizedField] ?? record[fallbackField] ?? null) as T;
   }
 
-  getLocalizedFields<T extends Record<string, unknown>>(record: Record<string, unknown>, fieldBases: string[], locale: Locale, fallbackLocale: Locale = 'ca'): T {
+  getLocalizedFields<T extends Record<string, unknown>>(record: Record<string, unknown>, fieldBases: string[], locale: Locale, fallbackLocale: Locale = 'va'): T {
     const result: Record<string, unknown> = {};
     for (const base of fieldBases) {
       result[base] = this.getLocalizedField(record, base, locale, fallbackLocale);

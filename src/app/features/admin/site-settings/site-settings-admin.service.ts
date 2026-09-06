@@ -1,3 +1,8 @@
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PocketBaseService } from '../../../core/services/pocketbase';
+import { SiteSettings } from '../../../core/services/pocketbase/models';
+
 @Injectable({ providedIn: 'root' })
 export class SiteSettingsAdminService {
   private pb = inject(PocketBaseService);

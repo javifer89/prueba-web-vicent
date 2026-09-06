@@ -54,7 +54,7 @@ export class NewsDetailComponent implements OnInit {
   private updateSeo(news: News): void {
     const seoTitle = this.newsService.getLocalizedSeoTitle(news);
     const seoDescription = this.newsService.getLocalizedSeoDescription(news);
-    const fullTitle = seoTitle ? `${seoTitle} | Vicent Egea Insa` : 'Vicent Egea Insa';
+    const fullTitle = seoTitle ? `${seoTitle} | Vicent Sellés Álamo` : 'Vicent Sellés Álamo';
     const coverUrl = this.newsService.getCoverUrl(news);
 
     this.title.setTitle(fullTitle);

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Observable, Subject, debounceTime, distinctUntilChanged, switchMap, startWith, map, catchError, of } from 'rxjs';
-import { MediaAdminService, MediaType, PlatformType } from '../../../features/admin/media/media-admin.service';
+import { GalleryAdminService } from './galleries-admin.service';
 import { Gallery } from '../../../core/services/pocketbase/models';
 import { PocketBaseService } from '../../../core/services/pocketbase';
 import { TranslatePipe } from '../../../core/i18n/translate.pipe';
@@ -13,13 +13,12 @@ import { TranslatePipe } from '../../../core/i18n/translate.pipe';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink, TranslatePipe],
   templateUrl: './admin-galleries-list.component.html',
-  styleUrls: ['./admin-galleries-list.component.scss'],
 })
 export class AdminGalleriesListComponent implements OnInit {
-  private mediaService = inject(MediaAdminService);
+  private galleryService = inject(GalleryAdminService);
   private pb = inject(PocketBaseService);
 
-  galleries$!: Observable<any[]>;
+  galleries$!: Observable<Gallery[]>;
   loading = true;
   searchTerm = '';
   statusFilter: 'all' | 'draft' | 'published' = 'all';
@@ -36,7 +35,7 @@ export class AdminGalleriesListComponent implements OnInit {
     this.searchSubject.next('');
   }
 
-  private loadGalleries(search: string): Observable<any[]> {
+  private loadGalleries(search: string): Observable<Gallery[]> {
     this.loading = true;
     let filter = '';
 
@@ -49,10 +48,10 @@ export class AdminGalleriesListComponent implements OnInit {
       filter = filter ? `${filter} && ${searchFilter}` : searchFilter;
     }
 
-    return this.mediaService.getAll({ filter, sort: '-created', expand: 'category' }).pipe(
-      map(result => {
+    return this.galleryService.getList(1, 30, { filter, sort: '-created', expand: 'images,category' }).pipe(
+      map((result: any) => {
         this.loading = false;
-        return result;
+        return result.items;
       }),
       catchError(() => {
         this.loading = false;
@@ -69,9 +68,9 @@ export class AdminGalleriesListComponent implements OnInit {
     this.searchSubject.next(this.searchTerm);
   }
 
-  onDelete(gallery: any): void {
+  onDelete(gallery: Gallery): void {
     if (!confirm(`¿Eliminar "${gallery.title_ca}"? Esta acción no se puede deshacer.`)) return;
-    this.mediaService.delete(gallery.id).subscribe({
+    this.galleryService.delete(gallery.id).subscribe({
       next: () => this.searchSubject.next(this.searchTerm),
       error: err => console.error('Error eliminando:', err),
     });

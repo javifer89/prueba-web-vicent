@@ -1,6 +1,6 @@
 {
   "site": {
-    "name": "Vicent Egea Insa"
+    "name": "Vicent Sellés Álamo"
   },
   "meta": {
     "title": "Compositor - Músika Clàssica i Contemporània",
@@ -20,7 +20,7 @@
     "galeria": "Galeria",
     "idioma": "Idioma",
     "idioma.es": "Español",
-    "idioma.ca": "Valencià",
+    "idioma.va": "Valencià",
     "idioma.en": "English"
   },
   "biography": {
@@ -32,12 +32,12 @@
     "docencia": "Docència"
   },
   "home": {
-    "heroTitle": "Vicent Egea Insa",
+    "heroTitle": "Vicent Sellés Álamo",
     "heroSubtitle": "Compositor i Director d'Orquesta",
     "heroAria": "Portada",
     "scrollDown": "Desplaçament a la següent secció",
     "testimonialsTitle": "Referències",
-    "testimonialsImageAlt": "Vicent Egea Insa dirigint",
+    "testimonialsImageAlt": "Vicent Sellés Álamo dirigint",
     "nextTestimonial": "Pròxim testimoni",
     "featuredNewsTitle": "Notícies Destacades",
     "newsTitle": "Últimes Notícies",
@@ -48,7 +48,7 @@
       {
         "name": "JOSE FRANCH",
         "role": "Clarinet Solist",
-        "quote": "Colaborar amb Vicent Egea Insa en la creació d'obres noves va ser una experiència inoblidable. Vicent va aconseguir que m'embarcara en un viatge de sons i emocions que mai abans havia experimentat. Tot això gràcies a la seua prodigiosa creativitat i al seu gran control tècnic."
+        "quote": "Colaborar amb Vicent Sellés Álamo en la creació d'obres noves va ser una experiència inoblidable. Vicent va aconseguir que m'embarcara en un viatge de sons i emocions que mai abans havia experimentat. Tot això gràcies a la seua prodigiosa creativitat i al seu gran control tècnic."
       },
       {
         "name": "BEN KOPEC",
@@ -58,7 +58,7 @@
       {
         "name": "HENK UMMELS",
         "role": "Artistic director, Molenaar",
-        "quote": "Des de 2015 el mestre Vicent Egea Insa és un compositor respecte i valuós. Obres mestres com les seues peces per a solista i banda són d'un nivell excel·lent. A més de ser un compositor hàbil, Vicent és una persona molt agradable amb qui treballar. Comunicativament molt sociable i flexible."
+        "quote": "Des de 2015 el mestre Vicent Sellés Álamo és un compositor respecte i valuós. Obres mestres com les seues peces per a solista i banda són d'un nivell excel·lent. A més de ser un compositor hàbil, Vicent és una persona molt agradable amb qui treballar. Comunicativament molt sociable i flexible."
       },
       {
         "name": "ANDRÉS VALERO CASTELLS",
@@ -186,7 +186,7 @@
     }
   },
   "footer": {
-    "copyright": "Drets d'autor © {{year}} Vicent Egea Insa",
+    "copyright": "Drets d'autor © {{year}} Vicent Sellés Álamo",
     "tagline": "Compositor i director d'orquesta",
     "privacy": "Política de privacitat",
     "cookies": "Cookies",

@@ -11,6 +11,10 @@ import { AdminCompositionsListComponent } from './features/admin/compositions/ad
 import { AdminCompositionsFormComponent } from './features/admin/compositions/admin-compositions-form.component';
 import { AdminMediaListComponent } from './features/admin/media/admin-media-list.component';
 import { AdminMediaFormComponent } from './features/admin/media/admin-media-form.component';
+import { AdminGalleriesListComponent } from './features/admin/galleries/admin-galleries-list.component';
+import { AdminGalleriesFormComponent } from './features/admin/galleries/admin-galleries-form.component';
+import { AdminBiographyFormComponent } from './features/admin/biography/admin-biography-form.component';
+import { AdminSiteSettingsFormComponent } from './features/admin/site-settings/site-settings-admin-form.component';
 import { adminAuthGuard, adminGuestGuard } from './core/services/admin-auth.guard';
 import { HomeComponent } from './features/home/home.component';
 import { CompositionListComponent } from './features/compositions/list/composition-list.component';
@@ -94,10 +98,11 @@ export const routes: Routes = [
       { path: 'media', component: AdminMediaListComponent },
       { path: 'media/new', component: AdminMediaFormComponent },
       { path: 'media/:id/edit', component: AdminMediaFormComponent },
-      // TODO: Add other admin routes
-      { path: 'galleries', component: AdminNewsListComponent }, // placeholder
-      { path: 'biography', component: AdminNewsListComponent }, // placeholder
-      { path: 'settings', component: AdminNewsListComponent }, // placeholder
+      { path: 'galleries', component: AdminGalleriesListComponent },
+      { path: 'galleries/new', component: AdminGalleriesFormComponent },
+      { path: 'galleries/:id/edit', component: AdminGalleriesFormComponent },
+      { path: 'biography', component: AdminBiographyFormComponent },
+      { path: 'settings', component: AdminSiteSettingsFormComponent },
     ],
   },
 

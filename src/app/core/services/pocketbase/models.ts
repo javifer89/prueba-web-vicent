@@ -1,6 +1,6 @@
 import type { PocketBaseRecord } from './pocketbase.service';
 
-export type Locale = 'ca' | 'es' | 'en';
+export type Locale = 'es' | 'va' | 'en';
 export type ContentStatus = 'draft' | 'published' | 'archived';
 export type EventStatus = 'upcoming' | 'past';
 export type TranslationStatus = 'current' | 'outdated' | 'pending' | 'missing';
@@ -270,7 +270,7 @@ export interface CompositionFormData {
 }
 
 export interface MediaFormData {
-  file?: File;
+  file?: File | string;
   title_ca: string;
   title_es?: string;
   title_en?: string;
@@ -306,12 +306,12 @@ export interface GalleryFormData {
 }
 
 export interface LocalizedField {
-  ca: string;
   es: string;
+  va: string;
   en: string;
 }
 
-export function getLocalizedValue(obj: Record<string, unknown>, base: string, locale: Locale, fallback: Locale = 'ca'): string {
+export function getLocalizedValue(obj: Record<string, unknown>, base: string, locale: Locale, fallback: Locale = 'va'): string {
   return (obj[`${base}_${locale}`] as string) || (obj[`${base}_${fallback}`] as string) || '';
 }
 
@@ -321,8 +321,8 @@ export function setLocalizedValue(obj: Record<string, unknown>, base: string, lo
 
 export function getAllLocales(obj: Record<string, unknown>, base: string): LocalizedField {
   return {
-    ca: (obj[`${base}_ca`] as string) || '',
     es: (obj[`${base}_es`] as string) || '',
+    va: (obj[`${base}_va`] as string) || '',
     en: (obj[`${base}_en`] as string) || '',
   };
 }

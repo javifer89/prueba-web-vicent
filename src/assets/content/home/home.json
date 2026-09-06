@@ -4,7 +4,7 @@
     "type": "home",
     "translations": {
       "ca": {
-        "heroTitle": "Vicent Egea Insa",
+        "heroTitle": "Vicent Sellés Álamo",
         "heroSubtitle": "Compositor i Director d'Orquesta",
         "heroAria": "Portada",
         "scrollDown": "Desplaçament a la següent secció",
@@ -21,7 +21,7 @@
         "recording2Desc": "Transmissió completa"
       },
       "es": {
-        "heroTitle": "Vicent Egea Insa",
+        "heroTitle": "Vicent Sellés Álamo",
         "heroSubtitle": "Compositor y Director de Orquesta",
         "heroAria": "Portada",
         "scrollDown": "Desplazarse a la siguiente sección",
@@ -38,7 +38,7 @@
         "recording2Desc": "Transmisión completa"
       },
       "en": {
-        "heroTitle": "Vicent Egea Insa",
+        "heroTitle": "Vicent Sellés Álamo",
         "heroSubtitle": "Composer and Orchestra Director",
         "heroAria": "Cover",
         "scrollDown": "Scroll down to next section",
