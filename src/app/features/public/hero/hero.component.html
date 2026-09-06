@@ -1,0 +1,18 @@
+<div #heroSection class="hero-section" role="img" aria-label="Tres imágenes destacadas del compositor">
+  <div class="hero-triptych">
+    <div class="hero-image-card" *ngFor="let url of heroImageUrls; let i = index"
+         (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()">
+      <img
+        [src]="url"
+        [alt]="heroImageTitles[i] || 'Imagen hero destacada'"
+        [title]="heroImageTitles[i] || 'Imagen hero'"
+        class="hero-image"
+        [style.transform]="getTransform(i)"
+        (load)="onImageLoad($event)"
+        (error)="onImageError($event, i)">
+      <!-- <div class="hero-image-overlay" *ngIf="heroImageTitles[i]">
+        <h3 class="hero-title">{{ heroImageTitles[i] }}</h3>
+      </div> -->
+    </div>
+  </div>
+</div>
