@@ -1,4 +1,4 @@
-import { Component, HostListener, inject } from '@angular/core';
+import { Component, HostListener, inject, signal, effect } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
@@ -29,8 +29,9 @@ export class HeaderComponent {
   private readonly translationService = inject(TranslationService);
   private readonly document = inject(DOCUMENT);
 
-  isMenuOpen = false;
-  openDropdownIndex: number | null = null;
+  // Signals for reactive UI
+  isMenuOpen = signal(false);
+  openDropdownIndex = signal<number | null>(null);
 
   navItems: NavItem[] = [
     { path: '/', label: 'nav.inicio' },
@@ -57,24 +58,23 @@ export class HeaderComponent {
   ];
 
   toggleMenu(): void {
-    this.isMenuOpen = !this.isMenuOpen;
-    if (!this.isMenuOpen) {
-      this.openDropdownIndex = null;
+    this.isMenuOpen.update(v => !v);
+    if (!this.isMenuOpen()) {
+      this.openDropdownIndex.set(null);
     }
   }
 
   toggleDropdown(index: number): void {
-    this.openDropdownIndex = this.openDropdownIndex === index ? null : index;
+    this.openDropdownIndex.update(current => current === index ? null : index);
   }
 
   closeMenu(): void {
-    this.isMenuOpen = false;
-    this.openDropdownIndex = null;
+    this.isMenuOpen.set(false);
+    this.openDropdownIndex.set(null);
   }
 
   changeLanguage(lang: Locale): void {
     this.closeMenu();
-    // Full page reload with new locale - ensures everything refreshes
     this.reloadWithLocale(lang);
   }
 
@@ -91,22 +91,20 @@ export class HeaderComponent {
   }
 
   isDropdownOpen(index: number): boolean {
-    return this.openDropdownIndex === index;
+    return this.openDropdownIndex() === index;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     const target = event.target as Window;
     if (target.innerWidth > 768) {
-      this.isMenuOpen = false;
-      this.openDropdownIndex = null;
+      this.closeMenu();
     }
   }
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
-    this.isMenuOpen = false;
-    this.openDropdownIndex = null;
+    this.closeMenu();
   }
 
   @HostListener('document:click', ['$event'])
@@ -114,7 +112,7 @@ export class HeaderComponent {
     const target = event.target as HTMLElement;
     const header = target.closest('app-header');
     if (!header) {
-      this.openDropdownIndex = null;
+      this.closeMenu();
     }
   }
 

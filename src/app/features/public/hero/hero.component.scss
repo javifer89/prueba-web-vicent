@@ -8,6 +8,13 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
+  // Account for fixed header
+  padding-top: 60px;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding-top: 55px;
+  }
 }
 
 .hero-triptych {
@@ -123,8 +130,8 @@
   }
 
   .hero-image-card {
-    min-height: 300px;
-    max-height: 40vh;
+    min-height: 350px;
+    max-height: 45vh;
     border-right: none;
     border-left: none;
 
@@ -140,12 +147,12 @@
 
 @media (max-width: 600px) {
   .hero-section {
-    min-height: 400px;
+    min-height: 450px;
   }
 
   .hero-image-card {
-    min-height: 250px;
-    max-height: 35vh;
+    min-height: 280px;
+    max-height: 40vh;
   }
 
   .hero-title {

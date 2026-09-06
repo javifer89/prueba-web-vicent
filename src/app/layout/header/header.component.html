@@ -3,33 +3,34 @@
     <button
       class="nav-toggle"
       (click)="toggleMenu()"
-      [attr.aria-expanded]="isMenuOpen"
-      [attr.aria-label]="isMenuOpen ? 'Cerrar menú' : 'Abrir menú'"
+      [attr.aria-expanded]="isMenuOpen()"
+      [attr.aria-label]="isMenuOpen() ? 'Cerrar menú' : 'Abrir menú'"
       type="button"
     >
-      <span class="hamburger" [class.open]="isMenuOpen" aria-hidden="true">
+      <span class="hamburger" [class.open]="isMenuOpen()" aria-hidden="true">
         <span></span>
         <span></span>
         <span></span>
       </span>
     </button>
 
-    <ul class="nav-list" [class.open]="isMenuOpen" role="menubar">
+    <ul class="nav-list" [class.open]="isMenuOpen()" role="menubar">
       <li *ngFor="let item of navItems; let i = index" class="nav-item" role="none">
         <!-- Si el ítem tiene dropdown, mostramos un menú en lugar de un enlace simple -->
         <ng-container *ngIf="item.dropdown; else simpleLink">
-          <a
+          <button
             class="nav-link dropdown-toggle"
             role="menuitem"
             [attr.aria-haspopup]="true"
             [attr.aria-expanded]="isDropdownOpen(i)"
             (click)="toggleDropdown(i)"
+            type="button"
           >
             {{ item.label | translate }}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
-          </a>
+          </button>
           <ul class="dropdown-menu" role="menu" [class.open]="isDropdownOpen(i)">
             <li *ngFor="let sub of item.dropdown" class="dropdown-item">
               <ng-container *ngIf="sub.action === 'changeLang' && sub.lang; else normalLink">
@@ -37,7 +38,6 @@
                   class="dropdown-link"
                   role="menuitem"
                   (click)="handleDropdownAction(sub)"
-                  style="cursor: pointer; color: black; width: 100%;"
                 >
                   {{ sub.label | translate }}
                 </button>
