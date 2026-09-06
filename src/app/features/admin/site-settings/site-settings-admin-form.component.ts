@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, combineLatest, map, catchError, of, switchMap } from 'rxjs';
-import { SiteSettingsAdminService } from '../site-settings-admin.service';
-import { SiteSettings } from '../../core/services/pocketbase/models';
-import { PocketBaseService } from '../../core/services/pocketbase';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { SiteSettingsAdminService } from './site-settings-admin.service';
+import { SiteSettings } from '../../../core/services/pocketbase/models';
+import { PocketBaseService } from '../../../core/services/pocketbase';
+import { TranslatePipe } from '../../../core/i18n/translate.pipe';
 
 type EditorMode = 'create' | 'edit';
 
@@ -14,8 +14,7 @@ type EditorMode = 'create' | 'edit';
   selector: 'app-admin-site-settings-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
-  templateUrl: './admin-site-settings-form.component.html',
-  styleUrls: ['./admin-site-settings-form.component.scss'],
+  templateUrl: './site-settings-admin-form.component.html',
 })
 export class AdminSiteSettingsFormComponent implements OnInit {
   private fb = inject(FormBuilder);
@@ -31,10 +30,9 @@ export class AdminSiteSettingsFormComponent implements OnInit {
   error = '';
 
   form!: FormGroup;
-  logoFile: File | null = null;
-  logoToDelete = false;
-  logoPreview: string | null = null;
-  socialLinks: any = {};
+  ogImageFile: File | null = null;
+  ogImageToDelete = false;
+  ogImagePreview: string | null = null;
 
   ngOnInit(): void {
     this.initForm();
@@ -43,32 +41,21 @@ export class AdminSiteSettingsFormComponent implements OnInit {
 
   private initForm(): void {
     this.form = this.fb.nonNullable.group({
-      site_name_ca: ['', Validators.required],
-      site_name_es: [''],
-      site_name_en: [''],
-      logo: [null],
-      slogan_ca: [''],
-      slogan_es: [''],
-      slogan_en: [''],
+      hero_title_ca: ['', Validators.required],
+      hero_title_es: [''],
+      hero_title_en: [''],
+      hero_subtitle_ca: ['', Validators.required],
+      hero_subtitle_es: [''],
+      hero_subtitle_en: [''],
+      site_name: ['', Validators.required],
+      site_description_ca: ['', Validators.required],
+      site_description_es: [''],
+      site_description_en: [''],
+      og_default_image: [null],
       contact_email: ['', [Validators.email]],
-      phone_ca: [''],
-      phone_es: [''],
-      phone_en: [''],
-      address_ca: [''],
-      address_es: [''],
-      address_en: [''],
-      social_facebook: [''],
-      social_twitter: [''],
-      social_instagram: [''],
-      social_linkedin: [''],
+      contact_formspree_id: [''],
+      social_links: [{}],
     });
-    // Initialize social links object
-    this.socialLinks = {
-      facebook: this.form.get('social_facebook')?.value || '',
-      twitter: this.form.get('social_twitter')?.value || '',
-      instagram: this.form.get('social_instagram')?.value || '',
-      linkedin: this.form.get('social_linkedin')?.value || '',
-    };
   }
 
   private detectMode(): void {
@@ -93,30 +80,26 @@ export class AdminSiteSettingsFormComponent implements OnInit {
 
   private patchForm(settings: SiteSettings): void {
     this.form.patchValue({
-      site_name_ca: settings.site_name_ca,
-      site_name_es: settings.site_name_es || '',
-      site_name_en: settings.site_name_en || '',
-      logo: settings.logo || null,
-      slogan_ca: settings.slogan_ca || '',
-      slogan_es: settings.slogan_es || '',
-      slogan_en: settings.slogan_en || '',
+      hero_title_ca: settings.hero_title_ca,
+      hero_title_es: settings.hero_title_es || '',
+      hero_title_en: settings.hero_title_en || '',
+      hero_subtitle_ca: settings.hero_subtitle_ca,
+      hero_subtitle_es: settings.hero_subtitle_es || '',
+      hero_subtitle_en: settings.hero_subtitle_en || '',
+      site_name: settings.site_name,
+      site_description_ca: settings.site_description_ca,
+      site_description_es: settings.site_description_es || '',
+      site_description_en: settings.site_description_en || '',
+      og_default_image: settings.og_default_image || null,
       contact_email: settings.contact_email || '',
-      phone_ca: settings.phone_ca || '',
-      phone_es: settings.phone_es || '',
-      phone_en: settings.phone_en || '',
-      address_ca: settings.address_ca || '',
-      address_es: settings.address_es || '',
-      address_en: settings.address_en || '',
-      social_facebook: settings.social_facebook || '',
-      social_twitter: settings.social_twitter || '',
-      social_instagram: settings.social_instagram || '',
-      social_linkedin: settings.social_linkedin || '',
+      contact_formspree_id: settings.contact_formspree_id || '',
+      social_links: settings.social_links || {},
     });
 
-    if (settings.logo) {
-      this.logoPreview = this.pb.getFileUrlSync(
+    if (settings.og_default_image) {
+      this.ogImagePreview = this.pb.getFileUrlSync(
         { id: settings.id, collectionId: settings.collectionId, collectionName: 'site_settings' },
-        settings.logo,
+        settings.og_default_image,
         { thumb: '400x400' }
       );
     }
@@ -128,25 +111,25 @@ export class AdminSiteSettingsFormComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       const file = input.files[0];
-      this.logoFile = file;
-      this.logoToDelete = false;
+      this.ogImageFile = file;
+      this.ogImageToDelete = false;
       this.error = '';
 
       // Preview for images
       if (file.type.startsWith('image/')) {
         const reader = new FileReader();
-        reader.onload = (e) => this.logoPreview = e.target?.result as string;
+        reader.onload = (e) => this.ogImagePreview = e.target?.result as string;
         reader.readAsDataURL(file);
       } else {
-        this.logoPreview = null;
+        this.ogImagePreview = null;
       }
     }
   }
 
-  removeLogo(): void {
-    this.logoFile = null;
-    this.logoPreview = null;
-    this.logoToDelete = true;
+  removeOgImage(): void {
+    this.ogImageFile = null;
+    this.ogImagePreview = null;
+    this.ogImageToDelete = true;
   }
 
   async onSave(): Promise<void> {
@@ -161,24 +144,20 @@ export class AdminSiteSettingsFormComponent implements OnInit {
     try {
       const formValue = this.form.getRawValue();
       const body = {
-        site_name_ca: formValue.site_name_ca,
-        site_name_es: formValue.site_name_es,
-        site_name_en: formValue.site_name_en,
-        logo: formValue.logo || null,
-        slogan_ca: formValue.slogan_ca || null,
-        slogan_es: formValue.slogan_es || null,
-        slogan_en: formValue.slogan_en || null,
+        hero_title_ca: formValue.hero_title_ca,
+        hero_title_es: formValue.hero_title_es,
+        hero_title_en: formValue.hero_title_en,
+        hero_subtitle_ca: formValue.hero_subtitle_ca,
+        hero_subtitle_es: formValue.hero_subtitle_es,
+        hero_subtitle_en: formValue.hero_subtitle_en,
+        site_name: formValue.site_name,
+        site_description_ca: formValue.site_description_ca,
+        site_description_es: formValue.site_description_es,
+        site_description_en: formValue.site_description_en,
+        og_default_image: formValue.og_default_image || null,
         contact_email: formValue.contact_email || null,
-        phone_ca: formValue.phone_ca || null,
-        phone_es: formValue.phone_es || null,
-        phone_en: formValue.phone_en || null,
-        address_ca: formValue.address_ca || null,
-        address_es: formValue.address_es || null,
-        address_en: formValue.address_en || null,
-        social_facebook: formValue.social_facebook || null,
-        social_twitter: formValue.social_twitter || null,
-        social_instagram: formValue.social_instagram || null,
-        social_linkedin: formValue.social_linkedin || null,
+        contact_formspree_id: formValue.contact_formspree_id || null,
+        social_links: formValue.social_links || {},
       };
 
       if (this.mode === 'create') {

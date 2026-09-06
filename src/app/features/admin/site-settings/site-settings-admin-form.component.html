@@ -1,0 +1,193 @@
+<div class="admin-form-container">
+  <header class="form-header">
+    <h1>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="header-icon">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      </svg>
+      {{ mode === 'create' ? ('admin.siteSettings.new' | translate) : ('admin.siteSettings.edit' | translate) }}
+    </h1>
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+      {{ 'admin.common.cancel' | translate }}
+    </button>
+  </header>
+
+  @if (error) {
+    <div class="alert alert-error">{{ error }}</div>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="onSave()" class="admin-form">
+    <!-- Hero Section -->
+    <section class="form-section">
+      <h2>{{ 'admin.siteSettings.hero' | translate }}</h2>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="hero_title_ca">{{ 'admin.siteSettings.heroTitle' | translate }} (CA) *</label>
+          <input type="text" id="hero_title_ca" formControlName="hero_title_ca" class="form-control" />
+          @if (f['hero_title_ca'].touched && f['hero_title_ca'].invalid) {
+            <span class="error-text">{{ 'admin.common.required' | translate }}</span>
+          }
+        </div>
+        <div class="form-group">
+          <label for="hero_title_es">{{ 'admin.siteSettings.heroTitle' | translate }} (ES)</label>
+          <input type="text" id="hero_title_es" formControlName="hero_title_es" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="hero_title_en">{{ 'admin.siteSettings.heroTitle' | translate }} (EN)</label>
+          <input type="text" id="hero_title_en" formControlName="hero_title_en" class="form-control" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="hero_subtitle_ca">{{ 'admin.siteSettings.heroSubtitle' | translate }} (CA) *</label>
+          <textarea id="hero_subtitle_ca" formControlName="hero_subtitle_ca" class="form-control" rows="2"></textarea>
+          @if (f['hero_subtitle_ca'].touched && f['hero_subtitle_ca'].invalid) {
+            <span class="error-text">{{ 'admin.common.required' | translate }}</span>
+          }
+        </div>
+        <div class="form-group">
+          <label for="hero_subtitle_es">{{ 'admin.siteSettings.heroSubtitle' | translate }} (ES)</label>
+          <textarea id="hero_subtitle_es" formControlName="hero_subtitle_es" class="form-control" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="hero_subtitle_en">{{ 'admin.siteSettings.heroSubtitle' | translate }} (EN)</label>
+          <textarea id="hero_subtitle_en" formControlName="hero_subtitle_en" class="form-control" rows="2"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Site Info -->
+    <section class="form-section">
+      <h2>{{ 'admin.siteSettings.siteInfo' | translate }}</h2>
+      
+      <div class="form-group">
+        <label for="site_name">{{ 'admin.siteSettings.siteName' | translate }} *</label>
+        <input type="text" id="site_name" formControlName="site_name" class="form-control" />
+        @if (f['site_name'].touched && f['site_name'].invalid) {
+          <span class="error-text">{{ 'admin.common.required' | translate }}</span>
+        }
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="site_description_ca">{{ 'admin.siteSettings.siteDescription' | translate }} (CA) *</label>
+          <textarea id="site_description_ca" formControlName="site_description_ca" class="form-control" rows="3"></textarea>
+          @if (f['site_description_ca'].touched && f['site_description_ca'].invalid) {
+            <span class="error-text">{{ 'admin.common.required' | translate }}</span>
+          }
+        </div>
+        <div class="form-group">
+          <label for="site_description_es">{{ 'admin.siteSettings.siteDescription' | translate }} (ES)</label>
+          <textarea id="site_description_es" formControlName="site_description_es" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="site_description_en">{{ 'admin.siteSettings.siteDescription' | translate }} (EN)</label>
+          <textarea id="site_description_en" formControlName="site_description_en" class="form-control" rows="3"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- OG Image -->
+    <section class="form-section">
+      <h2>{{ 'admin.siteSettings.ogImage' | translate }}</h2>
+      
+      <div class="form-group">
+        <label>{{ 'admin.siteSettings.ogImage' | translate }}</label>
+        <div class="file-upload">
+          <input 
+            type="file" 
+            id="og_default_image" 
+            formControlName="og_default_image" 
+            accept="image/*" 
+            (change)="onFileSelect($event)" 
+            class="file-input"
+            #fileInput
+          />
+          <label for="og_default_image" class="file-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="upload-icon">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="17 8 12 3 7 8" />
+              <line x1="12" y1="3" x2="12" y2="15" />
+            </svg>
+            <span>{{ (ogImagePreview ? 'admin.common.changeImage' : 'admin.common.uploadImage') | translate }}</span>
+          </label>
+        </div>
+        @if (ogImagePreview) {
+          <div class="image-preview">
+            <img [src]="ogImagePreview" alt="OG Image preview" />
+            <button type="button" class="btn-remove" (click)="removeOgImage()" aria-label="{{ 'admin.common.removeImage' | translate }}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="form-section">
+      <h2>{{ 'admin.siteSettings.contact' | translate }}</h2>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contact_email">{{ 'admin.siteSettings.contactEmail' | translate }}</label>
+          <input type="email" id="contact_email" formControlName="contact_email" class="form-control" />
+          @if (f['contact_email'].touched && f['contact_email'].invalid) {
+            <span class="error-text">{{ 'admin.common.invalidEmail' | translate }}</span>
+          }
+        </div>
+        <div class="form-group">
+          <label for="contact_formspree_id">{{ 'admin.siteSettings.formspreeId' | translate }}</label>
+          <input type="text" id="contact_formspree_id" formControlName="contact_formspree_id" class="form-control" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Links -->
+    <section class="form-section">
+      <h2>{{ 'admin.siteSettings.socialLinks' | translate }}</h2>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="social_facebook">Facebook</label>
+          <input type="url" id="social_facebook" [formControl]="form.get('social_links.facebook')" class="form-control" placeholder="https://facebook.com/..." />
+        </div>
+        <div class="form-group">
+          <label for="social_twitter">Twitter / X</label>
+          <input type="url" id="social_twitter" [formControl]="form.get('social_links.twitter')" class="form-control" placeholder="https://twitter.com/..." />
+        </div>
+        <div class="form-group">
+          <label for="social_instagram">Instagram</label>
+          <input type="url" id="social_instagram" [formControl]="form.get('social_links.instagram')" class="form-control" placeholder="https://instagram.com/..." />
+        </div>
+        <div class="form-group">
+          <label for="social_linkedin">LinkedIn</label>
+          <input type="url" id="social_linkedin" [formControl]="form.get('social_links.linkedin')" class="form-control" placeholder="https://linkedin.com/..." />
+        </div>
+      </div>
+    </section>
+
+    <footer class="form-footer">
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">
+        {{ 'admin.common.cancel' | translate }}
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="saving">
+        @if (saving) {
+          <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+            <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" />
+          </svg>
+        }
+        {{ saving ? ('admin.common.saving' | translate) : ('admin.common.save' | translate) }}
+      </button>
+    </footer>
+  </form>
+</div>
