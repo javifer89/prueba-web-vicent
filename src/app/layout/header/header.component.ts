@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { TranslationService, Locale } from '../../core/i18n/translation.service';
+import { DOCUMENT } from '@angular/common';
 
 interface NavItem {
   path?: string;
@@ -26,6 +27,7 @@ interface NavDropdownItem {
 })
 export class HeaderComponent {
   private readonly translationService = inject(TranslationService);
+  private readonly document = inject(DOCUMENT);
 
   isMenuOpen = false;
   openDropdownIndex: number | null = null;
@@ -48,7 +50,7 @@ export class HeaderComponent {
       label: 'nav.idioma',
       dropdown: [
         { label: 'nav.idioma.es', lang: 'es', action: 'changeLang' },
-        { label: 'nav.idioma.ca', lang: 'ca', action: 'changeLang' },
+        { label: 'nav.idioma.va', lang: 'va', action: 'changeLang' },
         { label: 'nav.idioma.en', lang: 'en', action: 'changeLang' }
       ]
     },
@@ -71,8 +73,15 @@ export class HeaderComponent {
   }
 
   changeLanguage(lang: Locale): void {
-    this.translationService.setLocale(lang);
     this.closeMenu();
+    // Full page reload with new locale - ensures everything refreshes
+    this.reloadWithLocale(lang);
+  }
+
+  private reloadWithLocale(lang: Locale): void {
+    const url = new URL(this.document.location.href);
+    url.searchParams.set('lang', lang);
+    this.document.location.href = url.toString();
   }
 
   handleDropdownAction(item: NavDropdownItem): void {
